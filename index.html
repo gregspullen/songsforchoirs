@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Songs for Choirs</title>
+  <meta name="description" content="Site currently under construction. Scores available soon." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/images/favicon.png?v=6" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/images/favicon.png?v=6" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="/images/favicon.png?v=6" />
+  <link rel="stylesheet" href="styles.css?v=16" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Songs for Choirs</h1>
+      <p class="tag">Site currently under construction. Scores available soon</p>
+    </div>
+  </header>
+
+<nav id="site-nav" class="site-nav">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <a href="choral.html">Choral</a>
+    <li><a href="children.html">Children</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+<main class="wrap wrap--wide">
+  <!-- Coming Soon -->
+  <section id="coming-soon" class="panel" aria-labelledby="coming-heading">
+    <h2 id="coming-heading">Coming Soon</h2>
+
+    <div class="cover-grid">
+
+      <!-- Little Monster -->
+      <figure class="cover">
+          <img src="images/Cover_png/The-Little-Monster-Song.png"
+               alt="The Little Monster Song cover"
+               onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
+          <span class="hover-tag">Available soon</span>
+      </figure>
+
+      <!-- Venite -->
+      <figure class="cover">
+          <img src="images/Cover_png/Venite.png"
+               alt="The Venite cover"
+               onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
+          <span class="hover-tag">Available soon</span>
+      </figure>
+
+      <!-- Magnificat -->
+      <figure class="cover">
+          <img src="images/Cover_png/Magnificat.png"
+               alt="The Magnificat cover"
+               onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
+          <span class="hover-tag">Available soon</span>
+      </figure>
+</main>
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© <span id="year"></span> Songs for Choirs. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+      <script>
+  (function () {
+    const nav = document.getElementById('site-nav');
+    // mark the current page link automatically
+    const here = location.pathname.split('/').pop() || 'index.html';
+    [...nav.querySelectorAll('a')].forEach(a=>{
+      const target = a.getAttribute('href').split('/').pop();
+      if (target === here) a.setAttribute('aria-current','page');
+    });
+    // add a gentle shadow once we’ve scrolled
+    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 0);
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+  })();
+</script>
+
+</body>
+</html>
