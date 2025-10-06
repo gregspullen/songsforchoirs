@@ -17,22 +17,22 @@
      Body + Typography
      ========================= */
   body {
-    background-image: url("images/Pearl_rays.png");
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    background-attachment: fixed;
-  
-    background-color: #ffffff;
+    background: url("images/Pearl_rays.png") center top / cover no-repeat fixed;
+    background-color: var(--bg);
     color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
   
   @media (max-width: 768px) {
     body { background-attachment: scroll; }
   }
+  
+  main { flex: 1; }
   
   .wrap {
     width: 92%;
@@ -43,39 +43,26 @@
   /* =========================
      Header
      ========================= */
-  /* =========================
-   Header tweaks
-   ========================= */
-.site-header {
-  background: transparent;
-  padding: 18px 0 8px;   /* was 24px 0 12px */
-  text-align: center;
-  box-shadow: none;
-}
-.site-header h1 {
-  margin: 0 0 6px;
-  font-size: clamp(28px, 6vw, 48px);
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 2px rgba(0,0,0,.10);
-}
-.tag {
-  margin: 2px 0 0 0;       /* reduce space */
-  color: var(--muted);
-  font-size: 0.95rem;       /* slightly smaller */
-  text-shadow: 0 1px 1px rgba(255,255,255,.6);
-}
-
-/* =========================
-   Slim nav (Children only)
-   ========================= */
-body.children .site-nav {
-  padding: .3rem .6rem;     /* was .5rem .75rem */
-}
-body.children .site-nav a {
-  padding: .3rem .7rem;     /* was .4rem .8rem */
-  font-size: 0.95rem;       /* a touch smaller */
-}
-
+  .site-header {
+    background: transparent;
+    padding: 18px 0 8px;
+    text-align: center;
+    box-shadow: none;
+  }
+  
+  .site-header h1 {
+    margin: 0 0 6px;
+    font-size: clamp(28px, 6vw, 48px);
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  
+  .tag {
+    margin: 2px 0 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+  }
   
   /* =========================
      Navigation
@@ -84,10 +71,10 @@ body.children .site-nav a {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255,255,255,.92);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: saturate(180%) blur(6px);
-    border-bottom: 1px solid rgba(0,0,0,.08);
-    padding: .5rem .75rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0.5rem 0.75rem;
   }
   
   .site-nav ul {
@@ -102,18 +89,16 @@ body.children .site-nav a {
   
   .site-nav a {
     display: inline-block;
-    padding: .4rem .8rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 999px;
     font-weight: 600;
     text-decoration: none;
     color: #222;
     border-bottom: 2px solid transparent;
-    transition: background .15s ease, box-shadow .15s ease, color .15s ease;
+    transition: background 0.15s ease, color 0.15s ease;
   }
   
-  .site-nav a:hover {
-    background: rgba(201,162,39,.15);
-  }
+  .site-nav a:hover { background: rgba(201,162,39,0.15); }
   
   .site-nav a[aria-current="page"],
   .site-nav li > a.active {
@@ -122,26 +107,33 @@ body.children .site-nav a {
     border-bottom-color: goldenrod;
   }
   
-  .site-nav.is-stuck { box-shadow: 0 6px 18px rgba(0,0,0,.08); }
+  .site-nav.is-stuck { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+  
+  /* Slim nav (Children only) */
+  body.children .site-nav { padding: 0.3rem 0.6rem; }
+  body.children .site-nav a { padding: 0.3rem 0.7rem; font-size: 0.95rem; }
   
   /* =========================
      Panels
      ========================= */
   .panel {
-    background: rgba(255,255,255,.38);
-    border: 1px solid rgba(0,0,0,.08);
+    background: url("images/Pearl_rays.png") center top / cover no-repeat, #f1ece3;
+    background-blend-mode: overlay;
+    border: 1px solid rgba(0,0,0,0.06);
     border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.05);
     padding: 16px 20px;
     margin: 18px 0;
     scroll-margin-top: 96px;
   }
+  
   @supports (backdrop-filter: blur(4px)) {
     .panel {
       backdrop-filter: blur(3px);
       -webkit-backdrop-filter: blur(3px);
     }
   }
+  
   .panel h2 {
     margin: 0 0 8px;
     font-size: 1.25rem;
@@ -151,46 +143,75 @@ body.children .site-nav a {
   /* =========================
      Links
      ========================= */
-  a { 
-    text-decoration-color: rgba(0,0,0,.25); 
+  a {
+    text-decoration-color: rgba(0,0,0,0.25);
     transition: background-color 0.2s ease, color 0.2s ease;
   }
-  a:hover { 
-    text-decoration-color: currentColor; 
+  a:hover {
+    text-decoration-color: currentColor;
     background-color: #fef9e6;
     border-radius: 4px;
   }
   
-  /* =========================
-     Covers (Home Page)
-     ========================= */
-  .cover-grid {
-    display: flex;
-    gap: 1.25rem;
-    overflow-x: auto;
-    padding-bottom: .5rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    justify-content: center;
+  /* Mailto Links */
+  a[href^="mailto:"] {
+    letter-spacing: 1px;
+    color: #b8860b;
+    text-decoration: none;
+  }
+  a[href^="mailto:"]:hover {
+    text-decoration: underline;
+    color: #8b6a09;
   }
   
+  /* =========================
+     Cover Cards (Home Page)
+     ========================= */
   .cover {
+    position: relative;
     flex: 0 0 clamp(300px, 30vw, 340px);
     scroll-snap-align: start;
     margin: 0;
     text-align: center;
-    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 3 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: linear-gradient(to bottom,
+      rgba(255,255,255,0.3),
+      rgba(255,255,255,0.1),
+      rgba(255,255,255,0));
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  .cover img[src*="placeholder"],
+  .score-frame img[src*="placeholder"] {
+    filter: brightness(0.96);
   }
   
   .cover img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
   .cover img:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0,0,0,0.15);
@@ -198,10 +219,10 @@ body.children .site-nav a {
   
   .cover .hover-tag {
     position: absolute;
-    bottom: 90px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 0.9rem;
+    font-size: 2rem;
     font-weight: 700;
     font-family: "Georgia", serif;
     color: #c59b08;
@@ -214,106 +235,69 @@ body.children .site-nav a {
   .cover:hover .hover-tag { opacity: 1; }
   
   /* =========================
-   Score Cards (Choral & Children)
-   ========================= */
-.score-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
-  gap: 1.25rem;
-  justify-content: center;
-}
-
-.score-card { max-width: 340px; }
-.score-frame {
-  position: relative;
-  max-width: 340px;
-  aspect-ratio: 3 / 4;       /* always keeps cover/page proportional */
-  margin: 0.5rem auto;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  overflow: hidden;
-}
-
-/* =========================
-   Single Work (Opus page)
-   ========================= */
-body.opus .score-grid {
-  max-width: 700px;
-  margin: 0 auto;
-}
-body.opus .score-card,
-body.opus .score-frame {
-  max-width: 560px;          /* let opus breathe */
-  aspect-ratio: 3 / 4;       /* same proportions, just larger */
-}
-
-
-    body.opus .score-card,
-    body.opus .score-frame {
-      max-width: 560px;   /* let opus pieces breathe */
-}
-  .score-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: none;
-    background: rgba(255,255,255,.94);
-    border: 1px solid #ddd;
-    padding: .5rem .75rem;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
-    z-index: 3;
+     Score Cards (Choral & Children)
+     ========================= */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+    gap: 0.25rem;
+    justify-content: center;
   }
-  .score-nav.prev { left: .45rem; }
-  .score-nav.next { right: .45rem; }
-  .score-nav.prev::before { content: '‹'; font-size: 1.2rem; }
-  .score-nav.next::before { content: '›'; font-size: 1.2rem; }
   
-  .score-controls {
-    display: flex;
-    gap: .6rem;
-    justify-content: space-between;
-    margin-top: .65rem;
-  }
-  .score-controls button,
-  .score-controls a.button-like {
-    flex: 1 1 auto;
-    text-align: center;
-    padding: .55rem .7rem;
+  .score-card { max-width: 340px; }
+  
+  .score-frame {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 3 / 4;
+    margin: 0.5rem auto;
+    background: #fff;
     border-radius: 8px;
-    border: 1px solid goldenrod;
-    background: rgba(218,165,32,0.08); /* soft golden glow */
-    color: goldenrod;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .score-controls button:hover,
-  .score-controls a.button-like:hover {
-    background: rgba(218,165,32,0.18);
-    color: #b8860b; /* slightly deeper gold */
-  }
-
-  .score-controls .buy {
-    background: #f7f3e6;
-    border-color: #e6d8ad;
-  }
-  
-  .score-title { margin: .25rem 0 .35rem; font-weight:600; }
-  .score-meta { margin:0 0 .5rem; color:#555; font-size:.95rem; }
-
-  #children-heading {
-    position: absolute;
-    left: -9999px;
-    width: 1px;
-    height: 1px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .score-frame::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 24px;
+    background: linear-gradient(to bottom,
+      rgba(255,255,255,0.9),
+      rgba(255,255,255,0.6),
+      rgba(255,255,255,0));
+    pointer-events: none;
+    z-index: 2;
+  }
+  .score-frame:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
   }
   
+  /* =========================
+     Opus Layout
+     ========================= */
+  .opus-layout {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+  }
+  
+  .panel .opus-layout {
+    background: transparent;
+    padding: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .opus-layout, .panel .opus-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
   
   /* =========================
      About (Contact Page)
@@ -324,7 +308,6 @@ body.opus .score-frame {
   .about-hero img {
     max-width: 240px;
     width: 100%;
-    height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     display: block;
@@ -343,23 +326,76 @@ body.opus .score-frame {
     line-height: 1.5;
   }
   
-  /* TEMP: hide Play + Add to Cart buttons */
-/*.score-controls {
-  display: none !important;*/
-}
-
   /* =========================
      Footer
      ========================= */
   .site-footer {
     border-top: 1px solid #e8edf5;
-    padding: 24px 0 48px;
+    padding: 24px 0 32px;
     text-align: center;
     color: var(--muted);
     margin-top: 28px;
   }
-  .site-footer .wrap {
+  
+  /* =========================
+     Page-specific adjustments
+     ========================= */
+  
+  /* Contact page alignment */
+  body.contact main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  body.contact #people {
+    margin-bottom: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Mission page */
+  body.mission-page {
+    background: url("images/Pearl_rays.png") center top / cover no-repeat;
+    background-color: #f1ece3;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  body.mission-page main {
+    flex: 1;
+    margin: 2rem 0 3rem;
+  }
+  body.mission-page .score-grid {
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 1400px;
+  }
+  body.mission-page .score-card {
+    background: #f1ece3;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+    padding: 3rem 5rem;
+    max-width: 1200px;
+    line-height: 1.7;
+  }
+  .back-home {
     text-align: center;
+    margin-top: 2rem;
+  }
+  .back-home a {
+    color: #b8860b;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .back-home a:hover {
+    text-decoration: underline;
+    color: #8b6a09;
   }
   
   /* =========================
@@ -370,35 +406,4 @@ body.opus .score-frame {
     body { font-size: 12pt; background: #fff !important; }
     .panel { border: none; background: transparent; padding: 0; box-shadow: none; }
   }
-  .opus-layout {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr; /* left - centre - right */
-    gap: 20px;
-    align-items: center;
-    justify-items: center;
-    margin-top: 20px;
-  }
-  
-  .opus-left audio {
-    width: 200px; /* small tidy player */
-  }
-  
-  .paypal-button {
-    background-color: #ffc439;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  a[href^="mailto:"] {
-    letter-spacing: 1px;
-    color: #b8860b; /* dark goldenrod */
-    text-decoration: none; /* removes underline if you like */
-  }
-  
-  a[href^="mailto:"]:hover {
-    text-decoration: underline; /* adds underline back on hover */
-  }
-  
   
