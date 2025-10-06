@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Order Form – Songs for Choirs</title>
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:
+    linear-gradient(rgba(255,255,255,0.25), rgba(255,255,255,0.25)),
+    url("images/Pearl_rays.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: screen;
+
+  color: #222;
+  max-width: 480px;
+  margin: 4em auto;
+  padding: 2.5em;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.8);
+}
+h2 {
+  text-align: center;
+  font-weight: 500;
+  color: #333;
+  letter-spacing: 0.5px;
+  margin-bottom: 1em;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.7);
+}
+label {
+  display: block;
+  margin-top: 1.2em;
+}
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: .6em .7em;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(2px);
+}
+input:focus {
+  outline: none;
+  border-color: #a9bcd0;
+  box-shadow: 0 0 8px rgba(170,190,210,0.4);
+}
+small {
+  display: block;
+  color: #555;
+  font-size: 0.85em;
+  margin-top: 0.3em;
+}
+button {
+  display: block;
+  width: 100%;
+  background: linear-gradient(to bottom, #ffffff, #eaeaea);
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: .75em;
+  margin-top: 2em;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1), inset 0 1px 2px rgba(255,255,255,0.9);
+  transition: all 0.25s ease;
+}
+button:hover {
+  background: linear-gradient(to bottom, #ffffff, #f2f2f2);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), inset 0 1px 3px rgba(255,255,255,0.95);
+}
+.optin {
+  margin-top: 1em;
+}
+</style>
+</head>
+<body>
+<h2>Watermark Test Order</h2>
+
+<label>Order Number:
+  <input id="orderNum" value="Order #214">
+</label>
+
+<label>Organisation / Choir:
+  <input id="choir" value="St. Hilda’s Choir">
+</label>
+
+<label>Copy Number:
+  <input id="copy" value="1/12">
+</label>
+
+<label>Email (optional):
+  <input id="email" type="email" placeholder="yourname@example.com">
+  <small>We’ll only use this to contact you about your order. We’ll never share it with anyone else.</small>
+</label>
+
+<label class="optin">
+  <input type="checkbox" id="subscribe">
+  Would you like to receive emails about new releases as they arrive?
+</label>
+
+<button id="saveBtn">Continue to PayPal</button>
+
+<script>
+document.getElementById("saveBtn").addEventListener("click", () => {
+  const order = document.getElementById("orderNum").value.trim();
+  const choir = document.getElementById("choir").value.trim();
+  const copy  = document.getElementById("copy").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subscribe = document.getElementById("subscribe").checked;
+
+  let text =
+`Order Number: ${order}
+Organisation / Choir: ${choir}
+Copy Number: ${copy}
+`;
+
+  if (email !== "") {
+    text += `Email: ${email}\n`;
+  }
+
+  text += `Subscribe to updates: ${subscribe ? "Yes" : "No"}\n`;
+
+  const safeOrder = order.replace(/[^a-z0-9\-]+/gi, "_");
+  const filename = `${safeOrder || "order"}.txt`;
+  const blob = new Blob([text], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(link.href);
+
+  // open PayPal after saving
+  const paypalURL =
+  "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4AQFXBWL43RHL";
+
+  window.open(paypalURL, "_blank");
+});
+</script>
+
+</body>
+</html>
