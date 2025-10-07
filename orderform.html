@@ -304,33 +304,34 @@ document.addEventListener("DOMContentLoaded", () => {
 </style>
 
 <script>
-document.getElementById('orderForm').addEventListener('submit', function(e) {
-  // Stop default form submission
+document.getElementById("orderForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // Collect values
-  const title  = document.getElementById('title').value.trim();
-  const copies = parseInt(document.getElementById('copy').value) || 1;
-  const order  = document.getElementById('orderNum').value;
-  const price  = (Math.max(copies, 3) * 1.25).toFixed(2);
+  const title = document.getElementById("title").value.trim();
+  const copies = parseInt(document.getElementById("copy").value) || 1;
+  const pricePerCopy = 1.25;
+  const total = (copies * pricePerCopy).toFixed(2);
+  const orderNum = "SFC-" + Date.now().toString().slice(-6);
 
-  // Build PayPal URL including dynamic return link
-  const paypalURL =
-    "https://www.sandbox.paypal.com/cgi-bin/webscr" +
-    "?cmd=_xclick" +
-    "&business=sb-6bkuc46652199@business.example.com" +
-    "&currency_code=GBP" +
-    "&item_name=" + encodeURIComponent(title) +
-    "&amount=" + price +
-    "&return=" + encodeURIComponent(
-      `https://www.songsforchoirs.com/receipt.html?title=${encodeURIComponent(title)}&copies=${copies}&price=${price}&order=${encodeURIComponent(order)}`
-    ) +
-    "&cancel_return=" + encodeURIComponent("https://www.songsforchoirs.com/orderform.html");
+  // Fill PayPal hidden inputs
+  document.getElementById("paypalItemName").value = `${title} (${copies} copies)`;
+  document.getElementById("paypalAmount").value = total;
 
-  // Open PayPal in a new tab
-  window.open(paypalURL, "_blank");
+  // Build return URL with details
+  const baseReturn = "https://www.songsforchoirs.com/receipt.html";
+  const params = new URLSearchParams({
+    title: title,
+    copies: copies,
+    price: total,
+    order: orderNum
+  });
+  document.querySelector('input[name="return"]').value = `${baseReturn}?${params.toString()}`;
+
+  // Submit the form to PayPal
+  e.target.submit();
 });
 </script>
+
 </body>
 </html>
 
