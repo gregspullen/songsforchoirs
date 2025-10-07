@@ -299,6 +299,18 @@
     }
   }
   
+/* =========================
+   Sample Note (under cover image)
+   ========================= */
+   .sample-note {
+    text-align: center;
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 0.95em;
+    margin-top: -0.5em;
+  }
+  
+
   /* =========================
      About (Contact Page)
      ========================= */
@@ -405,5 +417,31 @@
     .site-header, .site-footer, .site-nav { display: none !important; }
     body { font-size: 12pt; background: #fff !important; }
     .panel { border: none; background: transparent; padding: 0; box-shadow: none; }
+  }
+  
+  .cover-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sample-hover {
+    position: absolute;
+    bottom: 80px; /* lifted from 18px — adjust to taste */
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-family: "Georgia", serif; /* match to Available Soon font */
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    background: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .cover-wrap:hover .sample-hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-3px);
   }
   

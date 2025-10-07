@@ -2,7 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Order Form – Songs for Choirs</title>
+<title>Choir Score Order Form — Songs for Choirs</title>
+<meta name="description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies (£3.75).">
+<!-- Open Graph for social & sharing -->
+<meta property="og:title" content="Choir Score Order Form — Songs for Choirs">
+<meta property="og:description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies (£3.75).">
+<meta property="og:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
+<meta property="og:url" content="https://www.songsforchoirs.com/orderform.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Songs for Choirs">
+<!-- Twitter Card for sharing -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Choir Score Order Form — Songs for Choirs">
+<meta name="twitter:description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies (£3.75).">
+<meta name="twitter:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
+<meta name="twitter:site" content="@songsforchoirs">
+
 <style>
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -13,7 +28,6 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-blend-mode: screen;
-
   color: #222;
   max-width: 480px;
   margin: 4em auto;
@@ -30,12 +44,8 @@ h2 {
   margin-bottom: 1em;
   text-shadow: 0 1px 2px rgba(255,255,255,0.7);
 }
-label {
-  display: block;
-  margin-top: 1.2em;
-}
-input[type="text"],
-input[type="email"] {
+label { display: block; margin-top: 1.2em; }
+input[type="text"], input[type="email"], input[type="number"] {
   width: 100%;
   padding: .6em .7em;
   border: 1px solid #cfcfcf;
@@ -75,8 +85,21 @@ button:hover {
   background: linear-gradient(to bottom, #ffffff, #f2f2f2);
   box-shadow: 0 3px 8px rgba(0,0,0,0.15), inset 0 1px 3px rgba(255,255,255,0.95);
 }
-.optin {
-  margin-top: 1em;
+.optin { margin-top: 1em; }
+.note {
+  color: #444;
+  background: rgba(255,255,255,0.6);
+  border-left: 3px solid #ccc;
+  padding: 0.8em;
+  margin-top: 0.5em;
+  border-radius: 6px;
+  display: none;
+  font-size: 0.95em;
+}
+#priceDisplay {
+  margin-top: 0.5em;
+  font-weight: 500;
+  color: #333;
 }
 </style>
 </head>
@@ -88,72 +111,217 @@ button:hover {
     <li><a href="choral.html">Choral</a></li>
     <li><a href="children.html">Children</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="orderform.html" aria-current="page">Order form</a></li>
   </ul>
 </nav>
  
-<h2>Watermark Test Order</h2>
+<h2>Choir Score Order Form</h2>
 
-<label>Order Number:
-  <input id="orderNum" value="Order #214">
-</label>
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_blank" id="orderForm">
+  <!-- PayPal variables -->
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
+  <input type="hidden" name="currency_code" value="GBP">
+  <input type="hidden" name="item_name" id="paypalItemName" value="">
+  <input type="hidden" name="amount" id="paypalAmount" value="">
 
-<label>Organisation / Choir:
-  <input id="choir" value="St. Hilda’s Choir">
-</label>
+  <!-- Return destinations -->
+  <input type="hidden" name="return" value="https://www.songsforchoirs.com/receipt.html">
+  <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
 
-<label>Copy Number:
-  <input id="copy" value="1/12">
-</label>
 
-<label>Email (optional):
-  <input id="email" type="email" placeholder="yourname@example.com">
-  <small>We’ll only use this to contact you about your order. We’ll never share it with anyone else.</small>
-</label>
+  <!-- Regular form fields -->
+  <label>Title of piece:
+    <input name="Title of piece" id="title" required placeholder="e.g. The Lord is My Shepherd">
+  </label>
 
-<label class="optin">
-  <input type="checkbox" id="subscribe">
-  Would you like to receive emails about new releases as they arrive?
-</label>
+  <label>Organisation / Choir:
+    <input name="Organisation / Choir" id="choir" required>
+  </label>
 
-<button id="saveBtn">Continue to PayPal</button>
+  <label>Number of copies:
+    <input name="Number of copies" id="copy" required type="number" min="1">
+  </label>
+
+  <label>Email (optional):
+    <input name="Email" id="email" type="email" placeholder="yourname@example.com">
+    <small>We’ll only use this to contact you about your order.  
+    We will not share your information with any third parties.</small>
+  </label>
+
+  <button type="submit" id="saveBtn">Submit Order & Continue to PayPal</button>
+</form>
 
 <script>
-document.getElementById("saveBtn").addEventListener("click", () => {
-  const order = document.getElementById("orderNum").value.trim();
-  const choir = document.getElementById("choir").value.trim();
-  const copy  = document.getElementById("copy").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const subscribe = document.getElementById("subscribe").checked;
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  const title = document.getElementById('title').value.trim();
+  const copies = parseInt(document.getElementById('copy').value) || 1;
+  const pricePerCopy = 2.00;
+  const total = (copies * pricePerCopy).toFixed(2);
 
-  let text =
-`Order Number: ${order}
-Organisation / Choir: ${choir}
-Copy Number: ${copy}
-`;
+  // Fill PayPal hidden inputs
+  document.getElementById('paypalItemName').value = `${title} (${copies} copies)`;
+  document.getElementById('paypalAmount').value = total;
 
-  if (email !== "") {
-    text += `Email: ${email}\n`;
-  }
-
-  text += `Subscribe to updates: ${subscribe ? "Yes" : "No"}\n`;
-
-  const safeOrder = order.replace(/[^a-z0-9\-]+/gi, "_");
-  const filename = `${safeOrder || "order"}.txt`;
-  const blob = new Blob([text], { type: "text/plain" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = filename;
-  link.click();
-  URL.revokeObjectURL(link.href);
-
-  // open PayPal after saving
-  const paypalURL =
-  "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4AQFXBWL43RHL";
-
-  window.open(paypalURL, "_blank");
+  // Tiny delay to allow fields to update
+  setTimeout(() => {
+    e.target.submit();
+  }, 100);
 });
 </script>
+
+</form>
+
+<script>
+function generateOrderNumber() {
+  const today = new Date();
+  const y = today.getFullYear().toString().slice(-2);
+  const m = (today.getMonth() + 1).toString().padStart(2, "0");
+  const d = today.getDate().toString().padStart(2, "0");
+  const r = Math.floor(Math.random() * 900 + 100);
+  return `SFC-${y}${m}${d}-${r}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Autofill title from URL
+  const params = new URLSearchParams(window.location.search);
+  const titleParam = params.get("title");
+  const titleField = document.getElementById("title");
+  if (titleParam && titleField) {
+    titleField.value = decodeURIComponent(titleParam);
+    titleField.readOnly = true;
+  }
+
+
+  const orderField = document.getElementById("orderNum");
+  const note = document.getElementById("batchNote");
+  const emailField = document.getElementById("email");
+  const replyTo = document.getElementById("replyTo");
+  const totalField = document.getElementById("orderTotal");
+  const priceDisplay = document.getElementById("priceDisplay");
+  const copyField = document.getElementById("copy");
+
+  // Fill order number immediately on load
+  orderField.value = generateOrderNumber();
+
+  // Keep _replyto synced with email
+  emailField.addEventListener("input", (e) => {
+    replyTo.value = e.target.value.trim();
+  });
+
+  // Calculate total and show live
+  function calculateTotal(copies) {
+    const remainder = copies % 3;
+    const extra = remainder === 0 ? 0 : 3 - remainder;
+    const totalCopies = copies + extra;
+    const totalPrice = totalCopies * 1.25;
+    return { totalPrice, extra, totalCopies };
+  }
+
+  copyField.addEventListener("input", () => {
+    const val = parseInt(copyField.value, 10);
+    if (isNaN(val) || val < 1) {
+      note.style.display = "none";
+      priceDisplay.textContent = "";
+      totalField.value = "";
+      return;
+    }
+
+    const { totalPrice, extra } = calculateTotal(val);
+
+    if (extra === 0) {
+      note.style.display = "none";
+    } else {
+      note.innerHTML = `Just so you know, we’ll need to add ${extra} extra cop${extra > 1 ? "ies" : "y"} to make it fit our batch system.<br>You can adjust your ‘number of copies’ if you prefer.`;
+      note.style.display = "block";
+    }
+
+    priceDisplay.textContent = `Estimated total: £${totalPrice.toFixed(2)}`;
+    totalField.value = `£${totalPrice.toFixed(2)}`;
+  });
+
+ 
+    
+
+
+    // });
+  });
+});
+
+// fetch(form.action, {
+//   method: form.method,
+//   body: data,
+//   headers: { Accept: "application/json" }
+// })
+// .then(() => {
+//   const title = encodeURIComponent(new URLSearchParams(window.location.search).get("title") || "Unknown");
+//   const copies = encodeURIComponent(copyField.value || "—");
+//   const price = (copies * 1.25).toFixed(2);
+//   const order = encodeURIComponent(orderField.value);
+
+//   const receiptURL = `receipt.html?title=${title}&copies=${copies}&price=${price}&order=${order}`;
+
+//   alert("Thank you! Your order has been sent.");
+
+//   // open PayPal in a new tab
+//   window.open(
+//     "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4AQFXBWL43RHL",
+//     "_blank"
+//   );
+
+//   // redirect to your receipt page in this tab
+//   window.location.href = receiptURL;
+
+//   // Reset form for next use
+//   form.reset();
+//   orderField.value = generateOrderNumber();
+//   note.style.display = "none";
+// })
+// .catch(() => {
+//   alert("Oops! There was a problem sending your order.");
+// });
+
+
+
+
+</script>
+
+<style>
+  #copy {
+    width: 100px;           /* nice and modest */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 0.25rem 0.4rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #copy:focus {
+    border-color: #c9a227;  /* gentle gold when active */
+    outline: none;
+    box-shadow: 0 0 4px rgba(201,162,39,0.3);
+  }
+</style>
+
+<script>
+  document.getElementById('orderForm').addEventListener('submit', function(e) {
+    const title = document.getElementById('title').value.trim();
+    const copies = parseInt(document.getElementById('copy').value) || 1;
+    const pricePerCopy = 2.00;
+    const total = (copies * pricePerCopy).toFixed(2);
+  
+    // Fill PayPal hidden inputs
+    document.getElementById('paypalItemName').value = `${title} (${copies} copies)`;
+    document.getElementById('paypalAmount').value = total;
+  
+    // Wait a tiny moment to let these values settle before submitting
+    setTimeout(() => {
+      e.target.submit();
+    }, 100);
+  });
+  </script>
+  
+  
 
 </body>
 </html>
