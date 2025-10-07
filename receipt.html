@@ -5,6 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Receipt — Songs for Choirs</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)),
+                  url("images/Pearl_rays.png") center/cover fixed no-repeat;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    main {
+      max-width: 540px;
+      margin: 5em auto;
+      background: rgba(255,255,255,0.85);
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.8);
+      padding: 2.5em;
+      text-align: center;
+    }
+    h1 {
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: #333;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin: 0.6em 0;
+    }
+    .download-btn, .print-btn {
+      display: inline-block;
+      margin: 1.2em 0.5em;
+      padding: 0.7em 1.2em;
+      border-radius: 8px;
+      font-size: 1em;
+      text-decoration: none;
+      border: 1px solid #ccc;
+      background: linear-gradient(to bottom, #fff, #eee);
+      color: #333;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+    }
+    .download-btn:hover, .print-btn:hover {
+      background: linear-gradient(to bottom, #fff, #f4f4f4);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+    .receipt-card {
+      text-align: left;
+      background: rgba(255,255,255,0.7);
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.2em 1.5em;
+      margin-top: 1em;
+    }
+    .receipt-card p {
+      margin: 0.4em 0;
+    }
+    footer {
+      margin-top: 1.5em;
+      font-size: 0.9em;
+      color: #666;
+    }
+    a {
+      color: #333;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,8 +78,8 @@
   <h1>Thank you for your purchase</h1>
   <p>Your payment was successful. You can download your licensed score below.</p>
 
-  <!-- Download button -->
   <a id="downloadLink" href="#" class="download-btn">Download your score (PDF)</a>
+  <button class="print-btn" onclick="window.print()">🖨️ Print Receipt</button>
 
   <div class="receipt-card">
     <p><strong>Receipt Summary</strong></p>
@@ -22,11 +88,9 @@
     <p><strong>Copies:</strong> <span id="copies">—</span></p>
     <p><strong>Price:</strong> £<span id="price">—</span> GBP</p>
     <p><strong>Date:</strong> <span id="date">—</span></p>
-
-    <button class="print-btn" onclick="window.print()">🖨️ Download / Print Receipt</button>
   </div>
 
-  <p>
+  <p style="margin-top:1.5em;">
     <a href="choral.html">← More Choral Scores</a> |
     <a href="children.html">Children’s Songs</a> |
     <a href="index.html">Return Home</a>
@@ -37,20 +101,19 @@
   </footer>
 </main>
 
-<!-- 🌿 All-in-one script block -->
 <script>
-  // Read parameters from the URL
+  // Read parameters from URL
   const params = new URLSearchParams(window.location.search);
   const title = params.get("title") || "Unknown title";
   const safeTitle = title.replace(/\s+/g, "-");
 
-  // Build PDF link
+  // Build and update PDF link
   const pdfURL = `https://www.songsforchoirs.com/scores/${safeTitle}.pdf`;
   const link = document.getElementById("downloadLink");
   link.textContent = `Download ${title} (PDF)`;
   link.href = pdfURL;
 
-  // Fill receipt details
+  // Populate receipt fields
   document.getElementById("orderNum").textContent = params.get("order") || "—";
   document.getElementById("title").textContent = title;
   document.getElementById("copies").textContent = params.get("copies") || "—";
@@ -58,8 +121,6 @@
   document.getElementById("date").textContent = new Date().toLocaleDateString("en-GB", {
     day: "numeric", month: "long", year: "numeric"
   });
-
-  // Footer year
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
