@@ -304,22 +304,36 @@ document.addEventListener("DOMContentLoaded", () => {
 </style>
 
 <script>
-  document.getElementById('orderForm').addEventListener('submit', function(e) {
-    const title = document.getElementById('title').value.trim();
-    const copies = parseInt(document.getElementById('copy').value) || 1;
-    const pricePerCopy = 2.00;
-    const total = (copies * pricePerCopy).toFixed(2);
-  
-    // Fill PayPal hidden inputs
-    document.getElementById('paypalItemName').value = `${title} (${copies} copies)`;
-    document.getElementById('paypalAmount').value = total;
-  
-    // Wait a tiny moment to let these values settle before submitting
-    setTimeout(() => {
-      e.target.submit();
-    }, 100);
-  });
-  </script>
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+  // Stop default form submission
+  e.preventDefault();
+
+  // Collect values
+  const title  = document.getElementById('title').value.trim();
+  const copies = parseInt(document.getElementById('copy').value) || 1;
+  const order  = document.getElementById('orderNum').value;
+  const price  = (Math.max(copies, 3) * 1.25).toFixed(2);
+
+  // Build PayPal URL including dynamic return link
+  const paypalURL =
+    "https://www.sandbox.paypal.com/cgi-bin/webscr" +
+    "?cmd=_xclick" +
+    "&business=sb-6bkuc46652199@business.example.com" +
+    "&currency_code=GBP" +
+    "&item_name=" + encodeURIComponent(title) +
+    "&amount=" + price +
+    "&return=" + encodeURIComponent(
+      `https://www.songsforchoirs.com/receipt.html?title=${encodeURIComponent(title)}&copies=${copies}&price=${price}&order=${encodeURIComponent(order)}`
+    ) +
+    "&cancel_return=" + encodeURIComponent("https://www.songsforchoirs.com/orderform.html");
+
+  // Open PayPal in a new tab
+  window.open(paypalURL, "_blank");
+});
+</script>
+</body>
+</html>
+
   
   
 
