@@ -1,40 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Receipt — Songs for Choirs</title>
-<meta name="description" content="Purchase receipt and download page for licensed choral scores from Songs for Choirs." />
-<link rel="stylesheet" href="styles.css" />
-<style>
-  body {
-    background: url("images/Pearl_rays.png") center top / cover no-repeat fixed, #fefcf8;
-    text-align: center;
-  }
-  main { padding: 3rem 1rem; }
-  h1 { color: #c9a227; font-size: 1.9rem; margin-bottom: 0.75rem; }
-  p { margin: 0.25rem 0 1rem; color: #333; }
-  .download-btn {
-    display: inline-block; background: #c9a227; color: white; font-weight: 600;
-    padding: 0.9rem 1.6rem; border-radius: 8px; text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .download-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
-  .receipt-card {
-    background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
-    max-width: 420px; margin: 2rem auto 1rem; padding: 1.5rem; text-align: left; font-size: 1rem;
-    color: #333; box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-  }
-  .receipt-card strong { color: #000; }
-  .print-btn {
-    display: inline-block; margin-top: 1rem; font-weight: 600;
-    background: #f7f3e6; border: 1px solid #e6d8ad; border-radius: 8px;
-    padding: 0.6rem 1.2rem; text-decoration: none; color: #222;
-    cursor: pointer; transition: all 0.2s ease;
-  }
-  .print-btn:hover { background: #fff8e1; }
-  footer { margin-top: 3rem; font-size: 0.85rem; color: #666; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Receipt — Songs for Choirs</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -42,6 +12,7 @@
   <h1>Thank you for your purchase</h1>
   <p>Your payment was successful. You can download your licensed score below.</p>
 
+  <!-- Download button -->
   <a id="downloadLink" href="#" class="download-btn">Download your score (PDF)</a>
 
   <div class="receipt-card">
@@ -50,7 +21,7 @@
     <p><strong>Title:</strong> <span id="title">—</span></p>
     <p><strong>Copies:</strong> <span id="copies">—</span></p>
     <p><strong>Price:</strong> £<span id="price">—</span> GBP</p>
-    <p><strong>Date:</strong> <span id="date"></span></p>
+    <p><strong>Date:</strong> <span id="date">—</span></p>
 
     <button class="print-btn" onclick="window.print()">🖨️ Download / Print Receipt</button>
   </div>
@@ -66,30 +37,30 @@
   </footer>
 </main>
 
+<!-- 🌿 All-in-one script block -->
 <script>
-  // Fill year and date
-  document.getElementById("year").textContent = new Date().getFullYear();
+  // Read parameters from the URL
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title") || "Unknown title";
+  const safeTitle = title.replace(/\s+/g, "-");
+
+  // Build PDF link
+  const pdfURL = `https://www.songsforchoirs.com/scores/${safeTitle}.pdf`;
+  const link = document.getElementById("downloadLink");
+  link.textContent = `Download ${title} (PDF)`;
+  link.href = pdfURL;
+
+  // Fill receipt details
+  document.getElementById("orderNum").textContent = params.get("order") || "—";
+  document.getElementById("title").textContent = title;
+  document.getElementById("copies").textContent = params.get("copies") || "—";
+  document.getElementById("price").textContent = params.get("price") || "—";
   document.getElementById("date").textContent = new Date().toLocaleDateString("en-GB", {
     day: "numeric", month: "long", year: "numeric"
   });
 
-  // Read URL parameters
-  const params = new URLSearchParams(window.location.search);
-  const title = params.get("title") || "Unknown title";
-  const copies = params.get("copies") || "—";
-  const price = params.get("price") || "—";
-  const order = params.get("order") || "—";
-
-  document.getElementById("title").textContent = title;
-  document.getElementById("copies").textContent = copies;
-  document.getElementById("price").textContent = price;
-  document.getElementById("orderNum").textContent = order;
-
-  // Dynamic download link
-  const safeTitle = title.replace(/\s+/g, "-");
-  document.getElementById("downloadLink").href = `pdf/${safeTitle}.pdf`;
-  document.getElementById("downloadLink").textContent = `Download “${title}” (PDF)`;
-
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
