@@ -152,6 +152,20 @@ button:hover {
 </form>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const titleParam = params.get("title");
+  const titleField = document.getElementById("title");
+
+  if (titleParam && titleField) {
+    titleField.value = decodeURIComponent(titleParam);
+    titleField.readOnly = true; // prevents tampering
+  }
+});
+</script>
+
+  
+<script>
 document.getElementById('orderForm').addEventListener('submit', function(e) {
   const title = document.getElementById('title').value.trim();
   const copies = parseInt(document.getElementById('copy').value) || 1;
