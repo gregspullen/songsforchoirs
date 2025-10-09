@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Retrieve order info from localStorage (set by order form)
   const orderData = JSON.parse(localStorage.getItem('sfcOrder') || '{}');
   const safeTitle = encodeURIComponent((orderData.title || "").trim().replace(/\s+/g, "-"));
-  const workerBase = "https://sfc-watermark-worker.lyra-6b2.workers.dev/scores/";
+  const workerBase = "https://pub-f6da1cfe97804580851ec9d1425dee07.r2.dev/";
   const pdfUrl = `${workerBase}${safeTitle}.pdf`;
 
   // Link the "Download" button to the watermarked score
