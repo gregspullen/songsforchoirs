@@ -75,7 +75,13 @@
       document.getElementById("priceDisplay").textContent = price;
 
       const safeTitle = title.replace(/\s+/g, "-");
-      const pdfUrl = `/scores/${safeTitle}.pdf?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}`;
+
+      const safeTitle = title.replace(/\s+/g, "-");
+      const copies = params.get("copies") || "?";
+      const pdfUrl = `/scores/${safeTitle}.pdf?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&total=${encodeURIComponent(copies)}`;
+      document.getElementById("downloadLink").href = pdfUrl;
+
+      
       document.getElementById("downloadLink").href = pdfUrl;
     });
   </script>
