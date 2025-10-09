@@ -118,10 +118,19 @@ button:hover {
     <input id="email" type="email" placeholder="yourname@example.com">
   </label>
 
-  <button type="submit">Submit Order & Continue to PayPal</button>
+<button type="submit">Submit Order & Continue to PayPal</button>
 </form>
 
 <script>
+function generateOrderNumber() {
+  const today = new Date();
+  const y = today.getFullYear().toString().slice(-2);
+  const m = (today.getMonth() + 1).toString().padStart(2, "0");
+  const d = today.getDate().toString().padStart(2, "0");
+  const r = Math.floor(Math.random() * 900 + 100); // random 3-digit
+  return `SFC-${y}${m}${d}-${r}`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Autofill title from ?title= parameter
   const params = new URLSearchParams(window.location.search);
@@ -141,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const copies = parseInt(document.getElementById("copy").value) || 1;
     const pricePerCopy = 1.25;
     const total = (copies * pricePerCopy).toFixed(2);
-    const orderNum = "SFC-" + Date.now().toString().slice(-6);
+    const orderNum = generateOrderNumber(); // 🪶 here’s where we use it
 
     // Fill PayPal hidden inputs
     document.getElementById("paypalItemName").value = `${title} (${copies} copies)`;
@@ -157,6 +166,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
