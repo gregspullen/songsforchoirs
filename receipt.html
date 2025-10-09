@@ -123,5 +123,24 @@
   });
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve order info from localStorage (set by order form)
+  const orderData = JSON.parse(localStorage.getItem('sfcOrder') || '{}');
+  const safeTitle = encodeURIComponent((orderData.title || "").trim().replace(/\s+/g, "-"));
+  const workerBase = "https://sfc-watermark-worker.lyra-6b2.workers.dev/scores/";
+  const pdfUrl = `${workerBase}${safeTitle}.pdf`;
+
+  // Link the "Download" button to the watermarked score
+  const btn = document.getElementById("downloadBtn");
+  if (btn && safeTitle) {
+    btn.href = pdfUrl;
+    btn.target = "_blank"; // open in new tab
+  }
+});
+</script>
+
+  
 </body>
 </html>
