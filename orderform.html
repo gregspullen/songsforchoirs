@@ -158,7 +158,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Build return URL
     const baseReturn = "https://www.songsforchoirs.com/receipt.html";
-    const params = new URLSearchParams({ title, choir, copies, price: total, order: orderNum });
+   const params = new URLSearchParams({
+  title,
+  choir,
+  copies,
+  price: total,
+  order: orderNum,
+  total: copies // 🪶 sends number of copies for watermark
+});
+
     document.getElementById("paypalReturn").value = `${baseReturn}?${params.toString()}`;
 
     // Submit once
