@@ -124,25 +124,21 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
+  
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Load the stored order info
-  const orderData = JSON.parse(localStorage.getItem("sfcOrder") || "{}");
+  // your fixed watermark URL
+  const pdfUrl = "https://sfc-watermark-worker.lyra-6b2.workers.dev/scores/The-Lord-Is-My-Shepherd.pdf";
 
-  // Turn title into safe filename
-  const title = (orderData.title || "").trim().replace(/\s+/g, "-");
-
-  // Build the watermark worker URL
-  const pdfUrl = `https://sfc-watermark-worker.lyra-6b2.workers.dev/scores/${title}.pdf`;
-
-  // Link the Download button directly
+  // connect it directly to the Download button
   const btn = document.getElementById("downloadBtn");
-  if (btn && title) {
+  if (btn) {
     btn.href = pdfUrl;
-    btn.target = "_blank"; // open in new tab
+    btn.target = "_blank"; // open in a new tab
   }
 });
 </script>
+
 
 
   
