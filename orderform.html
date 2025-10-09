@@ -318,6 +318,23 @@ document.addEventListener("DOMContentLoaded", () => {
 </style>
 
 <script>
+  document.getElementById('orderForm').addEventListener('submit', function (event) {
+    const title = document.getElementById('title').value.trim();
+    const choir = document.getElementById('choir').value.trim();
+    const copies = document.getElementById('copy').value.trim();
+  
+    // Store data for the next page (receipt or download)
+    const orderData = {
+      title,
+      choir,
+      copies
+    };
+    localStorage.setItem('sfcOrder', JSON.stringify(orderData));
+  });
+  </script>
+  
+
+<script>
 document.getElementById("orderForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
