@@ -78,7 +78,7 @@
     const copies = params.get("copies") || "?";
 
     // if you want to test the red overlay, set this to true
-    const preview = false;
+    const preview = true;
 
     const pdfUrl = `/scores/${safeTitle}.pdf?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&total=${encodeURIComponent(copies)}${preview ? "&preview=true" : ""}`;
 
