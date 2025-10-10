@@ -62,25 +62,30 @@
   <a id="downloadLink" class="download-link" href="#">⬇️ Download your licensed PDF</a>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      const title = params.get("title") || "Unknown piece";
-      const choir = params.get("choir") || "Unknown choir";
-      const order = params.get("order") || "Unknown order";
-      const price = params.get("price") || "—";
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const title = params.get("title") || "Unknown piece";
+    const choir = params.get("choir") || "Unknown choir";
+    const order = params.get("order") || "Unknown order";
+    const price = params.get("price") || "—";
 
-      document.getElementById("titleDisplay").textContent = title;
-      document.getElementById("choirDisplay").textContent = choir;
-      document.getElementById("orderDisplay").textContent = order;
-      document.getElementById("priceDisplay").textContent = price;
+    document.getElementById("titleDisplay").textContent = title;
+    document.getElementById("choirDisplay").textContent = choir;
+    document.getElementById("orderDisplay").textContent = order;
+    document.getElementById("priceDisplay").textContent = price;
 
-      const safeTitle = title.replace(/\s+/g, "-");
-      const copies = params.get("copies") || "?";
-      const pdfUrl = `/scores/${safeTitle}.pdf?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&total=${encodeURIComponent(copies)}`;
-      document.getElementById("downloadLink").href = pdfUrl;
+    const safeTitle = title.replace(/\s+/g, "-");
+    const copies = params.get("copies") || "?";
 
-    });
-  </script>
+    // if you want to test the red overlay, set this to true
+    const preview = false;
+
+    const pdfUrl = `/scores/${safeTitle}.pdf?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&total=${encodeURIComponent(copies)}${preview ? "&preview=true" : ""}`;
+
+    document.getElementById("downloadLink").href = pdfUrl;
+  });
+</script>
+
 
 </body>
 </html>
