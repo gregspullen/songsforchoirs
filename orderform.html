@@ -175,5 +175,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<script>
+// 🐸 Build the personalised watermark link and redirect
+function buildDownloadLink() {
+  const title = encodeURIComponent(document.querySelector('#title').value.trim());
+  const choir = encodeURIComponent(document.querySelector('#choir').value.trim());
+  const copies = encodeURIComponent(document.querySelector('#copies').value.trim());
+  const order = encodeURIComponent(document.querySelector('#order').value.trim());
+
+  if (!title || !choir || !copies || !order) {
+    alert('Please complete all fields before downloading your licensed score.');
+    return;
+  }
+
+  // Construct the full Worker URL
+  const url = `https://sfc-watermark-worker.lyra-6b2.workers.dev/scores/${title}.pdf?order=${order}&choir=${choir}&copies=${copies}`;
+
+  // Redirect to the Worker — watermark applied instantly
+  window.location.href = url;
+}
+</script>
+
+<button type="button" class="download-btn" onclick="buildDownloadLink()">
+  Download Licensed PDF
+</button>
+
+  
 </body>
 </html>
