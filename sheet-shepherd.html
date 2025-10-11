@@ -3,60 +3,78 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Lord Is My Shepherd – Score Preview</title>
-  <meta name="description" content="Preview pages 2–3 of The Lord Is My Shepherd (SATB choir & piano)" />
+  <title>Sheet Music – The Lord Is My Shepherd</title>
+  <meta name="description" content="Sheet music preview: The Lord Is My Shepherd (SATB choir & piano)" />
   <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
   <link rel="stylesheet" href="styles.css">
 
   <style>
     html, body {
       height: 100%;
       margin: 0;
-      background: #f7faff; /* soft blue tint */
-      overflow: hidden;
+      overflow: hidden;  /* stop page from scrolling */
     }
 
     .sheet-container {
-      display: flex;
-      justify-content: center;
-      align-items: start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       height: 90vh;
-      padding-top: 1rem;
+      width: 100%;
+      align-items: start;       /* stick pages to the top of the container */
+      justify-items: center;
+      gap: 1rem;
+      margin-top: 0.5rem;       /* was 2rem — now tucked closer */
     }
 
-    iframe {
-      width: 90%;
-      height: 100%;
-      border: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+    .sheet-page {
+      max-width: 100%;
+      max-height: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       border-radius: 6px;
-      background: #fff;
+      overflow: hidden;
     }
+
+    .sheet-page img {
+      max-height: 95%;   /* fit inside container */
+      max-width: 100%;
+      height: auto;
+      width: auto;
+      display: block;
+    }
+
 
     .back-btn {
       display: inline-block;
-      margin: 0.5rem 0 1rem 1rem;
+      margin: 0.5rem 0 1rem 0;
       font-size: 0.9rem;
       text-decoration: none;
       color: #555;
     }
-
     .back-btn:hover {
       text-decoration: underline;
     }
   </style>
 </head>
-
 <body class="sheet">
+
   <main class="wrap">
     <a href="opus-shepherd.html" class="back-btn">← Back to Opus Page</a>
 
     <div class="sheet-container">
-      <iframe
-        src="https://www.songsforchoirs.com/scores/The-Lord-Is-My-Shepherd.pdf#page=2&view=TwoPage&zoom=page-fit"
-        title="Preview — The Lord Is My Shepherd"
-      ></iframe>
+      <div class="sheet-page">
+        <a href="opus-shepherd.html"> 
+        <img src="scores-short/The-Lord-is-My-Shepherd_preview_1.png" alt="Page 1">
+        </a>
+      </div>
+      <div class="sheet-page">
+        <a href="opus-shepherd.html">
+        <img src="scores-short/The-Lord-is-My-Shepherd_preview_2.png" alt="Page 2">
+      </a>
+      </div>
     </div>
   </main>
 
@@ -69,5 +87,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
