@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receipt — Songs for Choirs</title>
+  <style>
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #222;
+      background: #fdfbf8;
+      text-align: center;
+      padding: 2em;
+      line-height: 1.5;
+    }
+    h1 {
+      color: #c4a64f;
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+    .details { margin-bottom: 1.5em; }
+    .download-link {
+      display: inline-block;
+      background: #c4a64f;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.75em 1em;
+      border-radius: 6px;
+      transition: background 0.3s;
+      margin: 1em 0;
+      cursor: pointer;
+    }
+    .download-link:hover { background: #d2b866; }
+    .note {
+      color: #c4a64f;
+      font-weight: 600;
+      text-align: center;
+      margin: 1em 0 0.75em 0;
+    }
+    .after {
+      color: #c4a64f;
+      font-style: italic;
+      text-align: center;
+      font-size: 0.95em;
+      margin-top: 1.5em;
+    }
+    .print-warning { display: none; }
+    @media print {
+      body * { display: none !important; }
+      .print-warning {
+        display: block !important;
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 5em;
+        color: #555;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Thank you for your order</h1>
+<div class="details">
+  <p><strong>Title:</strong> <span id="titleText"></span></p>
+  <p><strong>Choir:</strong> <span id="choirName"></span></p>
+  <p><strong>Order number:</strong> <span id="orderNumber"></span></p>
+  <p><strong>Amount:</strong> £<span id="amountValue"></span></p>
+</div>
+
+  <p class="note">
+    <strong><em>BEFORE</em></strong> printing, please download your licensed score as a ZIP before you commit to paper — we want to protect you from wasteful errors and to save you coming back to us for a reprint.
+  </p>
+
+  <button id="downloadZip" class="download-link">⬇️ Download your licensed ZIP</button>
+
+  <p class="after">
+    In return, we’d ask you not to infringe our copyright by printing multiple copies of the same licensed score.<br>
+    Print quality from PDF is fully preserved.
+  </p>
+
+  <div class="print-warning">
+    Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint.
+  </div>
+
+  <script>
+    const btn = document.getElementById("downloadZip");
+    const params = new URLSearchParams(window.location.search);
+
+    const title = params.get("title") || "The Lord Is My Shepherd";
+    console.log("Query params:", window.location.search);
+
+    const choir = decodeURIComponent(params.get("choir") || "—");
+    const order = decodeURIComponent(params.get("order") || "—");
+
+    const total = params.get("copies") || params.get("total") || 12;
+
+    const safeTitle = title.replace(/\s+/g, "-");
+    const amount = params.get("amt") || params.get("amount") || params.get("price") || "HELLO";
+    // 🪶 Fill the visible fields
+document.getElementById("titleText").textContent = title;
+document.getElementById("choirName").textContent = choir;
+document.getElementById("orderNumber").textContent = order;
+document.getElementById("amountValue").textContent = amount;
+
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      btn.textContent = "Preparing your licensed ZIP…";  
+
+      const zipUrl = `https://sfc-watermark-worker.lyra-6b2.workers.dev/${safeTitle}.zip?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&copies=${encodeURIComponent(total)}&title=${encodeURIComponent(title)}&amount=${encodeURIComponent(amount)}`;
+
+      try {
+        const res = await fetch(zipUrl);
+        const blob = await res.blob();
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `${safeTitle}_${order}.zip`;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(a.href);
+        const email = params.get("email");
+
+         console.log("Email sending with order:", order);
+        
+    // Send confirmation email via Worker
+    try {
+     await fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    title,
+    choir,
+    order,
+    copies: total,
+    email,
+    amount, // 🪶 add this line
+  }),
+});
+
+      console.log("Email request sent to Worker");
+    } catch (err) {
+      console.error("Failed to send email:", err);
+    }        
+        btn.textContent = "⬇️ Download your licensed ZIP";
+        btn.disabled = false;
+      } catch (err) {
+        console.error("Download failed:", err);
+        alert("Sorry — there was a problem downloading your ZIP.");
+        btn.textContent = "⬇️ Download your licensed ZIP";
+        btn.disabled = false;
+      }
+    });
+
+    // Gentle print reminder
+    window.onbeforeprint = () => {
+      alert("Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint.");
+    };
+  </script>
+
+</body>
+</html>
