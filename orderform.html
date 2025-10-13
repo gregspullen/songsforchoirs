@@ -192,6 +192,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- 🪶 Removed premature /send-email fetch -->
 <!--
+
+
+  <!-- 🪶 Limit copies at the orderform stage -->
+<script>
+const copiesInput = document.getElementById("copy");
+const note = document.getElementById("copy-note");
+const MAX_COPIES = 20;
+
+copiesInput.addEventListener("input", () => {
+  const value = parseInt(copiesInput.value, 10);
+  if (value > MAX_COPIES) {
+    copiesInput.value = MAX_COPIES;
+    note.textContent =
+      `For large choirs, please place separate orders of up to ${MAX_COPIES} copies each.`;
+  } else {
+    note.textContent = "";
+  }
+});
+</script>
+
+
+  
 <script>
 document.getElementById("orderForm").addEventListener("submit", async function (event) {
   const title = document.getElementById("title").value.trim();
