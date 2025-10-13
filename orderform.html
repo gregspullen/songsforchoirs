@@ -120,7 +120,10 @@ p.note {
     <input id="choir" required>
   </label>
   <label>Number of copies:
-    <input id="copy" required type="number" min="1">
+  <input id="copy" required type="number" min="1" max="20">
+  </label>
+  <p id="copy-note" class="note"></p>
+
   </label>
   <label for="email">Where would you like your music to be delivered?</label>
   <input id="email" type="email" name="email" placeholder="yourname@example.com" required>
