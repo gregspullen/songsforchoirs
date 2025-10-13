@@ -205,7 +205,8 @@ copiesInput.addEventListener("input", () => {
   if (value > MAX_COPIES) {
     copiesInput.value = MAX_COPIES;
     note.textContent =
-      `For large choirs, please place separate orders of up to ${MAX_COPIES} copies each.`;
+      note.textContent =
+  `Please place multiple orders for batches of more than ${MAX_COPIES} copies. The ${MAX_COPIES}-copy limit applies to keep transactions and downloads safe and reliable.`;
   } else {
     note.textContent = "";
   }
