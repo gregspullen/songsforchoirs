@@ -194,31 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
-<!-- 🪶 Removed premature /send-email fetch -->
-<!--
-
-
-  <!-- 🪶 Limit copies at the orderform stage -->
-<script>
-const copiesInput = document.getElementById("copy");
-const note = document.getElementById("copy-note");
-const MAX_COPIES = 20;
-
-copiesInput.addEventListener("input", () => {
-  const value = parseInt(copiesInput.value, 10);
-  if (value > MAX_COPIES) {
-    copiesInput.value = MAX_COPIES;
-    note.textContent =
-      note.textContent =
-  `Please place multiple orders for batches of more than ${MAX_COPIES} copies. The ${MAX_COPIES}-copy limit applies to keep transactions and downloads safe and reliable.`;
-  } else {
-    note.textContent = "";
-  }
-});
-</script>
-
-
   
 <script>
 document.getElementById("orderForm").addEventListener("submit", async function (event) {
