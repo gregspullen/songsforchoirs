@@ -86,80 +86,64 @@
   </div>
 
   <script>
-    const btn = document.getElementById("downloadZip");
-    const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(window.location.search);
 
-    const title = params.get("title") || "The Lord Is My Shepherd";
-    console.log("Query params:", window.location.search);
+  const title = params.get("title") || "The Lord Is My Shepherd";
+  const choir = decodeURIComponent(params.get("choir") || "—");
+  const order = decodeURIComponent(params.get("order") || "—");
+  const total = params.get("copies") || params.get("total") || 12;
+  const amount = params.get("amt") || params.get("amount") || params.get("price") || "—";
+  const email = params.get("email");
 
-    const choir = decodeURIComponent(params.get("choir") || "—");
-    const order = decodeURIComponent(params.get("order") || "—");
+  // 🪶 Fill visible fields
+  document.getElementById("titleText").textContent = title;
+  document.getElementById("choirName").textContent = choir;
+  document.getElementById("orderNumber").textContent = order;
+  document.getElementById("amountValue").textContent = amount;
 
-    const total = params.get("copies") || params.get("total") || 12;
+  // ✉️ Send-email button logic
+  const btn = document.getElementById("sendEmailButton");
+  const status = document.getElementById("emailStatus");
 
-    const safeTitle = title.replace(/\s+/g, "-");
-    const amount = params.get("amt") || params.get("amount") || params.get("price") || "HELLO";
-    // 🪶 Fill the visible fields
-document.getElementById("titleText").textContent = title;
-document.getElementById("choirName").textContent = choir;
-document.getElementById("orderNumber").textContent = order;
-document.getElementById("amountValue").textContent = amount;
+  btn.addEventListener("click", async () => {
+    btn.disabled = true;
+    btn.textContent = "Sending your email…";
+    status.textContent = "";
 
-    btn.addEventListener("click", async () => {
-      btn.disabled = true;
-      btn.textContent = "Preparing your licensed ZIP…";  
-
-      const zipUrl = `https://sfc-watermark-worker.lyra-6b2.workers.dev/${safeTitle}.zip?choir=${encodeURIComponent(choir)}&order=${encodeURIComponent(order)}&copies=${encodeURIComponent(total)}&title=${encodeURIComponent(title)}&amount=${encodeURIComponent(amount)}`;
-
-      try {
-        const res = await fetch(zipUrl);
-        const blob = await res.blob();
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = `${safeTitle}_${order}.zip`;
-        a.style.display = "none";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(a.href);
-        const email = params.get("email");
-
-         console.log("Email sending with order:", order);
-        
-    // Send confirmation email via Worker
     try {
-     await fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    title,
-    choir,
-    order,
-    copies: total,
-    email,
-    amount, // 🪶 add this line
-  }),
-});
+      const res = await fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title,
+          choir,
+          order,
+          copies: total,
+          email,
+          amount,
+        }),
+      });
 
-      console.log("Email request sent to Worker");
-    } catch (err) {
-      console.error("Failed to send email:", err);
-    }        
-        btn.textContent = "⬇️ Download your licensed ZIP";
-        btn.disabled = false;
-      } catch (err) {
-        console.error("Download failed:", err);
-        alert("Sorry — there was a problem downloading your ZIP.");
-        btn.textContent = "⬇️ Download your licensed ZIP";
-        btn.disabled = false;
+      if (res.ok) {
+        status.textContent = "Your email has been sent!";
+        alert("Your email has been sent — please check your inbox or junk folder.");
+      } else {
+        status.textContent = "Hmm — something went wrong sending the email.";
       }
-    });
+    } catch (err) {
+      console.error("Email send failed:", err);
+      status.textContent = "Network error — please check your connection.";
+    }
 
-    // Gentle print reminder
-    window.onbeforeprint = () => {
-      alert("Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint.");
-    };
-  </script>
+    btn.textContent = "Send your email again";
+    btn.disabled = false;
+  });
+
+  // Gentle print reminder
+  window.onbeforeprint = () => {
+    alert("Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint.");
+  };
+</script>
 
 </body>
 </html>
