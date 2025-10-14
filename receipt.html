@@ -122,11 +122,12 @@ const email = params.get("email");
         body: JSON.stringify({
   title,
   choir,
-  orderNumber: order,
+  order,          // 👈 the Worker looks for this
   copies: total,
   email,
-  amt: amount,
+  amount,         // 👈 and this
 }),
+
 
       });
 
