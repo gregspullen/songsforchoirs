@@ -6,24 +6,25 @@
   <title>Songs for Choirs</title>
   <meta name="description" content="Site currently under construction. Scores available soon." />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/images/favicon.png?" sizes="16x16" type="image/png" />
-  <link rel="apple-touch-icon" href="/images/favicon.png" />
-  <link rel="stylesheet" href="styles.css?v=5"">
 
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
+
 <body>
-  <header style="display:flex; justify-content:center; margin:0; padding:0;">
-  <img src="images/Logo.png"
-       alt="songsforchoirs"
-       width="400"
-       style="max-width:80%; height:auto; display:block;">
-</header>
 
-
+  <header style="text-align:center; margin:1rem 0 0.5rem;">
+    <img src="images/Logo.png"
+         alt="songsforchoirs"
+         width="400"
+         style="max-width:80%; height:auto;">
+    <!-- optional subheading -->
+    <p style="margin:0.25rem 0 0; font-size:1.1rem; color:#666;">
+      Beautiful choral music, lovingly crafted.
+    </p>
+  </header>
 
   <nav id="site-nav" class="site-nav">
     <ul>
@@ -33,63 +34,55 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <hr style="border:1px dashed red;">
 
-<main class="wrap wrap--wide">
-  <!-- Coming Soon -->
-  <section id="coming-soon" class="panel" aria-labelledby="coming-heading">
-    <h2 id="coming-heading">Coming Soon</h2>
+  <main class="wrap wrap--wide">
+    <section id="coming-soon" class="panel" aria-labelledby="coming-heading">
+      <h2 id="coming-heading">Coming Soon</h2>
 
-    <div class="score-grid">
-
-      <!-- Little Monster -->
-      <figure class="cover">
+      <div class="score-grid">
+        <figure class="cover">
           <img src="images/Cover_png/The-Little-Monster-Song.png"
                alt="The Little Monster Song cover"
                onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
           <span class="hover-tag">Available soon</span>
-      </figure>
+        </figure>
 
-      <!-- Venite -->
-      <figure class="cover">
+        <figure class="cover">
           <img src="images/Cover_png/Venite.png"
                alt="The Venite cover"
                onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
           <span class="hover-tag">Available soon</span>
-      </figure>
+        </figure>
 
-      <!-- Magnificat -->
-      <figure class="cover">
+        <figure class="cover">
           <img src="images/Cover_png/Magnificat.png"
                alt="The Magnificat cover"
                onerror="this.onerror=null; this.src='images/placeholder-cover.png';">
           <span class="hover-tag">Available soon</span>
-      </figure>
-</main>
-
+        </figure>
+      </div>
+    </section>
+  </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <small>© <span id="year"></span> www,songsforchoirs.com All rights reserved.</small>
+      <small>© <span id="year"></span> www.songsforchoirs.com — All rights reserved.</small>
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-      <script>
-  (function () {
-    const nav = document.getElementById('site-nav');
-    // mark the current page link automatically
-    const here = location.pathname.split('/').pop() || 'index.html';
-    [...nav.querySelectorAll('a')].forEach(a=>{
-      const target = a.getAttribute('href').split('/').pop();
-      if (target === here) a.setAttribute('aria-current','page');
-    });
-    // add a gentle shadow once we’ve scrolled
-    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 0);
-    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-  })();
-</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const nav = document.getElementById('site-nav');
+      const here = location.pathname.split('/').pop() || 'index.html';
+      [...nav.querySelectorAll('a')].forEach(a=>{
+        const target = a.getAttribute('href').split('/').pop();
+        if (target === here) a.setAttribute('aria-current','page');
+      });
+      const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 0);
+      onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+  </script>
 
 </body>
 </html>
