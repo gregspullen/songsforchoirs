@@ -5,6 +5,9 @@
 body {
   background: pink;
 }
+* {
+  border: 5px solid hotpink !important;
+}
 
 
 /* =========================
