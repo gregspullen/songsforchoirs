@@ -2,13 +2,6 @@
   margin: 0;
   padding: 0;
 }
-body {
-  background: pink;
-}
-* {
-  border: 5px solid hotpink !important;
-}
-
 
 /* =========================
    Variables + Base
