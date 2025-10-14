@@ -88,12 +88,17 @@
   <script>
   const params = new URLSearchParams(window.location.search);
 
-  const title = params.get("title") || "The Lord Is My Shepherd";
-  const choir = decodeURIComponent(params.get("choir") || "—");
-  const order = decodeURIComponent(params.get("order") || "—");
-  const total = params.get("copies") || params.get("total") || 12;
-  const amount = params.get("amt") || params.get("amount") || params.get("price") || "—";
-  const email = params.get("email");
+  const title = document.getElementById("titleText")?.textContent.trim() ||
+              params.get("title") || "The Lord Is My Shepherd";
+const choir = document.getElementById("choirName")?.textContent.trim() ||
+              decodeURIComponent(params.get("choir") || "—");
+const order = document.getElementById("orderNumber")?.textContent.trim() ||
+              decodeURIComponent(params.get("order") || "—");
+const total = document.getElementById("amountValue")?.textContent.trim() ||
+              params.get("copies") || params.get("total") || 12;
+const amount = document.getElementById("amountValue")?.textContent.trim() ||
+               params.get("amt") || params.get("amount") || params.get("price") || "—";
+const email = params.get("email");
 
   // 🪶 Fill visible fields
   document.getElementById("titleText").textContent = title;
