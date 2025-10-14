@@ -115,13 +115,14 @@
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          title,
-          choir,
-          order,
-          copies: total,
-          email,
-          amount,
-        }),
+  title,
+  choir,
+  orderNumber: order,
+  copies: total,
+  email,
+  amt: amount,
+}),
+
       });
 
       if (res.ok) {
