@@ -87,70 +87,67 @@
 
   <script>
   const params = new URLSearchParams(window.location.search);
+  const title = params.get("title") || "The Lord Is My Shepherd";
+  const choir = decodeURIComponent(params.get("choir") || "—");
+  const order = decodeURIComponent(params.get("order") || "—");
+  const total = params.get("copies") || params.get("total") || 1;
+  const amount = params.get("amt") || params.get("amount") || "—";
+  const email = params.get("email");
 
-  const title = document.getElementById("titleText")?.textContent.trim() ||
-              params.get("title") || "The Lord Is My Shepherd";
-const choir = document.getElementById("choirName")?.textContent.trim() ||
-              decodeURIComponent(params.get("choir") || "—");
-const order = document.getElementById("orderNumber")?.textContent.trim() ||
-              decodeURIComponent(params.get("order") || "—");
-const total = document.getElementById("amountValue")?.textContent.trim() ||
-              params.get("copies") || params.get("total") || 12;
-const amount = document.getElementById("amountValue")?.textContent.trim() ||
-               params.get("amt") || params.get("amount") || params.get("price") || "—";
-const email = params.get("email");
-
-  // 🪶 Fill visible fields
+  // Fill visible fields
   document.getElementById("titleText").textContent = title;
   document.getElementById("choirName").textContent = choir;
   document.getElementById("orderNumber").textContent = order;
   document.getElementById("amountValue").textContent = amount;
 
-  // ✉️ Send-email button logic
   const btn = document.getElementById("sendEmailButton");
   const status = document.getElementById("emailStatus");
 
-  btn.addEventListener("click", async () => {
-    btn.disabled = true;
-    btn.textContent = "Sending your email…";
-    status.textContent = "";
+  // prevent duplicate listeners
+  btn.replaceWith(btn.cloneNode(true));
+  const sendBtn = document.getElementById("sendEmailButton");
+
+  sendBtn.addEventListener("click", async () => {
+    if (sendBtn.disabled) return;
+    sendBtn.disabled = true;
+    status.textContent = "Sending your email…";
 
     try {
-      const res = await fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-  title,
-  choir,
-  order,          // 👈 the Worker looks for this
-  copies: total,
-  email,
-  amount,         // 👈 and this
-}),
+      const response = await fetch(
+        "https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            title,
+            choir,
+            order,
+            copies: total,
+            email,
+            amount,
+          }),
+        }
+      );
 
+      if (!response.ok) throw new Error("Email send failed");
 
-      });
-
-      if (res.ok) {
-        status.textContent = "Your email has been sent!";
-        alert("Your email has been sent — please check your inbox or junk folder.");
-      } else {
-        status.textContent = "Hmm — something went wrong sending the email.";
-      }
+      status.textContent =
+        "Your email has been sent successfully. Please check your inbox — and your junk folder just in case.";
     } catch (err) {
-      console.error("Email send failed:", err);
-      status.textContent = "Network error — please check your connection.";
+      console.error("Email error:", err);
+      status.textContent = "Hmm — something went wrong sending the email.";
+    } finally {
+      sendBtn.disabled = false;
     }
-
-    btn.textContent = "Send your email again";
-    btn.disabled = false;
   });
 
-  // Gentle print reminder
   window.onbeforeprint = () => {
-    alert("Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint.");
+    alert(
+      "Please download or print as a PDF first — we want to protect you from wasteful errors and to save you coming back to us for a reprint."
+    );
   };
 </script>
+
 
 </body>
 </html>
