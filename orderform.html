@@ -179,14 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Build return URL with details
     const baseReturn = "https://www.songsforchoirs.com/receipt.html";
     const returnParams = new URLSearchParams({
-      title,
-      choir,
-      copies,
-      price: total,
-      order: orderNum,
-      total: copies,
-      email
-    });
+  title,
+  choir,
+  copies,
+  amount: total,
+  order: orderNum,
+  total: copies,
+  email
+});
+
     document.getElementById("paypalReturn").value = `${baseReturn}?${returnParams.toString()}`;
 
     // Now go to PayPal — no premature emails
