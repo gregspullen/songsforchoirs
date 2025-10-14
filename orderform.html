@@ -194,22 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-  
-<script>
-document.getElementById("orderForm").addEventListener("submit", async function (event) {
-  const title = document.getElementById("title").value.trim();
-  const choir = document.getElementById("choir").value.trim();
-  const copies = document.getElementById("copy").value.trim();
-  const email = document.getElementById("email").value.trim();
-
-  fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ title, choir, copies, email })
-  }).catch(err => console.error("Email send failed:", err));
-});
-</script>
--->
-
 </body>
 </html>
