@@ -189,8 +189,11 @@ p em {
 }
 /* Tighter spacing inside the receipt block */
 .receipt-panel p {
-  margin-top: 0.2em;
-  margin-bottom: 0.4em;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+  line-height: 1.2;
+}
+
 }
 
 /* Keep a nice pause under the thank-you heading */
