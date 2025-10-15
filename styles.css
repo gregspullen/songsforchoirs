@@ -528,6 +528,10 @@ button[type="submit"]:hover {
   font-weight: 500;
   font-size: 0.95em;
 }
+.inline-input[type="number"] {
+  width: 90px;
+  text-align: center;
+}
 
 
   
