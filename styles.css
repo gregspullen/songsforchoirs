@@ -445,6 +445,13 @@ body {
     text-decoration: underline;
     color: #8b6a09;
   }
+p.note {
+  font-size: 0.85em;
+  color: #7a6535;
+  font-style: italic;
+  margin: 0.4em 0 0 0.3em;
+  opacity: 0.85;
+}
   
   /* =========================
      Print
