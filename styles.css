@@ -69,20 +69,16 @@ body {
   color: var(--gold);
   font-weight: 400;
 }
-
 .site-logo {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700; /* make it bolder like the PNG */
-  font-size: clamp(42px, 7vw, 72px); /* scale closer to the image */
-  letter-spacing: 0.02em; /* slightly tighter spacing */
+  font-weight: 300;
+  font-size: clamp(36px, 6vw, 64px);
+  letter-spacing: 0.04em;
   color: #000;
-  margin: 0;
-  padding: 0.5em 0;
+  margin: 0; /* remove h1’s default spacing */
+  padding: 0.25em 0; /* smaller breathing space */
   text-transform: lowercase;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 
 .site-logo .gold {
   color: #d8b65c;
