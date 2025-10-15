@@ -19,7 +19,12 @@ body {
     --card: #f6f7f9;
     --gold: #c9a227;
   }
-  
+  /* Simple reusable text styles */
+.gold {
+  color: var(--gold);
+  font-weight: 400;
+}
+
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
   
