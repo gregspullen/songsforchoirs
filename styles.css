@@ -489,6 +489,11 @@ p.note {
   margin: 0.4em 0 0 0.3em;
   opacity: 0.85;
 }
+/* Mission page panel balance */
+.mission-page .panel {
+  padding-top: 1.5em;
+  padding-bottom: 2.5em;
+}
 
 /* =========================
    Order Form Layout
