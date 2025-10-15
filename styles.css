@@ -74,11 +74,17 @@ body {
   font-weight: 300;
   font-size: clamp(36px, 6vw, 64px);
   letter-spacing: 0.04em;
-  color: #fff;
+  color: #000;
   margin: 0;
   padding: 0.5em 0;
+  text-transform: lowercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.site-logo .gold {
+  color: #d8b65c;
+  font-weight: 400; /* Slightly bolder to balance tone */
 }
 
 .tagline {
