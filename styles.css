@@ -532,8 +532,17 @@ button[type="submit"]:hover {
   width: 90px;
   text-align: center;
 }
+.success-note {
+  color: var(--gold);
+  font-weight: 500;
+  margin-top: 1em;
+}
 
-
+.error-note {
+  color: #b30000;
+  font-weight: 500;
+  margin-top: 1em;
+}
   
   /* =========================
      Print
