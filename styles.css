@@ -71,6 +71,12 @@ body {
   }
 
   /* --- Logo text --- */
+
+.site-logo .gold {
+  color: var(--gold);
+  font-weight: 400;
+}
+
 .site-logo {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
@@ -79,17 +85,18 @@ body {
   color: #fff;
   margin: 0;
   padding: 0.5em 0;
-}
-
-.site-logo .gold {
-  color: var(--gold);
-  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .tagline {
   margin: 0.25rem 0 0;
   font-size: 1.1rem;
   color: var(--muted);
+}
+
+.site-header {
+  padding: 12px 0 8px;
 }
 
   /* =========================
