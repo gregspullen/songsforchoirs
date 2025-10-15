@@ -58,70 +58,66 @@
   </footer>
 
   <script>
-  // Populate fields from query params
-  const params = new URLSearchParams(window.location.search);
-  document.getElementById('title').textContent = params.get('title') || '';
-  document.getElementById('choir').textContent = params.get('choir') || '';
-  document.getElementById('order').textContent = params.get('order') || '';
-  document.getElementById('amount').textContent = params.get('amount') || '';
-  document.getElementById("copies").textContent = params.get("copies") || "—";
+// 🪶 Populate fields from query params
+const params = new URLSearchParams(window.location.search);
+document.getElementById('title').textContent = params.get('title') || '';
+document.getElementById('choir').textContent = params.get('choir') || '';
+document.getElementById('order').textContent = params.get('order') || '';
+document.getElementById('amount').textContent = params.get('amount') || '';
+document.getElementById('copies').textContent = params.get('copies') || '—';
 
-  <script>
-const sendEmailBtn = document.getElementById("sendEmail");
+// ✉️ Handle "Send your licensed score" button
+const sendEmailBtn = document.getElementById('sendEmail');
 if (sendEmailBtn) {
-  sendEmailBtn.addEventListener("click", async () => {
-    // 1. soften button + message
+  sendEmailBtn.addEventListener('click', async () => {
+    // soften button + message
     sendEmailBtn.disabled = true;
     const originalText = sendEmailBtn.textContent;
-    sendEmailBtn.textContent = "Processing your order… please wait";
-    sendEmailBtn.style.opacity = "0.8";
-    sendEmailBtn.style.cursor = "wait";
+    sendEmailBtn.textContent = 'Processing your order… please wait';
+    sendEmailBtn.style.opacity = '0.8';
+    sendEmailBtn.style.cursor = 'wait';
 
-    // 2. collect URL data
-    const params = new URLSearchParams(window.location.search);
+    // collect data
     const data = {
-      title: params.get("title"),
-      choir: params.get("choir"),
-      copies: params.get("copies"),
-      email: params.get("email"),
-      order: params.get("order"),
-      amount: params.get("amount")
+      title: params.get('title'),
+      choir: params.get('choir'),
+      copies: params.get('copies'),
+      email: params.get('email'),
+      order: params.get('order'),
+      amount: params.get('amount')
     };
 
     try {
-      // 3. send email via Worker (this won’t freeze the page)
-      const res = await fetch(
-        "https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        }
-      );
+      // send email via Worker
+      const res = await fetch('https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
 
-      // 4. friendly inline message instead of scary popup
-      const msg = document.createElement("p");
-      msg.className = res.ok ? "success-note" : "error-note";
+      // inline friendly message
+      const msg = document.createElement('p');
+      msg.className = res.ok ? 'success-note' : 'error-note';
       msg.textContent = res.ok
-        ? "✅  Your licensed score has been emailed successfully."
-        : "⚠️  There was an issue sending your score. Please try again.";
-      sendEmailBtn.insertAdjacentElement("afterend", msg);
+        ? '✅ Your licensed score has been emailed successfully.'
+        : '⚠️ There was an issue sending your score. Please try again.';
+      sendEmailBtn.insertAdjacentElement('afterend', msg);
     } catch (err) {
-      const msg = document.createElement("p");
-      msg.className = "error-note";
-      msg.textContent =
-        "⚠️  Network issue — please check your connection and try again.";
-      sendEmailBtn.insertAdjacentElement("afterend", msg);
+      const msg = document.createElement('p');
+      msg.className = 'error-note';
+      msg.textContent = '⚠️ Network issue — please check your connection and try again.';
+      sendEmailBtn.insertAdjacentElement('afterend', msg);
     } finally {
-      // 5. restore button
+      // restore button
       sendEmailBtn.disabled = false;
       sendEmailBtn.textContent = originalText;
-      sendEmailBtn.style.opacity = "1";
-      sendEmailBtn.style.cursor = "pointer";
+      sendEmailBtn.style.opacity = '1';
+      sendEmailBtn.style.cursor = 'pointer';
     }
   });
 }
 </script>
+
 
   
 </body>
