@@ -491,9 +491,10 @@ p.note {
 }
 /* Mission page panel balance */
 .mission-page .panel {
-  padding-top: 1.5em;
-  padding-bottom: 2.5em;
+  padding-top: 1em !important;
+  padding-bottom: 2.5em !important;
 }
+
 
 /* =========================
    Order Form Layout
