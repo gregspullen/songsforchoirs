@@ -152,7 +152,26 @@ document.addEventListener("DOMContentLoaded", () => {
     // Now go to PayPal — no premature emails
     e.target.submit();
   });
+
+  // Simple, safe visual feedback (no animation)
+  const submitBtn = document.getElementById("submitBtn");
+  document.getElementById("orderForm").addEventListener("submit", function () {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing your order… please wait";
+    submitBtn.style.opacity = "0.8";
+    submitBtn.style.cursor = "wait";
+
+    // Safety timeout — reset if PayPal takes too long
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Order & Continue to PayPal";
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
+    }, 10000); // 10 seconds
+  });
 });
+</script>
+
 </script>
 </body>
 </html>
