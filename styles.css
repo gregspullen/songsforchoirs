@@ -188,10 +188,12 @@ p em {
   padding: 2em;
 }
 /* Tighter spacing inside the receipt block */
-.receipt-panel p {
-  margin-top: 0.1em;
-  margin-bottom: 0.1em;
-  line-height: 1.2;
+.receipt-panel div {
+  line-height: 1.15 !important;
+  margin-top: 0.05em !important;
+  margin-bottom: 0.05em !important;
+}
+
 }
 /* Keep a nice pause under the thank-you heading */
 .receipt-panel h2 {
