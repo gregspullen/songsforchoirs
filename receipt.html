@@ -66,33 +66,59 @@
   document.getElementById('amount').textContent = params.get('amount') || '';
   document.getElementById("copies").textContent = params.get("copies") || "—";
 
-  // Send email (Worker trigger)
-  document.getElementById('sendEmail').addEventListener('click', async () => {
-    const data = {
-      title: params.get('title'),
-      choir: params.get('choir'),
-      copies: params.get('copies'),
-      email: params.get('email'),
-      order: params.get('order'),
-      amount: params.get('amount')
-    };
-    const res = await fetch('https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
-    alert(res.ok ? 'Your licensed score has been emailed successfully.' : 'There was an issue sending your score. Please try again.');
-  });
-  </script>
-
   <script>
-const sendEmail = document.getElementById("sendEmail");
-if (sendEmail) {
-  sendEmail.addEventListener("click", function () {
-    sendEmail.disabled = true;
-    sendEmail.textContent = "Processing your order… please wait";
-    sendEmail.style.opacity = "0.8";
-    sendEmail.style.cursor = "wait";
+const sendEmailBtn = document.getElementById("sendEmail");
+if (sendEmailBtn) {
+  sendEmailBtn.addEventListener("click", async () => {
+    // 1. soften button + message
+    sendEmailBtn.disabled = true;
+    const originalText = sendEmailBtn.textContent;
+    sendEmailBtn.textContent = "Processing your order… please wait";
+    sendEmailBtn.style.opacity = "0.8";
+    sendEmailBtn.style.cursor = "wait";
+
+    // 2. collect URL data
+    const params = new URLSearchParams(window.location.search);
+    const data = {
+      title: params.get("title"),
+      choir: params.get("choir"),
+      copies: params.get("copies"),
+      email: params.get("email"),
+      order: params.get("order"),
+      amount: params.get("amount")
+    };
+
+    try {
+      // 3. send email via Worker (this won’t freeze the page)
+      const res = await fetch(
+        "https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }
+      );
+
+      // 4. friendly inline message instead of scary popup
+      const msg = document.createElement("p");
+      msg.className = res.ok ? "success-note" : "error-note";
+      msg.textContent = res.ok
+        ? "✅  Your licensed score has been emailed successfully."
+        : "⚠️  There was an issue sending your score. Please try again.";
+      sendEmailBtn.insertAdjacentElement("afterend", msg);
+    } catch (err) {
+      const msg = document.createElement("p");
+      msg.className = "error-note";
+      msg.textContent =
+        "⚠️  Network issue — please check your connection and try again.";
+      sendEmailBtn.insertAdjacentElement("afterend", msg);
+    } finally {
+      // 5. restore button
+      sendEmailBtn.disabled = false;
+      sendEmailBtn.textContent = originalText;
+      sendEmailBtn.style.opacity = "1";
+      sendEmailBtn.style.cursor = "pointer";
+    }
   });
 }
 </script>
