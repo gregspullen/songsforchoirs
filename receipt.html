@@ -45,7 +45,7 @@
       <em>Before printing, please download your licensed score as a ZIP — we want to protect you from wasteful errors and save you coming back for a reprint.</em>
     </p>
 
-    <button id="sendEmail">Send your licensed score</button>
+    <button id="sendEmail" class="paypal-btn">Send your licensed score</button>
 
     <p class="note">
       <em>In return, we’d ask you not to infringe our copyright by printing multiple copies of the same licensed score.<br>
@@ -84,5 +84,19 @@
     alert(res.ok ? 'Your licensed score has been emailed successfully.' : 'There was an issue sending your score. Please try again.');
   });
   </script>
+
+  <script>
+const sendEmail = document.getElementById("sendEmail");
+if (sendEmail) {
+  sendEmail.addEventListener("click", function () {
+    sendEmail.disabled = true;
+    sendEmail.textContent = "Processing your order… please wait";
+    sendEmail.style.opacity = "0.8";
+    sendEmail.style.cursor = "wait";
+  });
+}
+</script>
+
+  
 </body>
 </html>
