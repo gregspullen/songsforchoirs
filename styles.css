@@ -24,6 +24,13 @@ body {
   color: var(--gold);
   font-weight: 400;
 }
+/* Make italic notes display in gold */
+p em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
 
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
