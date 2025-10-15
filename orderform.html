@@ -17,7 +17,7 @@
   <meta name="twitter:site" content="@songsforchoirs">
 
   <!-- Correct link to your global stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 
 <body>
@@ -47,51 +47,53 @@
   
 <body>
 
-  <div class="panel">
+  <!-- Form panel -->
+<div class="panel">
   <h2>Place Your Order Here</h2>
 
   <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
-      </form>
+    <!-- PayPal variables -->
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
+    <input type="hidden" name="currency_code" value="GBP">
+    <input type="hidden" name="item_name" id="paypalItemName" value="">
+    <input type="hidden" name="amount" id="paypalAmount" value="">
+    <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
+    <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+
+    <!-- Regular form fields -->
+    <label>Title of piece:
+      <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+    </label>
+
+    <label>Organisation / Choir:
+      <input id="choir" required>
+    </label>
+
+    <label>Number of copies:
+      <input id="copy" required type="number" min="1" max="30">
+    </label>
+
+    <p class="note">
+      Please place multiple orders for batches of more than 30 copies.<br>
+      This limit applies to keep transactions and downloads safe and reliable.
+    </p>
+
+    <label for="email">Where would you like your music to be delivered?</label>
+    <input id="email" type="email" name="email" placeholder="yourname@example.com" required>
+
+    <p class="note">
+      We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
+    </p>
+
+    <button type="submit">Submit Order & Continue to PayPal</button>
+
+    <p class="note">
+      <em>PayPal might ask you to repeat your password for additional security. You won't be charged twice for your purchase.</em>
+    </p>
+  </form>
 </div>
 
-<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
-
-  <!-- PayPal variables -->
-  <input type="hidden" name="cmd" value="_xclick">
-  <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
-  <input type="hidden" name="currency_code" value="GBP">
-  <input type="hidden" name="item_name" id="paypalItemName" value="">
-  <input type="hidden" name="amount" id="paypalAmount" value="">
-  <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
-  <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
-
-  <!-- Regular form fields -->
-  <label>Title of piece:
-    <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
-  </label>
-  <label>Organisation / Choir:
-    <input id="choir" required>
-  </label>
-  <label>Number of copies:
-  <input id="copy" required type="number" min="1" max="30">
-</label>
-<p class="note">
-  Please place multiple orders for batches of more than 30 copies.<br>
-  This limit applies to keep transactions and downloads safe and reliable.
-</p>
-
-  <p id="copy-note" class="note"></p>
-
-  </label>
-  <label for="email">Where would you like your music to be delivered?</label>
-  <input id="email" type="email" name="email" placeholder="yourname@example.com" required>
-  <p class="note">We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</p>
-
-  <button type="submit">Submit Order & Continue to PayPal</button>
-  <p class="note">
-    <em>PayPal might ask you to repeat your password for additional security. You won't be charged twice for your purchase.</em>
-  </p>
-</form>
 
 <script>
 function generateOrderNumber() {
