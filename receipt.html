@@ -54,67 +54,65 @@ If you prefer to save ink (and possibly paper), you can start printing from page
   </footer>
 
   <script>
-// 🪶 Populate fields from query params
-const params = new URLSearchParams(window.location.search);
-document.getElementById('title').textContent = params.get('title') || '';
-document.getElementById('choir').textContent = params.get('choir') || '';
-document.getElementById('order').textContent = params.get('order') || '';
-document.getElementById('amount').textContent = params.get('amount') || '';
-document.getElementById('copies').textContent = params.get('copies') || '—';
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title") || "";
+  const choir = params.get("choir") || "";
+  const order = params.get("order") || "";
+  const amount = params.get("amount") || "";
+  const copies = params.get("copies") || "—";
+  const email = params.get("email") || "";
 
-// ✉️ Handle "Send your licensed score" button
-const sendEmailBtn = document.getElementById('sendEmail');
-if (sendEmailBtn) {
-  sendEmailBtn.addEventListener('click', async () => {
-    // soften button + message
-    sendEmailBtn.disabled = true;
-    const originalText = sendEmailBtn.textContent;
-    sendEmailBtn.textContent = 'Processing your order… please wait';
-    sendEmailBtn.style.opacity = '0.8';
-    sendEmailBtn.style.cursor = 'wait';
+  // populate visible fields
+  document.getElementById("title").textContent = title;
+  document.getElementById("choir").textContent = choir;
+  document.getElementById("order").textContent = order;
+  document.getElementById("amount").textContent = amount;
+  document.getElementById("copies").textContent = copies;
 
-    // collect data
-    const data = {
-      title: params.get('title'),
-      choir: params.get('choir'),
-      copies: params.get('copies'),
-      email: params.get('email'),
-      order: params.get('order'),
-      amount: params.get('amount')
-    };
+  // identify button and storage key
+  const sendBtn = document.getElementById("sendEmail");
+  const emailSentKey = `emailSent_${order}`;
 
-    try {
-      // send email via Worker
-      const res = await fetch('https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(data)
+  // Only send once per order
+  if (!localStorage.getItem(emailSentKey)) {
+    fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, choir, copies, email, order, amount }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          localStorage.setItem(emailSentKey, "true");
+          if (sendBtn) {
+            sendBtn.disabled = true;
+            sendBtn.textContent = "✅ Licensed score emailed";
+            sendBtn.style.cursor = "default";
+            sendBtn.style.opacity = "0.75";
+          }
+        } else {
+          console.error("Email failed:", res.status);
+          if (sendBtn) {
+            sendBtn.textContent = "⚠️ Problem sending — please try again later";
+          }
+        }
+      })
+      .catch((err) => {
+        console.error("Email send error:", err);
+        if (sendBtn) {
+          sendBtn.textContent = "⚠️ Network issue — please refresh and retry";
+        }
       });
-
-      // inline friendly message
-      const msg = document.createElement('p');
-      msg.className = res.ok ? 'success-note' : 'error-note';
-      msg.textContent = res.ok
-        ? '✅ Your licensed score has been emailed successfully.'
-        : '⚠️ There was an issue sending your score. Please try again.';
-      sendEmailBtn.insertAdjacentElement('afterend', msg);
-    } catch (err) {
-      const msg = document.createElement('p');
-      msg.className = 'error-note';
-      msg.textContent = '⚠️ Network issue — please check your connection and try again.';
-      sendEmailBtn.insertAdjacentElement('afterend', msg);
-    } finally {
-      // restore button
-      sendEmailBtn.disabled = false;
-      sendEmailBtn.textContent = originalText;
-      sendEmailBtn.style.opacity = '1';
-      sendEmailBtn.style.cursor = 'pointer';
+  } else {
+    // already sent before — show gentle confirmation
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = "✅ Your licensed score has already been emailed";
+      sendBtn.style.cursor = "default";
+      sendBtn.style.opacity = "0.75";
     }
-  });
-}
+  }
+});
 </script>
-
-
-  
 </body>
 </html>
