@@ -197,6 +197,19 @@ p em {
 .receipt-panel h2 {
   margin-bottom: 0.8em;
 }
+/* Tighter spacing for receipt summary lines */
+.receipt-panel strong {
+  display: inline-block;
+  margin-bottom: 0.1em;
+}
+
+.receipt-panel p,
+.receipt-panel div,
+.receipt-panel span {
+  line-height: 1.25;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
 
   /* =========================
      Links
