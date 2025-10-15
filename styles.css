@@ -71,9 +71,9 @@ body {
 
 .site-logo {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
-  font-size: clamp(36px, 6vw, 64px);
-  letter-spacing: 0.04em;
+  font-weight: 700; /* make it bolder like the PNG */
+  font-size: clamp(42px, 7vw, 72px); /* scale closer to the image */
+  letter-spacing: 0.02em; /* slightly tighter spacing */
   color: #000;
   margin: 0;
   padding: 0.5em 0;
@@ -81,6 +81,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 .site-logo .gold {
   color: #d8b65c;
