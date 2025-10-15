@@ -69,13 +69,9 @@ body {
 }
 
 /* --- Logo text --- */
-.site-logo .gold {
-  color: var(--gold);
-  font-weight: 400;
-}
 .site-logo {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 700;
   font-size: clamp(36px, 6vw, 64px);
   letter-spacing: 0.04em;
   color: #000;
