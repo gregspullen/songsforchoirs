@@ -64,6 +64,7 @@
   document.getElementById('choir').textContent = params.get('choir') || '';
   document.getElementById('order').textContent = params.get('order') || '';
   document.getElementById('amount').textContent = params.get('amount') || '';
+  document.getElementById("copies").textContent = params.get("copies") || "—";
 
   // Send email (Worker trigger)
   document.getElementById('sendEmail').addEventListener('click', async () => {
