@@ -88,16 +88,14 @@
   We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
 </p>
 
-<button type="submit">Submit Order & Continue to PayPal</button>
+<button type="submit" id="submitBtn">Submit Order & Continue to PayPal</button>
 
 <p class="note">
   PayPal might ask you to repeat your password for additional security.<br>
   You won’t be charged twice for your purchase.
 </p>
-
-  </form>
+</form>
 </div>
-
 
 <script>
 function generateOrderNumber() {
@@ -110,6 +108,9 @@ function generateOrderNumber() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("orderForm");
+  const submitBtn = document.getElementById("submitBtn");
+
   // Autofill title from ?title= parameter
   const params = new URLSearchParams(window.location.search);
   const titleParam = params.get("title");
@@ -120,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Handle PayPal submit
-  document.getElementById("orderForm").addEventListener("submit", function (e) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const title = document.getElementById("title").value.trim();
@@ -138,40 +139,34 @@ document.addEventListener("DOMContentLoaded", () => {
     // Build return URL with details
     const baseReturn = "https://www.songsforchoirs.com/receipt.html";
     const returnParams = new URLSearchParams({
-  title,
-  choir,
-  copies,
-  amount: total,
-  order: orderNum,
-  total: copies,
-  email
-});
+      title,
+      choir,
+      copies,
+      amount: total,
+      order: orderNum,
+      email
+    });
 
     document.getElementById("paypalReturn").value = `${baseReturn}?${returnParams.toString()}`;
 
-    // Now go to PayPal — no premature emails
-    e.target.submit();
-  });
-
-  // Simple, safe visual feedback (no animation)
-  const submitBtn = document.getElementById("submitBtn");
-  document.getElementById("orderForm").addEventListener("submit", function () {
+    // Disable button & show visual feedback
     submitBtn.disabled = true;
     submitBtn.textContent = "Processing your order… please wait";
     submitBtn.style.opacity = "0.8";
     submitBtn.style.cursor = "wait";
 
-    // Safety timeout — reset if PayPal takes too long
+    // Try to submit; if PayPal fails, reset after 10s
     setTimeout(() => {
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Order & Continue to PayPal";
       submitBtn.style.opacity = "1";
       submitBtn.style.cursor = "pointer";
-    }, 10000); // 10 seconds
+    }, 10000);
+
+    // Now go to PayPal
+    form.submit();
   });
 });
-</script>
-
 </script>
 </body>
 </html>
