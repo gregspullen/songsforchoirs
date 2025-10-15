@@ -1,3 +1,7 @@
+html, body {
+  border: none;
+  outline: none;
+}
 
 body {
   margin: 0;
