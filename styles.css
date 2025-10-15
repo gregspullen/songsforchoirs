@@ -167,7 +167,15 @@ body {
     font-size: 1.25rem;
     font-weight: 700;
   }
-  
+
+/* Order & Receipt layout refinements */
+.order-page .panel,
+.receipt-page .panel {
+  max-width: 640px;
+  margin: 2.5em auto;
+  padding: 2em;
+}
+
   /* =========================
      Links
      ========================= */
