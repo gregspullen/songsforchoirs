@@ -436,9 +436,9 @@ p em {
     flex-grow: 1;
   }
   body.contact #people {
-    margin-bottom: 7rem;
-    padding-bottom: 2rem;
-  }
+  margin-bottom: 2.5rem;
+  padding-bottom: 3.3rem; /* aligns with opus baseline */
+}
   
   /* Mission page */
   body.mission-page {
