@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const amount = params.get("amount") || "";
   const copies = params.get("copies") || "—";
   const email = params.get("email") || "";
+  const currency = params.get("currency") || "GBP";
 
   // populate visible fields
   document.getElementById("title").textContent = title;
@@ -79,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title, choir, copies, email, order, amount }),
+      body: JSON.stringify({ title, choir, copies, email, order, amount, currency }),
     })
       .then((res) => {
         if (res.ok) {

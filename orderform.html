@@ -62,6 +62,7 @@
     <input type="hidden" name="amount" id="paypalAmount" value="">
     <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
     <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+    <input type="hidden" name="currency" id="currency" value="GBP">
 
     <!-- Regular form fields -->
     <label>Title of piece:
@@ -88,7 +89,8 @@
   We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
 </p>
 
-<button type="submit" id="submitBtn">Submit Order & Continue to PayPal</button>
+<button type="submit" id="submitBtn" class="price">Submit Order & Continue to PayPal</button>
+
 
 <p class="note">
   PayPal might ask you to repeat your password for additional security.<br>
@@ -144,8 +146,10 @@ document.addEventListener("DOMContentLoaded", () => {
       copies,
       amount: total,
       order: orderNum,
-      email
+      email,
+      currency: document.getElementById("currency").value
     });
+
 
     document.getElementById("paypalReturn").value = `${baseReturn}?${returnParams.toString()}`;
 

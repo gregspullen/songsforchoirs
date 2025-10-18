@@ -524,22 +524,40 @@ input[type="number"] {
   margin-top: 0.3em;
 }
 
-button[type="submit"] {
+/* --- Main button --- */
+button.price {
   display: block;
-  margin: 2em auto 0;
+  margin: 1.25em auto 0;
   background: linear-gradient(to bottom, #fefcf7, #f1e2b8);
-  border: 1px solid #c9a227;
-  border-radius: 8px;
-  padding: 0.75em 1.5em;
+  border: 1px solid #d6c7a4;
+  border-radius: 6px;
+  padding: 0.65em 2em; /* widened padding */
   color: #333;
   font-weight: 600;
+  font-size: 0.95rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  white-space: nowrap; /* keeps the text on one line */
 }
 
-button[type="submit"]:hover {
+button.price:hover {
   background: linear-gradient(to bottom, #fff8e3, #f5d98f);
+  transition: background 0.2s ease-in-out;
 }
+.paypal-box:hover {
+  background: #fffdf8;
+  border-color: #c9a227;  /* warms gently on hover */
+  transition: all 0.2s ease-in-out;
+}
+
+/* --- Small text --- */
+button.price small {
+  color: #5c4a1f;
+  opacity: 0.9;
+  font-size: 0.9em;
+  margin-left: 0.25em;
+}
+
 /* Receipt page: Send Email button */
 #sendEmail {
   background-color: var(--gold);
@@ -657,7 +675,85 @@ button[type="submit"]:hover {
     opacity: 1;
     transform: translateX(-50%) translateY(-3px);
   }
+  /* =========================
+   PayPal Link Button — matches orderform submit
+   ========================= */
+  a.paypal {
+    display: inline-block;
+    margin: 2em auto 0;
+    background: linear-gradient(to bottom, #fefcf7, #f1e2b8);
+    border: 1px solid #c9a227;
+    border-radius: 8px;
+    padding: 0.75em 1.5em;
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: background 0.2s ease, transform 0.1s ease;
+    background-clip: padding-box;
+  }
+
+  a.paypal:hover {
+    background: linear-gradient(to bottom, #fff8e3, #f5d98f);
+    transform: translateY(-1px);
+  }
+  /* Match the right-hand frame to the audio player */
+  .opus-page .paypal-box {
+    background: #fffdf8;
+    border: 1px solid #e6d8ad;
+    border-radius: 10px;
+    padding: 0.0em 0.8em;   /* reduces overall height ≈ 15px */
+    margin-top: -0.15em;     /* keeps the top in perfect alignment */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.02);
+  }
+
+  
+  .opus-page .paypal-box .price {
+    position: relative;
+    top: -9px; /* relaxes the offset */
+  }
+  
+
+  
+  
+.opus-page a.paypal {
+  margin-top: 0em;                /* let the box handle spacing */
+}
+
+
+/* Audio player frame */
+.opus-page .opus-left audio {
+  display: block;
+  background: #fffdf8;
+  border: 1px solid #e6d8ad;
+  border-radius: 8px;
+  padding: 0.5em 0.8em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+/* Nudge player box down slightly for balance */
+.opus-page .opus-right {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 0.3em;
+}
+
+.opus-page .opus-left audio {
+  background: #fffaf3;
+  border: 1px solid #e6d8ad;
+}
+
+/* Final bedtime alignment hop 🌙 */
+.opus-page .opus-left,
+.opus-page .opus-right {
+  display: flex;
+  align-items: center;  /* perfect vertical harmony */
+  justify-content: center;
+}
 
 
 
-   
+
+
+    
