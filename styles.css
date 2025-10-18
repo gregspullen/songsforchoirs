@@ -436,8 +436,8 @@ p em {
     flex-grow: 1;
   }
   body.contact #people {
-  margin-bottom: 2.5rem;
-  padding-bottom: 4rem;
+    margin-bottom: 7rem;
+    padding-bottom: 2rem;
 }
   /* Mission page */
   body.mission-page {
