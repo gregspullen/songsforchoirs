@@ -437,9 +437,8 @@ p em {
   }
   body.contact #people {
   margin-bottom: 2.5rem;
-  padding-bottom: 3.3rem; /* aligns with opus baseline */
+  padding-bottom: 4rem;
 }
-  
   /* Mission page */
   body.mission-page {
     background: url("images/Pearl_rays.png") center top / cover no-repeat;
