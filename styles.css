@@ -454,6 +454,10 @@ body.contact #people {
   font-style: normal;
   font-weight: 500;
 }
+/* Contact page footer alignment */
+body.contact .site-footer {
+  padding-bottom: 3em; /* moves © down a little */
+}
 
 /* =========================
    Mission page
