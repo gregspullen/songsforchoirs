@@ -442,7 +442,7 @@ body.contact #people {
 }
 /* Contact page footer alignment */
 body.contact .site-footer {
-  padding-bottom: 8em; /* moves © down a little */
+  padding-bottom: 0em; /* moves © down a little */
 }
 /* =========================
    About Us — tone & spacing
