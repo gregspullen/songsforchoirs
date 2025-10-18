@@ -439,6 +439,20 @@ p em {
     margin-bottom: 7rem;
     padding-bottom: 2.25rem;
 }
+  /* =========================
+     About Us — tone & spacing
+     ========================= */
+  .about p {
+    font-style: italic;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .about strong {
+    font-style: normal;
+    font-weight: 500;
+  }
+/*===================*/
   /* Mission page */
   body.mission-page {
     background: url("images/Pearl_rays.png") center top / cover no-repeat;
