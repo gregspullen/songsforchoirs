@@ -427,19 +427,8 @@ p em {
   /* =========================
      Page-specific adjustments
      ========================= */
-  
-  /* Contact page alignment */
-  body.contact main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
-  body.contact #people {
-    margin-bottom: 7rem;
-    padding-bottom: 2.25rem;
-}
-  /* =========================
+
+/* =========================
      About Us — tone & spacing
      ========================= */
   .about p {
@@ -453,6 +442,17 @@ p em {
     font-weight: 500;
   }
 /*===================*/
+  /* Contact page alignment */
+  body.contact main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  body.contact #people {
+    margin-bottom: 7rem;
+    padding-bottom: 2.25rem;
+}
   /* Mission page */
   body.mission-page {
     background: url("images/Pearl_rays.png") center top / cover no-repeat;
