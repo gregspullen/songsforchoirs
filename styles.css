@@ -422,7 +422,10 @@ p em {
     padding: 1em 0 1.2em;   /* replaces 24px/32px — matches all opus pages */
     font-size: 0.9rem;
   }
-
+/* Global footer balance — gentle upward lift for all pages */
+.site-footer {
+  padding-bottom: 3em; /* small tidy-up adjustment */
+  /*margin-top: 3em;*/       /* keeps a breathing gap above */
   
   /* =========================
    Page-specific adjustments
