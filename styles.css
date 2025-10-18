@@ -440,10 +440,6 @@ body.contact #people {
   margin-bottom: 2rem;
   
 }
-/* Contact page footer alignment */
-body.contact .site-footer {
-  padding-bottom: 0em; /* moves © down a little */
-}
 /* =========================
    About Us — tone & spacing
    ========================= */
