@@ -473,10 +473,11 @@ p em {
 
 
 
-
+/*
   .site-footer {
     outline: 1px dashed rgba(200,150,0,0.4);
   }
+*/
   /* Lock footer height consistency */
 .site-footer {
   margin-top: auto;    /* let flex push it to the bottom naturally */
