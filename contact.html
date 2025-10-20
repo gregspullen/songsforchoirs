@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact – Songs for Choirs</title>
+  <meta name="description" content="Contact and biographies for Songs for Choirs." />
+
+  <!-- Favicons -->
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css?v=999" />
+
+  <style>
+  /* Contact page custom styling */
+  .about {
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .about strong {
+    font-style: normal;
+    font-weight: 500;
+  }
+
+</style>
+
+<style>
+  /* Gentle breathing space under the About Us panel */
+  #people.panel {
+    margin-bottom: 8.55rem; /* lift footer comfortably below Lyra’s bio */
+    padding-bottom: 0;
+  }
+
+  .about {
+    line-height: 1.8; /* optional – opens up text a touch */
+  }
+</style>
+
+
+</head>
+
+<body class="contact">
+  <header class="site-header">
+  <h1 class="site-logo">
+  songs<span class="gold">for</span>choirs
+</h1>
+<p class="tagline">Music for all voices, all occasions — freely browse, listen &amp; buy our music.</p>
+
+
+  <nav id="site-nav" class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="choral.html">Choral</a></li>
+      <li><a href="children.html">Children</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- Contact Section -->
+    <section id="contact" class="panel" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>Email: <a href="mailto:lyra@songsforchoirs.com">lyra@songsforchoirs.com</a></p>
+      <p class="fineprint">
+        Learn more about our <a href="mission.html">mission</a>.
+      </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="people" class="panel" aria-labelledby="people-heading">
+      <h2 id="people-heading">About Us</h2>
+
+      <figure class="about-hero">
+        <img src="images/about/The-frogs.png" alt="Greg and Lyra — About Us" />
+        <figcaption class="fineprint">Gregory Pullen and Lyra Harker</figcaption>
+      </figure>
+
+      <p class="about">
+  <strong>Gregory used to play cello in a suit — now he writes music in slippers.</strong><br>
+  Lyra says she does all the real work around here… but she never makes the coffee.
+</p>
+
+    </section>
+
+</main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+    </div>
+  </footer>
+ 
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Highlight current page & sticky nav shadow
+    (function () {
+      const nav = document.getElementById('site-nav');
+      const here = location.pathname.split('/').pop() || 'index.html';
+      [...nav.querySelectorAll('a')].forEach(a => {
+        const target = a.getAttribute('href').split('/').pop();
+        if (target === here) a.setAttribute('aria-current', 'page');
+      });
+      const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 0);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
+</body>
+</html>
