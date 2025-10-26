@@ -30,12 +30,12 @@
   <style>
   /* Order form layout refinement */
   body.order-page .panel {
-    width: 90%;
-    max-width: 720px;  /* narrower, matches choral.html proportions */
-    margin: 2rem auto;
-    padding: 2rem 2.5rem;
-    display: block;
-  }
+  width: 90%;
+  max-width: 720px;
+  margin: 1rem auto 1.5rem;   /* ↓ reduced top margin */
+  padding: 1.5rem 2rem;
+  display: block;
+}
 
   /* Restore natural text wrapping */
   body.order-page .panel, 
@@ -75,6 +75,28 @@
   body.order-page section {
     max-width: 100% !important;
   }
+
+  /* Put Organisation and Number of Copies side by side */
+body.order-page .form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+body.order-page .form-row .half {
+  flex: 1;
+}
+
+body.order-page .form-row label {
+  display: block;
+  margin-bottom: 0.25em;
+}
+
+body.order-page .form-row input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 </style>
 
 
@@ -132,13 +154,18 @@
     <label for="title">Title of piece:</label>
     <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
     
-    <label for="choir">Organisation / Choir:</label>
-    <input id="choir" class="choir-field" required>
+    <div class="form-row">
+      <div class="half">
+        <label for="choir">Organisation / Choir:</label>
+        <input id="choir" class="choir-field" required>
+      </div>
     
-    <label for="copy" class="inline-label">Number of copies:</label>
-    <input id="copy" class="inline-input" required type="number" min="1" max="30">
-
-
+      <div class="half">
+        <label for="copy">Number of copies:</label>
+        <input id="copy" class="inline-input" required type="number" min="1" max="30">
+      </div>
+    </div>
+    
     <p class="note">
   Please place large orders in batches of no more than 30 copies each.<br>
   This limit applies to keep transactions and downloads safe and reliable.
@@ -146,6 +173,23 @@
 
 <label for="email">Where would you like your music to be delivered?</label>
 <input id="email" type="email" name="email" placeholder="yourname@example.com" autocomplete="email" required>
+
+<small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
+
+<label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
+<input type="email" id="confirm_email" name="confirm_email" placeholder="please re-enter your email" required>
+
+<script>
+document.querySelector('form').addEventListener('submit', function(e) {
+  const email = document.getElementById('email').value.trim();
+  const confirm = document.getElementById('confirm_email').value.trim();
+  if (email !== confirm) {
+    e.preventDefault();
+    alert('Please check that both email addresses match before continuing.');
+  }
+});
+</script>
+
 
 <p class="note">
   We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
