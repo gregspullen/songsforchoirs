@@ -186,6 +186,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
   if (email !== confirm) {
     e.preventDefault();
     alert('Please check that both email addresses match before continuing.');
+    return false; // 🐸 stops any accidental PayPal launch
   }
 });
 </script>
