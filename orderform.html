@@ -1,11 +1,15 @@
-<body class="order-page">
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Keep this: we don't want this page in Google -->
+  <meta name="robots" content="noindex">
+
   <title>Choir Score Order Form — Songs for Choirs</title>
   <meta name="description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies.">
+
+  <!-- Social (optional, fine to keep) -->
   <meta property="og:title" content="Choir Score Order Form — Songs for Choirs">
   <meta property="og:description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies.">
   <meta property="og:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
@@ -18,11 +22,10 @@
   <meta name="twitter:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
   <meta name="twitter:site" content="@songsforchoirs">
 
-  <!-- Correct link to your global stylesheet -->
   <link rel="stylesheet" href="styles.css?v=999">
 </head>
-
-<body>
+<body class="order-page">
+  <!-- your order form content here -->
 
   <!-- Consistent header -->
   <header class="site-header">
@@ -44,10 +47,7 @@
 
   <!-- The order form starts here -->
 
-
   <!-- (Your form content goes here below this line) -->
-  
-<body>
 
   <!-- Form panel -->
 <div class="panel">
@@ -62,20 +62,17 @@
     <input type="hidden" name="amount" id="paypalAmount" value="">
     <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
     <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
-    <input type="hidden" name="currency" id="currency" value="GBP">
-
+    
     <!-- Regular form fields -->
-    <label>Title of piece:
-      <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
-    </label>
+    <label for="title">Title of piece:</label>
+    <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+    
+    <label for="choir">Organisation / Choir:</label>
+    <input id="choir" class="choir-field" required>
+    
+    <label for="copy" class="inline-label">Number of copies:</label>
+    <input id="copy" class="inline-input" required type="number" min="3" max="30">
 
-    <label>Organisation / Choir:
-  <input id="choir" class="choir-field" required>
-</label>
-
-<label class="inline-label">Number of copies:
-  <input id="copy" class="inline-input" required type="number" min="1" max="30">
-</label>
 
     <p class="note">
   Please place large orders in batches of no more than 30 copies each.<br>
@@ -83,7 +80,7 @@
 </p>
 
 <label for="email">Where would you like your music to be delivered?</label>
-<input id="email" type="email" name="email" placeholder="yourname@example.com" required>
+<input id="email" type="email" name="email" placeholder="yourname@example.com" autocomplete="email" required>
 
 <p class="note">
   We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
@@ -128,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const title = document.getElementById("title").value.trim();
     const choir = document.getElementById("choir").value.trim();
-    const copies = parseInt(document.getElementById("copy").value) || 1;
+    const copies = Math.min(30, Math.max(3, parseInt(document.getElementById("copy").value || "3", 10)));
     const pricePerCopy = 1.25;
     const total = (copies * pricePerCopy).toFixed(2);
     const orderNum = generateOrderNumber();
@@ -147,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       amount: total,
       order: orderNum,
       email,
-      currency: document.getElementById("currency").value
+      currency: "GBP"
     });
 
 
