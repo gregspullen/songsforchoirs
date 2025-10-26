@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const title = document.getElementById("title").value.trim();
     const choir = document.getElementById("choir").value.trim();
-    const copies = Math.min(30, Math.max(3, parseInt(document.getElementById("copy").value || "3", 10)));
+    const copies = Math.min(30, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
     const pricePerCopy = 1.25;
     const total = (copies * pricePerCopy).toFixed(2);
     const orderNum = generateOrderNumber();
