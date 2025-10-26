@@ -43,7 +43,33 @@
     word-break: break-word !important;
   }
 </style>
+<style>
+  /* Make labels and notes use full width */
+  body.order-page form,
+  body.order-page label,
+  body.order-page p.note {
+    max-width: 100% !important;
+    display: block;
+  }
 
+  /* Make paragraph text wrap naturally */
+  body.order-page p.note {
+    white-space: normal !important;
+    line-height: 1.5;
+    margin-right: 0;
+  }
+
+  /* Ensure the input boxes stretch nicely */
+  body.order-page input[type="text"],
+  body.order-page input[type="email"],
+  body.order-page input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
+
+
+  
 
 
   
