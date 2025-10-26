@@ -877,6 +877,38 @@ button.price small {
   justify-content: center;
 }
 
+/* --- Safety: no horizontal overflow --- */
+* { box-sizing: border-box; }
+
+.wrap,
+.panel {
+  max-width: 720px;     /* keeps things readable on big screens */
+  margin: 0 auto;       /* centers the content */
+  padding: 0 16px;      /* gives breathing room at the edges */
+}
+
+.panel, .panel p, .panel label, .panel input, .panel button {
+  white-space: normal;
+  word-break: break-word;     /* break very long words if needed */
+  overflow-wrap: anywhere;    /* ensure nothing runs off the page */
+}
+
+/* --- Form layout --- */
+label { display: block; margin: 12px 0 6px; }
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+  width: 100%;                /* inputs fill the panel width */
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Copies spinner shouldn't be huge */
+#copy.inline-input { width: 120px; }
+
+/* If your top nav ever gets tight, allow it to wrap nicely */
+.site-nav ul { display: flex; gap: 16px; flex-wrap: wrap; }
 
 
 
