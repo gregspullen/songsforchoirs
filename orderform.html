@@ -23,6 +23,30 @@
   <meta name="twitter:site" content="@songsforchoirs">
 
   <link rel="stylesheet" href="styles.css?v=999">
+
+
+
+
+  <style>
+  /* Order form only: widen the main panel and allow wrapping */
+  body.order-page .panel {
+    width: 100%;
+    max-width: 960px !important;  /* was narrower somewhere */
+    margin: 0 auto;
+    padding: 0 16px;
+    display: block !important;    /* neutralise any grid/float squeezing */
+  }
+  body.order-page .panel, 
+  body.order-page .panel * {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+</style>
+
+
+
+  
 </head>
 <body class="order-page">
   <!-- your order form content here -->
