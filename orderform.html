@@ -59,7 +59,24 @@
     line-height: 1.5;
     margin: 0.5rem 0 1rem;
   }
+    
+  /* Make order page text use full available width */
+  body.order-page .panel p,
+  body.order-page .panel label,
+  body.order-page .panel h2 {
+    max-width: none !important;
+    display: block;
+    width: 100%;
+  }
+
+  /* If .wrap or other layout container is restricting it */
+  body.order-page .wrap,
+  body.order-page main,
+  body.order-page section {
+    max-width: 100% !important;
+  }
 </style>
+
 
 
 
