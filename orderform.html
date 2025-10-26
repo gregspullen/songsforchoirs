@@ -28,45 +28,39 @@
 
 
   <style>
-  /* Order form only: widen the main panel and allow wrapping */
+  /* Order form layout refinement */
   body.order-page .panel {
-    width: 100%;
-    max-width: 960px !important;  /* was narrower somewhere */
-    margin: 0 auto;
-    padding: 0 16px;
-    display: block !important;    /* neutralise any grid/float squeezing */
-  }
-  body.order-page .panel, 
-  body.order-page .panel * {
-    white-space: normal !important;
-    overflow-wrap: anywhere !important;
-    word-break: break-word !important;
-  }
-</style>
-<style>
-  /* Make labels and notes use full width */
-  body.order-page form,
-  body.order-page label,
-  body.order-page p.note {
-    max-width: 100% !important;
+    width: 90%;
+    max-width: 720px;  /* narrower, matches choral.html proportions */
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
     display: block;
   }
 
-  /* Make paragraph text wrap naturally */
-  body.order-page p.note {
-    white-space: normal !important;
-    line-height: 1.5;
-    margin-right: 0;
+  /* Restore natural text wrapping */
+  body.order-page .panel, 
+  body.order-page .panel * {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
-  /* Ensure the input boxes stretch nicely */
+  /* Make form elements full width but tidy */
   body.order-page input[type="text"],
   body.order-page input[type="email"],
   body.order-page input[type="number"] {
     width: 100%;
     box-sizing: border-box;
   }
+
+  /* Soften spacing on notes */
+  body.order-page p.note {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.5rem 0 1rem;
+  }
 </style>
+
 
 
   
