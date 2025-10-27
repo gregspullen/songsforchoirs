@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by frogs.</p>
+      <p class="tagline">Secure licensed downloads — trusted by gnomes.</p>
     
       <nav class="site-nav">
         <ul>
@@ -188,7 +188,7 @@
       const form = document.querySelector("form");
       const titleField = document.getElementById("title");
   
-      // 🐸 Auto-fill title from URL parameter (?title=The%20Lord%20Is%20My%20Shepherd)
+      // 🐸 Auto-fill title from ?title=
       const params = new URLSearchParams(window.location.search);
       const titleParam = params.get("title");
       if (titleParam && !titleField.value) {
@@ -196,8 +196,8 @@
         console.log("🐸 Auto-filled title:", titleField.value);
       }
   
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
+      // 🐸 Listen but don't block PayPal submission
+      form.addEventListener("submit", (event) => {
         try {
           const payload = {
             title: document.getElementById("title").value,
@@ -208,31 +208,21 @@
             currency: document.getElementById("currency").value,
           };
   
+          console.log("🐸 Sending order details to Worker:", payload);
   
-          console.log("🐸 Preparing to send order details:", payload);
-  
-          const response = await fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+          // Fire and forget — don't await so PayPal flow isn't delayed
+          fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
-          });
-  
-          console.log("🐸 Sent order details to Worker:", payload);
-  
-          if (!response.ok) {
-            console.error("🐸 Worker returned an error:", response.status);
-          }
+          }).catch(err => console.error("🐸 Worker send failed:", err));
         } catch (err) {
-          console.error("🐸 Worker send failed:", err);
+          console.error("🐸 Script error before send:", err);
         }
-  
-        // Now safely submit the form to PayPal
-        form.submit();
+        // no preventDefault here — PayPal proceeds as normal
       });
     });
   </script>
   
-  </body>
-  </html>
   
   
