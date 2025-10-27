@@ -171,13 +171,14 @@ body.order-page .form-row input {
   This limit applies to keep transactions and downloads safe and reliable.
 </p>
 
-<label for="email">Where would you like your music to be delivered?</label>
-<input id="email" type="email" name="email" placeholder="yourname@example.com" required>
+<input id="email" type="email" name="email" placeholder="yourname@example.com"
+       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 
 <small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
 
 <label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
-<input type="email" id="confirm_email" name="confirm_email" placeholder="please re-enter your email" required>
+<input type="email" id="confirm_email" name="confirm_email" placeholder="please re-enter your email"
+       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
