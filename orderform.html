@@ -180,16 +180,21 @@ body.order-page .form-row input {
 <input type="email" id="confirm_email" name="confirm_email" placeholder="please re-enter your email" required>
 
 <script>
-document.querySelector('form').addEventListener('submit', function(e) {
-  const email = document.getElementById('email').value.trim();
-  const confirm = document.getElementById('confirm_email').value.trim();
-  if (email !== confirm) {
-    e.preventDefault();
-    alert('Please check that both email addresses match before continuing.');
-    return false; // 🐸 stops any accidental PayPal launch
-  }
-});
-</script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    form.addEventListener("submit", function (e) {
+      const email = document.getElementById("email").value.trim();
+      const confirm = document.getElementById("confirm_email").value.trim();
+  
+      if (email !== confirm) {
+        e.preventDefault();
+        alert("Please check that both email addresses match before continuing.");
+        return false; // 🐸 stops any accidental PayPal launch
+      }
+    });
+  });
+  </script>
+  
 
 
 <p class="note">
