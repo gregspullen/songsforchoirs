@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+      <p class="tagline">Secure licensed downloads — trusted by goblins.</p>
     
       <nav class="site-nav">
         <ul>
@@ -253,6 +253,9 @@
             amount: document.getElementById("paypalAmount").value
           };
   
+
+          console.log("🐸 trying to reach Worker");
+
           fetch("https://sfc-watermark-worker.songsforchoirs.workers.dev/send-email", {
 
             method: "POST",
