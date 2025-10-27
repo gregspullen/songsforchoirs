@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by goblins.</p>
+      <p class="tagline">Secure licensed downloads — trusted by frogs.</p>
     
       <nav class="site-nav">
         <ul>
@@ -188,20 +188,16 @@
       const form = document.querySelector("form");
       const titleField = document.getElementById("title");
   
-      // 🐸 Auto-fill title from filename (e.g. opus-shepherd.html → The Lord Is My Shepherd)
-      const path = window.location.pathname;
-      const match = path.match(/opus-([\w-]+)\.html$/);
-      if (match && !titleField.value) {
-        const rawTitle = match[1]
-          .replace(/-/g, " ")
-          .replace(/\b\w/g, c => c.toUpperCase());
-        titleField.value = rawTitle;
-        console.log("🐸 Auto-filled title:", rawTitle);
+      // 🐸 Auto-fill title from URL parameter (?title=The%20Lord%20Is%20My%20Shepherd)
+      const params = new URLSearchParams(window.location.search);
+      const titleParam = params.get("title");
+      if (titleParam && !titleField.value) {
+        titleField.value = decodeURIComponent(titleParam);
+        console.log("🐸 Auto-filled title:", titleField.value);
       }
   
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
-  
         try {
           const payload = {
             title: document.getElementById("title").value,
@@ -211,6 +207,7 @@
             amount: document.getElementById("amount").value,
             currency: document.getElementById("currency").value,
           };
+  
   
           console.log("🐸 Preparing to send order details:", payload);
   
