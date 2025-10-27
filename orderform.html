@@ -1,211 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Order Form — Songs for Choirs</title>
-  <meta name="description" content="Licensed choral scores — secure order form for choirs." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css?v=999css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Keep this: we don't want this page in Google -->
+  <meta name="robots" content="noindex">
 
-  <!-- Privacy-friendly analytics by Plausible -->
-  <script async src="https://plausible.io/js/pa-HBU4032UPKdJXI_GDnbzu.js"></script>
-  <script>
-    window.plausible = window.plausible || function(){(plausible.q = plausible.q || []).push(arguments)};
-    plausible.init = plausible.init || function(i){plausible.o = i || {}};
-    plausible.init();
-  </script>
+  <title>Choir Score Order Form — Songs for Choirs</title>
+  <meta name="description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies.">
+
+  <!-- Social (optional, fine to keep) -->
+  <meta property="og:title" content="Choir Score Order Form — Songs for Choirs">
+  <meta property="og:description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies.">
+  <meta property="og:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
+  <meta property="og:url" content="https://www.songsforchoirs.com/orderform.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Songs for Choirs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Choir Score Order Form — Songs for Choirs">
+  <meta name="twitter:description" content="Order licensed choir scores from Songs for Choirs. Each copy includes a unique watermark licence — minimum order 3 copies.">
+  <meta name="twitter:image" content="https://www.songsforchoirs.com/images/og-default.jpg">
+  <meta name="twitter:site" content="@songsforchoirs">
+
+  <link rel="stylesheet" href="styles.css?v=999">
+
+
+
 
   <style>
-    /* === Order Form Page === */
-    body.order-page {
-      background: linear-gradient(#f7f3eb, #f5f2ea);
-      font-family: "Georgia", serif;
-      color: #222;
-    }
-    body.order-page #content {
-      max-width: 680px;
-      margin: 3em auto 5em auto;
-      padding: 0 1.5em;
-    }
-    body.order-page .panel {
-      background: #fefcf8;
-      border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      padding: 2.5em 2em 2em 2em;
-      line-height: 1.6;
-    }
-    body.order-page h2 {
-      font-size: 1.5em;
-      margin-top: 0;
-      text-align: left;
-      color: #333;
-    }
-    body.order-page label {
-      display: block;
-      font-weight: bold;
-      margin-top: 1.2em;
-      margin-bottom: 0.3em;
-    }
-    body.order-page input[type="text"],
-    body.order-page input[type="email"],
-    body.order-page input[type="number"] {
-      width: 100%;
-      padding: 0.5em 0.6em;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1em;
-      box-sizing: border-box;
-    }
-    body.order-page input:focus {
-      border-color: #c9a227;
-      outline: none;
-    }
-    body.order-page .form-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 1em;
-    }
-    body.order-page .form-row .half { flex: 1; }
-    body.order-page .note {
-      font-style: italic;
-      font-size: 0.9em;
-      color: #7a6c58;
-      margin: 1em 0 0.5em;
-    }
-    body.order-page button[type="submit"] {
-      margin-top: 1.8em;
-      background: linear-gradient(#d9b76a, #c9a227);
-      border: none;
-      color: #fff;
-      padding: 0.8em 1.4em;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background 0.3s ease;
-    }
-    body.order-page button[type="submit"]:hover {
-      background: linear-gradient(#e1c983, #d1b84a);
-    }
-  </style>
+  /* Order form layout refinement */
+  body.order-page .panel {
+    width: 90%;
+    max-width: 720px;  /* narrower, matches choral.html proportions */
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    display: block;
+  }
+
+  /* Restore natural text wrapping */
+  body.order-page .panel, 
+  body.order-page .panel * {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  /* Make form elements full width but tidy */
+  body.order-page input[type="text"],
+  body.order-page input[type="email"],
+  body.order-page input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Soften spacing on notes */
+  body.order-page p.note {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.5rem 0 1rem;
+  }
+    
+  /* Make order page text use full available width */
+  body.order-page .panel p,
+  body.order-page .panel label,
+  body.order-page .panel h2 {
+    max-width: none !important;
+    display: block;
+    width: 100%;
+  }
+
+  /* If .wrap or other layout container is restricting it */
+  body.order-page .wrap,
+  body.order-page main,
+  body.order-page section {
+    max-width: 100% !important;
+  }
+</style>
+
+
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-HBU4032UPKdJXI_GDnbzu.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
+  
 </head>
-
 <body class="order-page">
-  <div id="wrapper">
-    <header class="site-header">
+  <!-- your order form content here -->
+
+  <!-- Consistent header -->
+  <header class="site-header">
+    <div class="wrap">
       <h1 class="site-logo">songs<span class="gold">for</span>choirs</h1>
-      <p class="tagline">Secure licensed downloads — trusted by frogs.</p>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="choral.html">Choral</a></li>
-          <li><a href="children.html">Children</a></li>
-          <li><a href="other.html">Other</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+    </div>
+  </header>
 
-    <main id="content">
-      <div class="panel">
-        <h2>Place Your Order Here</h2>
+  <!-- Main navigation -->
+  <nav class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="choral.html">Choral</a></li>
+      <li><a href="children.html">Children</a></li>
+      <li><a href="other.html">Other</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
-          <input type="hidden" name="cmd" value="_xclick">
-          <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
-          <input type="hidden" name="currency_code" value="GBP">
-          <input type="hidden" name="item_name" id="paypalItemName" value="">
-          <input type="hidden" name="amount" id="paypalAmount" value="">
-          <input type="hidden" name="return" value="https://www.songsforchoirs.com/receipt.html">
-          <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+  <!-- The order form starts here -->
 
-          <label for="title">Title of piece:</label>
-          <input type="text" id="title" name="title" required placeholder="e.g. The Lord Is My Shepherd">
+  <!-- (Your form content goes here below this line) -->
 
-          <div class="form-row">
-            <div class="half">
-              <label for="choir">Organisation / Choir:</label>
-              <input id="choir" class="choir-field" required>
-            </div>
-            <div class="half">
-              <label for="copy">Number of copies:</label>
-              <input id="copy" class="inline-input" required type="number" min="1" max="30">
-            </div>
-          </div>
+  <!-- Form panel -->
+<div class="panel">
+  <h2>Place Your Order Here</h2>
 
-          <p class="note">
-            Please place large orders in batches of no more than 30 copies each.<br>
-            This limit applies to keep transactions and downloads safe and reliable.
-          </p>
+  <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
+    <!-- PayPal variables -->
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
+    <input type="hidden" name="currency_code" value="GBP">
+    <input type="hidden" name="item_name" id="paypalItemName" value="">
+    <input type="hidden" name="amount" id="paypalAmount" value="">
+    <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
+    <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+    
+    <!-- Regular form fields -->
+    <label for="title">Title of piece:</label>
+    <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+    
+    <label for="choir">Organisation / Choir:</label>
+    <input id="choir" class="choir-field" required>
+    
+    <label for="copy" class="inline-label">Number of copies:</label>
+    <input id="copy" class="inline-input" required type="number" min="1" max="30">
 
-          <label for="email">Email:</label>
-          <input id="email" type="email" name="email" autocomplete="email" required>
-          <small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
 
-          <label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
-          <input id="confirm_email" type="email" name="confirm_email" autocomplete="email" required>
+    <p class="note">
+  Please place large orders in batches of no more than 30 copies each.<br>
+  This limit applies to keep transactions and downloads safe and reliable.
+</p>
 
-          <button type="submit">Submit Order & Continue to PayPal</button>
-        </form>
-      </div>
-    </main>
+<label for="email">Where would you like your music to be delivered?</label>
+<input id="email" type="email" name="email" placeholder="yourname@example.com" autocomplete="email" required>
 
-    <footer id="site-footer">
-      <p>© 2025 <a href="https://www.songsforchoirs.com">songsforchoirs.com</a></p>
-    </footer>
-  </div><!-- end wrapper -->
+<p class="note">
+  We’ll only use this address to send your licensed score — it won’t be shared with anyone else.
+</p>
 
-  <script>
-    console.log("🐸 Script loaded and visible to browser");
+<button type="submit" id="submitBtn" class="price">Submit Order & Continue to PayPal</button>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const form = document.getElementById("orderForm");
-      const titleField = document.getElementById("title");
 
-      if (!form) {
-        console.error("🐸 No form found with id='orderForm'");
-        return;
-      }
+<p class="note">
+  PayPal might ask you to repeat your password for additional security.<br>
+  You won’t be charged twice for your purchase.
+</p>
+</form>
+</div>
 
-      // 🐸 Auto-fill title from ?title=
-      const params = new URLSearchParams(window.location.search);
-      const titleParam = params.get("title");
-      if (titleParam && !titleField.value) {
-        titleField.value = decodeURIComponent(titleParam);
-        console.log("🐸 Auto-filled title:", titleField.value);
-      }
+<script>
+function generateOrderNumber() {
+  const today = new Date();
+  const y = today.getFullYear().toString().slice(-2);
+  const m = (today.getMonth() + 1).toString().padStart(2, "0");
+  const d = today.getDate().toString().padStart(2, "0");
+  const r = Math.floor(Math.random() * 900 + 100);
+  return `SFC-${y}${m}${d}-${r}`;
+}
 
-      // 🐸 Listen but don’t block PayPal submission
-      form.addEventListener("submit", () => {
-        console.log("🐸 Form submit event fired");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("orderForm");
+  const submitBtn = document.getElementById("submitBtn");
 
-        try {
-          const payload = {
-            title: titleField.value,
-            choir: document.getElementById("choir").value,
-            copies: document.getElementById("copy").value,
-            email: document.getElementById("email").value,
-            confirm_email: document.getElementById("confirm_email").value,
-            amount: document.getElementById("paypalAmount")?.value || "",
-            currency: document.querySelector("input[name='currency_code']")?.value || "GBP"
-          };
+  // Autofill title from ?title= parameter
+  const params = new URLSearchParams(window.location.search);
+  const titleParam = params.get("title");
+  const titleField = document.getElementById("title");
+  if (titleParam && titleField) {
+    titleField.value = decodeURIComponent(titleParam);
+    titleField.readOnly = true;
+  }
 
-          console.log("🐸 Sending order details to Worker:", payload);
+  // Handle PayPal submit
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-          fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-          }).catch(err => console.error("🐸 Worker send failed:", err));
-        } catch (err) {
-          console.error("🐸 Script error before send:", err);
-        }
-      });
+    const title = document.getElementById("title").value.trim();
+    const choir = document.getElementById("choir").value.trim();
+    const copies = Math.min(30, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
+    const pricePerCopy = 1.25;
+    const total = (copies * pricePerCopy).toFixed(2);
+    const orderNum = generateOrderNumber();
+    const email = document.getElementById("email").value.trim();
+
+    // Fill PayPal hidden inputs
+    document.getElementById("paypalItemName").value = `${title} (${copies} copies)`;
+    document.getElementById("paypalAmount").value = total;
+
+    // Build return URL with details
+    const baseReturn = "https://www.songsforchoirs.com/receipt.html";
+    const returnParams = new URLSearchParams({
+      title,
+      choir,
+      copies,
+      amount: total,
+      order: orderNum,
+      email,
+      currency: "GBP"
     });
-  </script>
+
+
+    document.getElementById("paypalReturn").value = `${baseReturn}?${returnParams.toString()}`;
+
+    // Disable button & show visual feedback
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing your order… please wait";
+    submitBtn.style.opacity = "0.8";
+    submitBtn.style.cursor = "wait";
+
+    // Try to submit; if PayPal fails, reset after 10s
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Order & Continue to PayPal";
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
+    }, 10000);
+
+    // Now go to PayPal
+    form.submit();
+  });
+});
+</script>
 </body>
 </html>
