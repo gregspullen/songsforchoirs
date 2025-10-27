@@ -8,159 +8,160 @@
 </head>
 
 <body class="order-page">
-  <header id="site-header">
-    <h1><span class="songs">songs</span><span class="for">for</span><span class="choirs">choirs</span></h1>
-    <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
-    <nav id="site-nav" class="site-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="choral.html">Choral</a></li>
-        <li><a href="children.html">Children</a></li>
-        <li><a href="other.html">Other</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="wrapper">
+    <header id="site-header">
+      <h1><span class="songs">songs</span><span class="for">for</span><span class="choirs">choirs</span></h1>
+      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+      <nav id="site-nav" class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="choral.html">Choral</a></li>
+          <li><a href="children.html">Children</a></li>
+          <li><a href="other.html">Other</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <style>
-  /* === Order Form Page === */
-  
-  body.order-page {
-    background: linear-gradient(#f7f3eb, #f5f2ea);
-    font-family: "Georgia", serif;
-    color: #222;
-  }
-  
-  body.order-page #content {
-    max-width: 680px;
-    margin: 3em auto 5em auto;
-    padding: 0 1.5em;
-  }
-  
-  body.order-page .panel {
-    background: #fefcf8;
-    border-radius: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    padding: 2.5em 2em 2em 2em;
-    line-height: 1.6;
-  }
-  
-  body.order-page h2 {
-    font-size: 1.5em;
-    margin-top: 0;
-    text-align: left;
-    color: #333;
-  }
-  
-  body.order-page label {
-    display: block;
-    font-weight: bold;
-    margin-top: 1.2em;
-    margin-bottom: 0.3em;
-  }
-  
-  body.order-page input[type="text"],
-  body.order-page input[type="email"],
-  body.order-page input[type="number"] {
-    width: 100%;
-    padding: 0.5em 0.6em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box;
-  }
-  
-  body.order-page input[type="text"]:focus,
-  body.order-page input[type="email"]:focus,
-  body.order-page input[type="number"]:focus {
-    border-color: #c9a227;
-    outline: none;
-  }
-  
-  body.order-page .form-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1em;
-  }
-  
-  body.order-page .form-row .half {
-    flex: 1;
-  }
-  
-  body.order-page .note {
-    font-style: italic;
-    font-size: 0.9em;
-    color: #7a6c58;
-    margin: 1em 0 0.5em;
-  }
-  
-  body.order-page button[type="submit"] {
-    margin-top: 1.8em;
-    background: linear-gradient(#d9b76a, #c9a227);
-    border: none;
-    color: #fff;
-    padding: 0.8em 1.4em;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s ease;
-  }
-  
-  body.order-page button[type="submit"]:hover {
-    background: linear-gradient(#e1c983, #d1b84a);
-  }
-  </style>
-  
-  <main id="content">
-  
-    <div class="panel">
-      <h2>Place Your Order Here</h2>
+    <style>
+    /* === Order Form Page === */
 
-      <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
-        <input type="hidden" name="currency_code" value="GBP">
-        <input type="hidden" name="item_name" id="paypalItemName" value="">
-        <input type="hidden" name="amount" id="paypalAmount" value="">
-        <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
-        <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+    body.order-page {
+      background: linear-gradient(#f7f3eb, #f5f2ea);
+      font-family: "Georgia", serif;
+      color: #222;
+    }
 
-        <label for="title">Title of piece:</label>
-        <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+    body.order-page #content {
+      max-width: 680px;
+      margin: 3em auto 5em auto;
+      padding: 0 1.5em;
+    }
 
-        <div class="form-row">
-          <div class="half">
-            <label for="choir">Organisation / Choir:</label>
-            <input id="choir" class="choir-field" required>
+    body.order-page .panel {
+      background: #fefcf8;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 2.5em 2em 2em 2em;
+      line-height: 1.6;
+    }
+
+    body.order-page h2 {
+      font-size: 1.5em;
+      margin-top: 0;
+      text-align: left;
+      color: #333;
+    }
+
+    body.order-page label {
+      display: block;
+      font-weight: bold;
+      margin-top: 1.2em;
+      margin-bottom: 0.3em;
+    }
+
+    body.order-page input[type="text"],
+    body.order-page input[type="email"],
+    body.order-page input[type="number"] {
+      width: 100%;
+      padding: 0.5em 0.6em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+
+    body.order-page input[type="text"]:focus,
+    body.order-page input[type="email"]:focus,
+    body.order-page input[type="number"]:focus {
+      border-color: #c9a227;
+      outline: none;
+    }
+
+    body.order-page .form-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+    }
+
+    body.order-page .form-row .half {
+      flex: 1;
+    }
+
+    body.order-page .note {
+      font-style: italic;
+      font-size: 0.9em;
+      color: #7a6c58;
+      margin: 1em 0 0.5em;
+    }
+
+    body.order-page button[type="submit"] {
+      margin-top: 1.8em;
+      background: linear-gradient(#d9b76a, #c9a227);
+      border: none;
+      color: #fff;
+      padding: 0.8em 1.4em;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.3s ease;
+    }
+
+    body.order-page button[type="submit"]:hover {
+      background: linear-gradient(#e1c983, #d1b84a);
+    }
+    </style>
+
+    <main id="content">
+      <div class="panel">
+        <h2>Place Your Order Here</h2>
+
+        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="sb-6bkuc46652199@business.example.com">
+          <input type="hidden" name="currency_code" value="GBP">
+          <input type="hidden" name="item_name" id="paypalItemName" value="">
+          <input type="hidden" name="amount" id="paypalAmount" value="">
+          <input type="hidden" name="return" id="paypalReturn" value="https://www.songsforchoirs.com/receipt.html">
+          <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
+
+          <label for="title">Title of piece:</label>
+          <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+
+          <div class="form-row">
+            <div class="half">
+              <label for="choir">Organisation / Choir:</label>
+              <input id="choir" class="choir-field" required>
+            </div>
+
+            <div class="half">
+              <label for="copy">Number of copies:</label>
+              <input id="copy" class="inline-input" required type="number" min="1" max="30">
+            </div>
           </div>
 
-          <div class="half">
-            <label for="copy">Number of copies:</label>
-            <input id="copy" class="inline-input" required type="number" min="1" max="30">
-          </div>
-        </div>
+          <p class="note">
+            Please place large orders in batches of no more than 30 copies each.<br>
+            This limit applies to keep transactions and downloads safe and reliable.
+          </p>
 
-        <p class="note">
-          Please place large orders in batches of no more than 30 copies each.<br>
-          This limit applies to keep transactions and downloads safe and reliable.
-        </p>
+          <label for="email">Email:</label>
+          <input id="email" type="email" name="email" autocomplete="email" required>
+          <small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
 
-        <label for="email">Email:</label>
-        <input id="email" type="email" name="email" autocomplete="email" required>
-        <small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
+          <label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
+          <input id="confirm_email" type="email" name="confirm_email" autocomplete="email" required>
 
-        <label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
-        <input id="confirm_email" type="email" name="confirm_email" autocomplete="email" required>
+          <button type="submit">Submit Order & Continue to PayPal</button>
+        </form>
+      </div>
+    </main>
 
-        <button type="submit">Submit Order & Continue to PayPal</button>
-      </form>
-    </div>
-  </main>
-
-  <footer id="site-footer">
-    <p>© 2025 <a href="https://www.songsforchoirs.com">songsforchoirs.com</a></p>
-  </footer>
+    <footer id="site-footer">
+      <p>© 2025 <a href="https://www.songsforchoirs.com">songsforchoirs.com</a></p>
+    </footer>
+  </div><!-- end wrapper -->
 
   <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -188,7 +189,7 @@
 
       // Fill PayPal fields
       document.getElementById("paypalItemName").value = document.getElementById("title").value;
-      document.getElementById("paypalAmount").value = "5.00"; // placeholder price
+      document.getElementById("paypalAmount").value = "5.00";
       const baseReturn = "https://www.songsforchoirs.com/receipt.html";
       const returnParams = new URLSearchParams({
         title: document.getElementById("title").value,
@@ -204,7 +205,6 @@
       submitBtn.style.opacity = "0.8";
       submitBtn.style.cursor = "wait";
 
-      // Reset after 10s if PayPal fails
       setTimeout(function () {
         submitBtn.disabled = false;
         submitBtn.textContent = "Submit Order & Continue to PayPal";
@@ -212,7 +212,6 @@
         submitBtn.style.cursor = "pointer";
       }, 10000);
 
-      // Submit to PayPal
       form.submit();
     });
   });
