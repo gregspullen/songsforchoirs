@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <title>Order Receipt — Songs for Choirs</title>
+  <meta name="description" content="Thank you for your order from Songs for Choirs. Download your licensed choral scores securely.">
+  <meta property="og:title" content="Order Receipt — Songs for Choirs">
+  <meta property="og:description" content="Thank you for your order from Songs for Choirs. Download your licensed choral scores securely.">
+  <link rel="stylesheet" href="styles.css?v=999">
+</head>
+
+<body class="receipt-page">
+
+  <!-- Consistent header -->
+  <header class="site-header">
+    <div class="wrap">
+      <h1 class="site-logo">songs<span class="gold">for</span>choirs</h1>
+      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+    </div>
+  </header>
+
+  <!-- Main navigation -->
+  <nav class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="choral.html">Choral</a></li>
+      <li><a href="children.html">Children</a></li>
+      <li><a href="other.html">Other</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Receipt panel -->
+<div class="panel">  
+  <h2>Thank you <span class="gold">for</span> your order</h2>
+
+    <p><strong>Title:</strong> <span id="title"></span></p>
+<p><strong>Choir:</strong> <span id="choir"></span></p>
+<p><strong>Order number:</strong> <span id="order"></span></p>
+<p><strong>Amount:</strong> £<span id="amount"></span></p>
+<p><strong>Copies:</strong> <span id="copies"></span></p>
+
+    <p><em>Our sheet music is delivered in ZIP files.  
+We kindly ask that you respect our copyright and print only one copy of each numbered part.</em></p>
+
+<p><em>Once opened these pdfs will print double-sided only if your printer supports that option.  
+If you prefer to save ink (and possibly paper), you can start printing from page 2 to skip the title page.</em></p>
+
+  <button type="submit" id="sendEmail">Sending your sheet music</button>
+
+<p><em>Our Head of Sums, Spelling & Syntax has pointed out that paper is only saved if you begin with an odd number of pages.</em></p>
+
+  </div>
+
+  <footer class="site-footer">
+    <p>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved.</p>
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get("title") || "";
+  const choir = params.get("choir") || "";
+  const order = params.get("order") || "";
+  const amount = params.get("amount") || "";
+  const copies = params.get("copies") || "—";
+  const email = params.get("email") || "";
+  const currency = params.get("currency") || "GBP";
+
+  // populate visible fields
+  document.getElementById("title").textContent = title;
+  document.getElementById("choir").textContent = choir;
+  document.getElementById("order").textContent = order;
+  document.getElementById("amount").textContent = amount;
+  document.getElementById("copies").textContent = copies;
+
+  // identify button and storage key
+  const sendBtn = document.getElementById("sendEmail");
+  const emailSentKey = `emailSent_${order}`;
+
+  // Only send once per order
+  if (!localStorage.getItem(emailSentKey)) {
+    fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, choir, copies, email, order, amount, currency }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          localStorage.setItem(emailSentKey, "true");
+          if (sendBtn) {
+            sendBtn.disabled = true;
+            sendBtn.textContent = "✅ Delivered to your email";
+            sendBtn.style.cursor = "default";
+            sendBtn.style.opacity = "0.75";
+          }
+        } else {
+          console.error("Email failed:", res.status);
+          if (sendBtn) {
+            sendBtn.textContent = "⚠️ Problem sending — please try again later";
+          }
+        }
+      })
+      .catch((err) => {
+        console.error("Email send error:", err);
+        if (sendBtn) {
+          sendBtn.textContent = "⚠️ Network issue — please refresh and retry";
+        }
+      });
+  } else {
+    // already sent before — show gentle confirmation
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = "✅ Your licensed score has already been emailed";
+      sendBtn.style.cursor = "default";
+      sendBtn.style.opacity = "0.75";
+    }
+  }
+});
+</script>
+</body>
+</html>
