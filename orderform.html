@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+      <p class="tagline">Secure licensed downloads — trusted by placemarker.</p>
     
       <nav class="site-nav">
         <ul>
@@ -147,7 +147,7 @@
           <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
 
           <label for="title">Title of piece:</label>
-          <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
+          <input type="text" id="title" name="title" required placeholder="e.g. The Lord Is My Shepherd">
 
           <div class="form-row">
             <div class="half">
@@ -184,93 +184,90 @@
   </div><!-- end wrapper -->
 
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // 🐸 Auto-fill the title field from URL if present
-    const params = new URLSearchParams(window.location.search);
-    const pieceTitle = params.get("title");
-    if (pieceTitle) {
-      const titleField = document.getElementById("title");
-      if (titleField) {
-        titleField.value = decodeURIComponent(pieceTitle);
-        console.log("🐸 Auto-filled title:", pieceTitle);
+    document.addEventListener("DOMContentLoaded", () => {
+      // 🐸 Auto-fill the title field from URL if present
+      const params = new URLSearchParams(window.location.search);
+      const pieceTitle = params.get("title");
+      if (pieceTitle) {
+        const titleField = document.getElementById("title");
+        if (titleField) {
+          titleField.value = decodeURIComponent(pieceTitle);
+          console.log("🐸 Auto-filled title:", pieceTitle);
+        }
       }
-    }
-  });
-
-    const form = document.getElementById("orderForm");
-    const submitBtn = form.querySelector("button[type='submit']");
-    const email1 = document.getElementById("email");
-    const email2 = document.getElementById("confirm_email");
-
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const e1 = email1.value.trim();
-      const e2 = email2.value.trim();
-      const validFormat = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-
-      if (!validFormat.test(e1) || !validFormat.test(e2)) {
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      if (e1 !== e2) {
-        alert("Email addresses don't match — please double-check.");
-        return;
-      }
-
-      // Fill PayPal fields
-      document.getElementById("paypalItemName").value = document.getElementById("title").value;
-      document.getElementById("paypalAmount").value = "5.00";
-      const baseReturn = "https://www.songsforchoirs.com/receipt.html";
-      const returnParams = new URLSearchParams({
-        title: document.getElementById("title").value,
-        choir: document.getElementById("choir").value,
-        email: e1,
-        copies: document.getElementById("copy").value
+  
+      const form = document.getElementById("orderForm");
+      const submitBtn = form.querySelector("button[type='submit']");
+      const email1 = document.getElementById("email");
+      const email2 = document.getElementById("confirm_email");
+  
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+  
+        const e1 = email1.value.trim();
+        const e2 = email2.value.trim();
+        const validFormat = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+  
+        if (!validFormat.test(e1) || !validFormat.test(e2)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+  
+        if (e1 !== e2) {
+          alert("Email addresses don't match — please double-check.");
+          return;
+        }
+  
+        // Fill PayPal fields
+        document.getElementById("paypalItemName").value = document.getElementById("title").value;
+        document.getElementById("paypalAmount").value = "5.00";
+        const baseReturn = "https://www.songsforchoirs.com/receipt.html";
+        const returnParams = new URLSearchParams({
+          title: document.getElementById("title").value,
+          choir: document.getElementById("choir").value,
+          email: e1,
+          copies: document.getElementById("copy").value
+        });
+        document.getElementById("paypalReturn").value = baseReturn + "?" + returnParams.toString();
+  
+        // Visual feedback
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Processing your order... please wait";
+        submitBtn.style.opacity = "0.8";
+        submitBtn.style.cursor = "wait";
+  
+        setTimeout(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Submit Order & Continue to PayPal";
+          submitBtn.style.opacity = "1";
+          submitBtn.style.cursor = "pointer";
+        }, 10000);
+  
+        // --- Send email data to Worker in background ---
+        try {
+          const payload = {
+            title: document.getElementById("title").value,
+            choir: document.getElementById("choir").value,
+            copies: document.getElementById("copy").value,
+            email: email1.value.trim(),
+            amount: document.getElementById("paypalAmount").value
+          };
+  
+          fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+          console.log("🐸 Sent order details to Worker:", payload);
+        } catch (err) {
+          console.error("🐸 Worker send failed:", err);
+        }
+  
+        form.submit();
       });
-      document.getElementById("paypalReturn").value = baseReturn + "?" + returnParams.toString();
-
-      // Visual feedback
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Processing your order... please wait";
-      submitBtn.style.opacity = "0.8";
-      submitBtn.style.cursor = "wait";
-
-      setTimeout(function () {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Order & Continue to PayPal";
-        submitBtn.style.opacity = "1";
-        submitBtn.style.cursor = "pointer";
-      }, 10000);
-
-      // --- Send email data to Worker in background ---
-try {
-  const payload = {
-    title: document.getElementById("title").value,
-    choir: document.getElementById("choir").value,
-    copies: document.getElementById("copy").value,
-    email: email1.value.trim(),
-    amount: document.getElementById("paypalAmount").value
-  };
-  
-  const title = document.getElementById("title").value.trim();
-  console.log("🐸 title captured:", title);
-
-  
-  fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
-  });
-  console.log("🐸 Sent order details to Worker:", payload);
-} catch (err) {
-  console.error("🐸 Worker send failed:", err);
-}
-
-      form.submit();
     });
-  });
   </script>
+  
+  
 </body>
 </html>
