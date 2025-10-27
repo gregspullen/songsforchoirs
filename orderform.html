@@ -184,7 +184,19 @@
   </div><!-- end wrapper -->
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    // 🐸 Auto-fill the title field from URL if present
+    const params = new URLSearchParams(window.location.search);
+    const pieceTitle = params.get("title");
+    if (pieceTitle) {
+      const titleField = document.getElementById("title");
+      if (titleField) {
+        titleField.value = decodeURIComponent(pieceTitle);
+        console.log("🐸 Auto-filled title:", pieceTitle);
+      }
+    }
+  });
+
     const form = document.getElementById("orderForm");
     const submitBtn = form.querySelector("button[type='submit']");
     const email1 = document.getElementById("email");
