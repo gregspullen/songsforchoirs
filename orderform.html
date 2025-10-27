@@ -253,6 +253,11 @@ try {
     email: email1.value.trim(),
     amount: document.getElementById("paypalAmount").value
   };
+  
+  const title = document.getElementById("title").value.trim();
+  console.log("🐸 title captured:", title);
+
+  
   fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
