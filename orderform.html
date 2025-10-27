@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by pixies.</p>
+      <p class="tagline">Secure licensed downloads — trusted by goblins.</p>
     
       <nav class="site-nav">
         <ul>
@@ -186,6 +186,18 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const form = document.querySelector("form");
+      const titleField = document.getElementById("title");
+  
+      // 🐸 Auto-fill title from filename (e.g. opus-shepherd.html → The Lord Is My Shepherd)
+      const path = window.location.pathname;
+      const match = path.match(/opus-([\w-]+)\.html$/);
+      if (match && !titleField.value) {
+        const rawTitle = match[1]
+          .replace(/-/g, " ")
+          .replace(/\b\w/g, c => c.toUpperCase());
+        titleField.value = rawTitle;
+        console.log("🐸 Auto-filled title:", rawTitle);
+      }
   
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -225,4 +237,5 @@
   
   </body>
   </html>
+  
   
