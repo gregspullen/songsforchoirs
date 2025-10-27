@@ -29,7 +29,7 @@
       <h1 class="site-logo">
         songs<span class="gold">for</span>choirs
       </h1>
-      <p class="tagline">Secure licensed downloads — trusted by brownies.</p>
+      <p class="tagline">Secure licensed downloads — trusted by pixies.</p>
     
       <nav class="site-nav">
         <ul>
@@ -185,7 +185,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const form = document.querySelector("form");
+      const form = document.getElementById("orderForm");
       const titleField = document.getElementById("title");
   
       // 🐸 Auto-fill title from ?title=
@@ -196,37 +196,38 @@
         console.log("🐸 Auto-filled title:", titleField.value);
       }
   
-      // 🐸 Listen but don't block PayPal submission
+      // 🐸 Listen but don’t block PayPal submission
       form.addEventListener("submit", (event) => {
-      console.log("🐸 Form submit event fired");
-
-
-
+        console.log("🐸 Form submit event fired");
+  
         try {
           const payload = {
-            title: document.getElementById("title").value,
+            title: titleField.value,
             choir: document.getElementById("choir").value,
-            copies: document.getElementById("copies").value,
+            copies: document.getElementById("copy").value,  // match your real field id
             email: document.getElementById("email").value,
-            amount: document.getElementById("amount").value,
-            currency: document.getElementById("currency").value,
+            confirm_email: document.getElementById("confirm_email").value,
+            amount: document.getElementById("paypalAmount")?.value || "",
+            currency: document.querySelector("input[name='currency_code']")?.value || "GBP"
           };
   
           console.log("🐸 Sending order details to Worker:", payload);
   
-          // Fire and forget — don't await so PayPal flow isn't delayed
+          // Fire and forget — don't await so PayPal flow isn’t delayed
           fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
           }).catch(err => console.error("🐸 Worker send failed:", err));
+  
         } catch (err) {
           console.error("🐸 Script error before send:", err);
         }
-        // no preventDefault here — PayPal proceeds as normal
+        // No preventDefault here — PayPal proceeds as normal
       });
     });
   </script>
+  
   
   
   
