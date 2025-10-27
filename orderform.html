@@ -212,6 +212,25 @@
         submitBtn.style.cursor = "pointer";
       }, 10000);
 
+      // --- Send email data to Worker in background ---
+try {
+  const payload = {
+    title: document.getElementById("title").value,
+    choir: document.getElementById("choir").value,
+    copies: document.getElementById("copy").value,
+    email: email1.value.trim(),
+    amount: document.getElementById("paypalAmount").value
+  };
+  fetch("https://sfc-watermark-worker.lyra-6b2.workers.dev/send-email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  console.log("🐸 Sent order details to Worker:", payload);
+} catch (err) {
+  console.error("🐸 Worker send failed:", err);
+}
+
       form.submit();
     });
   });
