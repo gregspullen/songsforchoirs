@@ -171,30 +171,49 @@ body.order-page .form-row input {
   This limit applies to keep transactions and downloads safe and reliable.
 </p>
 
-<input id="email" type="email" name="email" placeholder="yourname@example.com"
-       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
-
-<small>We’ll only use this address to send your licensed score — it won’t be shared with anyone else.</small>
+<input id="email" type="email" name="email"
+       placeholder="yourname@example.com"
+       autocomplete="email" autocorrect="off" autocapitalize="off"
+       spellcheck="false" required>
 
 <label for="confirm_email" style="margin-top: 0.6em;">Confirm your email address:</label>
-<input type="email" id="confirm_email" name="confirm_email" placeholder="please re-enter your email"
-       autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required>
+<input type="email" id="confirm_email" name="confirm_email"
+       placeholder="please re-enter your email"
+       autocomplete="email" autocorrect="off" autocapitalize="off"
+       spellcheck="false" required>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function (e) {
-      const email = document.getElementById("email").value.trim();
-      const confirm = document.getElementById("confirm_email").value.trim();
-  
-      if (email !== confirm) {
-        e.preventDefault();
-        alert("Please check that both email addresses match before continuing.");
-        return false; // 🐸 stops any accidental PayPal launch
-      }
-    });
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("orderForm");
+  const email1 = document.getElementById("email");
+  const email2 = document.getElementById("confirm_email");
+
+  form.addEventListener("submit", (event) => {
+    const e1 = email1.value.trim();
+    const e2 = email2.value.trim();
+
+    // check for valid format
+    const validFormat = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+    if (!validFormat.test(e1) || !validFormat.test(e2)) {
+      alert("Please enter a valid email address.");
+      event.preventDefault();
+      return false;
+    }
+
+    if (e1 !== e2) {
+      alert("Please check that both email addresses match before continuing.");
+      event.preventDefault();
+      return false;
+    }
+
+    // otherwise allow PayPal to continue
+    return true;
   });
-  </script>
+});
+</script>
+
   
 
 
