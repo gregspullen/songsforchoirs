@@ -314,6 +314,12 @@ p em {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 } 
 
+/* Disable hover lift for the noticeboard cover */
+.cover.noticeboard img:hover {
+  transform: none;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
 /* =========================
      Audio Player Notes
      ========================= */
