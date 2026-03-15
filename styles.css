@@ -882,3 +882,14 @@ button.price small {
     padding: 0.5rem 0 1rem;
     scroll-behavior: smooth;
   }
+
+@media (max-width: 700px) {
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}

@@ -122,7 +122,7 @@
 <div class="panel">
   <h2>Place Your Order Here</h2>
 
-  <form id="orderForm" method="post">
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="orderForm">
     <!-- PayPal variables -->
     <input type="hidden" name="cmd" value="_xclick">
     <input type="hidden" name="business" value="8LF2NJAGZW5EG">
@@ -133,49 +133,33 @@
     <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
     
     <!-- Regular form fields -->
-    <div style="display:flex; gap:20px;">
-
-      <div style="flex:1;">
-        <label for="title">Title of piece:</label>
-        <input id="title" name="title" required placeholder="e.g. The Lord Is My Shepherd">
-      </div>
+    <label for="title">Title of piece:</label>
+    <input id="title" required placeholder="e.g. The Lord Is My Shepherd">
     
-      <div style="flex:1;">
-        <label for="choir">Organisation / Choir:</label>
-        <input id="choir" name="choir" class="choir-field" required>
-      </div>
+    <label for="choir">Organisation / Choir:</label>
+    <input id="choir" class="choir-field" required>
     
-    </div>
+    <label for="copy" class="inline-label">Number of copies:</label>
+    <input id="copy" class="inline-input" required type="number" min="1" max="30">
 
-    <label for="copy">Number of copies:</label>
 
-<div style="display:flex; align-items:flex-start; gap:16px; margin-top:6px;">
-  
-  <input id="copy" name="copies" required type="number" min="1" max="30"
-         style="width:110px; text-align:center; padding:6px;">
-
-  <div style="font-size:0.85em; color:#b8964a; margin-top:6px;">
-    Orders are limited to 30 copies per transaction as a simple safeguard.
-  </div>
-
-</div>
-
-<p class="note" style="margin-top:6px;">
-  If you require more copies you can place multiple orders or you are welcome to contact us at
-  <a href="mailto:lyra@songsforchoirs.com">lyra@songsforchoirs.com</a>.
+    <p class="note">
+  Please place large orders in batches of no more than 30 copies each.<br>
+  This limit applies to keep transactions and downloads safe and reliable.
 </p>
+
 <label for="email">Where would you like your music to be delivered?</label>
 <input id="email" type="email" name="email" placeholder="yourname@example.com" autocomplete="email" required>
 
 <p class="note">
-We will send you an email with a link to verify your email address.
+  We will send a confirmation button to this email address. — Click it to confirm your order.
 </p>
 
-<button type="submit" id="submitBtn" class="price">Send me the link</button>
+<button type="submit" id="submitBtn" class="price">Send me my confirmation email.</button>
+
 
 <p class="note">
-Continue your order using the link in the email we send you.<br>
-No payment will be taken until you confirm the purchase in PayPal.
+  No payment will be taken until you confirm your email address.
 </p>
 </form>
 </div>
@@ -202,65 +186,56 @@ document.addEventListener("DOMContentLoaded", () => {
     titleField.value = decodeURIComponent(titleParam);
     titleField.readOnly = true;
   }
-});
 
-</script>
-
-<script>
-  document.getElementById("orderForm").addEventListener("submit", async function (e) {
+  // Handle PayPal submit
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-  
+
     const title = document.getElementById("title").value.trim();
-const choir = document.getElementById("choir").value.trim();
-const copies = Math.min(30, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
-const pricePerCopy = 1.25;
-const total = (copies * pricePerCopy).toFixed(2);
-const orderNum = generateOrderNumber();
-const email = document.getElementById("email").value.trim();
+    const choir = document.getElementById("choir").value.trim();
+    const copies = Math.min(30, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
+    const pricePerCopy = 1.25;
+    const total = (copies * pricePerCopy).toFixed(2);
+    const orderNum = generateOrderNumber();
+    const email = document.getElementById("email").value.trim();
 
-const payload = {
-  title,
-  choir,
-  copies,
-  amount: total,
-  order: orderNum,
-  email
-};
-  
-    try {
-      const res = await fetch(
-       "/send-email",
+    // Fill PayPal hidden inputs
+    document.getElementById("paypalItemName").value = `${title} (${copies} copies)`;
+    document.getElementById("paypalAmount").value = total;
 
-        {
+    // Build return URL with details
+    const baseReturn = "https://www.songsforchoirs.com/receipt.html";
+    const returnParams = new URLSearchParams({
+      title,
+      choir,
+      copies,
+      amount: total,
+      order: orderNum,
+      email,
+      currency: "GBP"
+    });
 
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        }
-      );
-  
-      const text = await res.text();
-      alert("We've sent you an email to verify your address. Please click the link in it to continue with your order.");
-    } catch (err) {
-      alert("Sorry — something went wrong.\n\nPlease try again. If the problem continues, contact us at lyra@songsforchoirs.com.");
-    }
+
+    document.getElementById("paypalReturn").value = `${baseReturn}?${returnParams.toString()}`;
+
+    // Disable button & show visual feedback
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Processing your order… please wait";
+    submitBtn.style.opacity = "0.8";
+    submitBtn.style.cursor = "wait";
+
+    // Try to submit; if PayPal fails, reset after 10s
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Submit Order & Continue to PayPal";
+      submitBtn.style.opacity = "1";
+      submitBtn.style.cursor = "pointer";
+    }, 10000);
+
+    // Now go to PayPal
+    form.submit();
   });
-  </script>
-  
-  <script>
-    const form = document.getElementById("orderForm");
-    const host = window.location.hostname;
-    const businessField = form.querySelector('input[name="business"]');
-  
-    if (host.startsWith("dev.")) {
-      form.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-      businessField.value = "sb-6bkuc46652199@business.example.com";
-    } else {
-      form.action = "https://www.paypal.com/cgi-bin/webscr";
-      businessField.value = "8LF2NJAGZW5EG";
-    }
-  </script>
-  
-    
+});
+</script>
 </body>
 </html>
