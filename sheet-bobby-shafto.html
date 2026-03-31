@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bobby Shafto — Sheet Music | Songs for Choirs</title>
+  <meta name="description" content="An English folk song arranged for SATB choir (a cappella). Listen, view sample pages, and order licensed copies instantly." />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #fdfcf9, #f7f5ee); /* soft parchment fade */
+    }
+
+    .sheet-container {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      height: 90vh;
+      padding-top: 1rem;
+    }
+
+    iframe {
+      width: 90%;
+      height: 100%;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 0.5rem 0 1rem 1rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #555;
+    }
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+
+</head>
+
+<body class="sheet">
+  <main class="wrap">
+    <a href="opus-bobby.html" class="back-btn">← Back to Opus Page</a>
+
+    <div class="sheet-container">
+      <iframe
+      src="https://sfc-watermark-worker.lyra-6b2.workers.dev/Bobby-Shafto.pdf?preview=true"
+        title="Preview — Bobby Shafto">
+      </iframe>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© <span id="year"></span> Songs for Choirs. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
