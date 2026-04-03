@@ -55,7 +55,7 @@
 
   const lower = TITLE.toLowerCase();
   const SLUG = lower.replace(/'/g, "").replace(/\s+/g, "-");
-  const PREVIEW_SCORE = SLUG;
+  const PREVIEW_SCORE = `${SLUG}.pdf`;
 
   // Optional: safe encoded version if ever needed
   const ENCODED = encodeURIComponent(TITLE);
