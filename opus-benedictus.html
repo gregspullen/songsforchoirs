@@ -3,8 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Benedictus – Songs for Choirs</title>
-  <meta name="description" content="Benedictus for peace. Short singable devotional anthem arranged for SATB choir and piano. Listen, view sample pages, and order licensed copies instantly." />
+
+  <script>
+    const TITLE = "Benedictus";
+
+    const lower = TITLE.toLowerCase();
+    const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
+    const encoded = encodeURIComponent(TITLE);
+
+    // Set page title early
+    document.title = `${TITLE} – Songs for Choirs`;
+  </script>
+
+  <meta name="description" content="English folk song arranged for SATB choir and piano (optional). Listen, view sample pages, and order licensed copies instantly." />
   <link rel="stylesheet" href="styles.css">
 
   <!-- Privacy-friendly analytics by Plausible -->
@@ -39,17 +50,16 @@
         <!-- Left: audio player -->
         <div class="opus-left">
           <audio controls>
-            <source src="mp3/benedictus.mp3" type="audio/mpeg">
+            <source id="audioSrc" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
         </div>
         
         <!-- Centre: cover -->
         <figure class="cover">
-          <a href="sheet-benedictus.html" class="cover-link">
+          <a id="sheetLink" class="cover-link">
             <img 
-              src="images/Cover_png/benedictus.png"
-              alt="Benedictus cover"
+              id="coverImg"
               onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
           </a>
           <span class="hover-tag">VIEW SAMPLE</span>
@@ -60,7 +70,7 @@
           <div class="paypal-box">
             <button class="price"
               data-price="1.25"
-              onclick="window.location.href='orderform.html?title=Benedictus'">
+              id="orderBtn">
               Order Here — £1.25 (<span class="eur"></span>, <span class="usd"></span>) per part
             </button> 
           </div>
@@ -78,5 +88,31 @@
   </footer>
 
   <script src="pricing.js"></script>
+
+  <!-- 🔧 Wiring everything together -->
+  <script>
+    // Audio
+    const audio = document.querySelector("audio");
+
+document.getElementById("audioSrc").src =
+  `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
+
+audio.load();
+
+    // Sheet link
+    document.getElementById("sheetLink").href =
+  `/sheet-${slug}.html`;
+
+    // Cover image
+    const cover = document.getElementById("coverImg");
+    cover.src = `/images/Cover_png/${slug}.png`;
+    cover.alt = `${TITLE} cover`;
+
+    // Order button
+    document.getElementById("orderBtn").onclick = () => {
+      window.location.href = `orderform.html?title=${encoded}`;
+    };
+  </script>
+
 </body>
 </html>
