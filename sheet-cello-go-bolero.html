@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cello Go Bolero — Sheet Music | Songs for Choirs</title>
-  <meta name="description" content="A lively bolero-style piece for cello and piano. Listen, view sample pages, and order licensed copies instantly." />
+  <title>Songs for Choirs</title>
+  <meta name="description" content="An English folk song arranged for SATB choir (a cappella). Listen, view sample pages, and order licensed copies instantly." />
   <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -48,22 +48,33 @@
   </style>
 
   <!-- Privacy-friendly analytics by Plausible -->
-<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
-  
+  <script>
+  const TITLE = "Cello Go Bolero";
+
+  const lower = TITLE.toLowerCase();
+  const SLUG = lower.replace(/'/g, "").replace(/\s+/g, "-");
+  const PREVIEW_SCORE = SLUG;
+
+  // Optional: safe encoded version if ever needed
+  const ENCODED = encodeURIComponent(TITLE);
+
+  // Set page title early (prevents flicker)
+  document.title = `${TITLE} — Sheet Music | Songs for Choirs`;
+</script>
+
 </head>
 
 <body class="sheet">
   <main class="wrap">
-    <a href="opus-cello-go-bolero.html" class="back-btn">← Back to Opus Page</a>
+    <a id="back-link" class="back-btn">← Back to Opus Page</a>
 
     <div class="sheet-container">
-  <iframe
-  src="https://sfc-watermark-worker.lyra-6b2.workers.dev/preview?score=cello%20go%20bolero"
-  title="Preview – Cello Go Bolero"
-  width="100%" height="800">
-</iframe>
-
+      <iframe
+      id="preview-frame"
+      title="">
+    </iframe>
     </div>
   </main>
 
@@ -74,7 +85,18 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  const BASE = "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev";
+
+  const frame = document.getElementById("preview-frame");
+  frame.src = `${BASE}/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
+  frame.title = `Preview — ${TITLE}`;
+
+  document.getElementById("back-link").href =
+    `opus-${SLUG}.html`;
+
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+</script>
+  
 </body>
 </html>
