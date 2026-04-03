@@ -3,16 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lavender's Blue – Songs for Choirs</title>
-  <meta name="description" content="An English folk song arranged for SATB choir and piano. Listen, view sample pages, and order licensed copies instantly." />
+
+  <!-- DATA -->
+  <script src="data.js"></script>
+
+  <script>
+    const slug = "lavenders-blue";
+
+    const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
+
+    const TITLE = piece?.title || "Lavender's Blue";
+    const DESCRIPTION = piece?.description || "";
+
+    document.title = `${TITLE} – Songs for Choirs`;
+  </script>
+
+  <meta name="description" content="">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const meta = document.querySelector('meta[name="description"]');
+      if (meta) meta.setAttribute("content", DESCRIPTION);
+    });
+  </script>
+
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Privacy-friendly analytics by Plausible -->
+  <!-- Analytics -->
   <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
-
 </head>
 
 <body class="opus-page">
+
   <header class="site-header">
     <h1 class="site-logo">
       songs<span class="gold">for</span>choirs
@@ -36,33 +58,32 @@
 
       <div class="score-grid single-opus">
         
-        <!-- Left: audio player -->
+        <!-- Audio -->
         <div class="opus-left">
           <audio controls>
-            <source src="mp3/lavenders-blue.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+            <source id="audioSrc" type="audio/mpeg">
           </audio>
         </div>
         
-        <!-- Centre: cover -->
+        <!-- Cover -->
         <figure class="cover">
-          <a href="sheet-lavenders-blue.html" class="cover-link">
+          <a id="sheetLink" class="cover-link">
             <img 
-              src="images/Cover_png/lavenders-blue.png"
-              alt="Lavender's Blue cover"
+              id="coverImg"
               onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
           </a>
           <span class="hover-tag">VIEW SAMPLE</span>
         </figure>
 
-        <!-- Right: order button -->
+        <!-- Order -->
         <div class="opus-right">
           <div class="paypal-box">
             <button class="price"
               data-price="1.25"
-              onclick="window.location.href='orderform.html?title=Lavender%27s%20Blue'">
+              id="orderBtn"
+              type="button">
               Order Here — £1.25 (<span class="eur"></span>, <span class="usd"></span>) per part
-            </button> 
+            </button>
           </div>
         </div>
 
@@ -73,10 +94,35 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+      <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a></small>
     </div>
   </footer>
 
   <script src="pricing.js"></script>
+
+  <!-- WIRING -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const audio = document.querySelector("audio");
+
+      document.getElementById("audioSrc").src =
+        `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
+      audio.load();
+
+      document.getElementById("sheetLink").href =
+        `sheet-${slug}.html`;
+
+      const cover = document.getElementById("coverImg");
+      cover.src = `/images/Cover_png/${slug}.png`;
+      cover.alt = `${TITLE} cover`;
+
+      document.getElementById("orderBtn").onclick = () => {
+      window.location.href = `orderform.html?title=${encodeURIComponent(TITLE)}`;
+    };
+
+    });
+  </script>
+
 </body>
 </html>
