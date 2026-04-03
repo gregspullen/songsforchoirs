@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pass The Salsa — Songs for Choirs</title>
-  <meta name="description" content="A lively piece for cello and piano. View sample pages and listen to Pass the Salsa." />
+
+  <script>
+    const TITLE = "Pass The Salsa";
+
+    const lower = TITLE.toLowerCase();
+    const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
+    const encoded = encodeURIComponent(TITLE);
+
+    // Set page title early
+    document.title = `${TITLE} – Songs for Choirs`;
+  </script>
+
+  <meta name="description" content="English folk song arranged for SATB choir and piano (optional). Listen, view sample pages, and order licensed copies instantly." />
   <link rel="stylesheet" href="styles.css">
 
   <!-- Privacy-friendly analytics by Plausible -->
-<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
-  
 </head>
 
 <body class="opus-page">
@@ -18,7 +28,7 @@
     <h1 class="site-logo">
       songs<span class="gold">for</span>choirs
     </h1>
-    <p class="tagline">Not choral music. — Just a few extra adventures.</p>
+    <p class="tagline">New accessible choral music.</p>
   </header>
 
   <nav id="site-nav" class="site-nav">
@@ -40,36 +50,29 @@
         <!-- Left: audio player -->
         <div class="opus-left">
           <audio controls>
-            <source src="mp3/pass-the-salsa.mp3" type="audio/mpeg">
+            <source id="audioSrc" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
-          
         </div>
         
-
         <!-- Centre: cover -->
-      <figure class="cover">
-        <a href="sheet-pass-the-salsa.html" class="cover-link">
-          <img 
-            src="images/Cover_png/pass-the-salsa.png"
-            alt="Pass the Salsa cover"
-            onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
-        </a>
-       <span class="hover-tag" style="bottom:27px;">VIEW SAMPLE<br><br>Solo cello part<br>included</span> 
-      </figure>
-
-        
-        
+        <figure class="cover">
+          <a id="sheetLink" class="cover-link">
+            <img 
+              id="coverImg"
+              onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
+          </a>
+          <span class="hover-tag">VIEW SAMPLE</span>
+        </figure>
 
         <!-- Right: order button -->
         <div class="opus-right">
           <div class="paypal-box">
             <button class="price"
               data-price="1.25"
-              onclick="window.location.href='orderform.html?title=Pass%20The%20Salsa'">
+              id="orderBtn">
               Order Here — £1.25 (<span class="eur"></span>, <span class="usd"></span>) per part
-            </button>
-
+            </button> 
           </div>
         </div>
 
@@ -80,10 +83,36 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+      <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
     </div>
   </footer>
 
   <script src="pricing.js"></script>
+
+  <!-- 🔧 Wiring everything together -->
+  <script>
+    // Audio
+    const audio = document.querySelector("audio");
+
+document.getElementById("audioSrc").src =
+  `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
+
+audio.load();
+
+    // Sheet link
+    document.getElementById("sheetLink").href =
+  `/sheet-${slug}.html`;
+
+    // Cover image
+    const cover = document.getElementById("coverImg");
+    cover.src = `/images/Cover_png/${slug}.png`;
+    cover.alt = `${TITLE} cover`;
+
+    // Order button
+    document.getElementById("orderBtn").onclick = () => {
+      window.location.href = `orderform.html?title=${encoded}`;
+    };
+  </script>
+
 </body>
 </html>

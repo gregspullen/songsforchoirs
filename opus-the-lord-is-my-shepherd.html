@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Lord Is My Shepherd — Songs for Choirs</title>
-  <meta name="description" content="A setting for SATB choir and piano." />
+
+  <script>
+    const TITLE = "The Lord Is My Shepherd";
+
+    const lower = TITLE.toLowerCase();
+    const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
+    const encoded = encodeURIComponent(TITLE);
+
+    // Set page title early
+    document.title = `${TITLE} – Songs for Choirs`;
+  </script>
+
+  <meta name="description" content="English folk song arranged for SATB choir and piano (optional). Listen, view sample pages, and order licensed copies instantly." />
   <link rel="stylesheet" href="styles.css">
 
   <!-- Privacy-friendly analytics by Plausible -->
-<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
-  
 </head>
 
 <body class="opus-page">
@@ -34,48 +44,75 @@
 
   <main class="wrap">
     <section class="panel">
+
       <div class="score-grid single-opus">
         
         <!-- Left: audio player -->
         <div class="opus-left">
           <audio controls>
-            <source src="mp3/the-lord-is-my-shepherd.mp3" type="audio/mpeg">
+            <source id="audioSrc" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
         </div>
-
+        
         <!-- Centre: cover -->
         <figure class="cover">
-          <a href="sheet-the-lord-is-my-shepherd.html" class="cover-link">
+          <a id="sheetLink" class="cover-link">
             <img 
-              src="images/Cover_png/the-lord-is-my-shepherd.png"
-              alt="The Lord Is My Shepherd cover"
+              id="coverImg"
               onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
           </a>
           <span class="hover-tag">VIEW SAMPLE</span>
         </figure>
 
-        <!-- Right: order button -->    
+        <!-- Right: order button -->
         <div class="opus-right">
           <div class="paypal-box">
             <button class="price"
               data-price="1.25"
-              onclick="window.location.href='orderform.html?title=The%20Lord%20Is%20My%20Shepherd'">
+              id="orderBtn">
               Order Here — £1.25 (<span class="eur"></span>, <span class="usd"></span>) per part
-            </button>
+            </button> 
           </div>
-        </div> <!-- ✅ this closing div was missing -->
+        </div>
 
       </div>
+
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+      <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
     </div>
   </footer>
 
   <script src="pricing.js"></script>
+
+  <!-- 🔧 Wiring everything together -->
+  <script>
+    // Audio
+    const audio = document.querySelector("audio");
+
+document.getElementById("audioSrc").src =
+  `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
+
+audio.load();
+
+    // Sheet link
+    document.getElementById("sheetLink").href =
+  `/sheet-${slug}.html`;
+
+    // Cover image
+    const cover = document.getElementById("coverImg");
+    cover.src = `/images/Cover_png/${slug}.png`;
+    cover.alt = `${TITLE} cover`;
+
+    // Order button
+    document.getElementById("orderBtn").onclick = () => {
+      window.location.href = `orderform.html?title=${encoded}`;
+    };
+  </script>
+
 </body>
 </html>
