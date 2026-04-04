@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Songs for Choirs</title>
-  <meta name="description" content="An English folk song arranged for SATB choir (a cappella). Listen, view sample pages, and order licensed copies instantly." />
+  <title>Benedictus – Sheet Music | Songs for Choirs</title>
+  <meta name="description" content="Cello Go Bolero – a lively and rhythmic piece for cello in a bolero style. Characterful and full of energy, it brings the cello to the party at last. View the score, listen, and download from Songs for Choirs." />
   <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -54,8 +54,8 @@
   const TITLE = "Cello Go Bolero";
 
   const lower = TITLE.toLowerCase();
-  const SLUG = lower.replace(/'/g, "").replace(/\s+/g, "-");
-  const PREVIEW_SCORE = `${SLUG}.pdf`;
+  const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
+  const PREVIEW_SCORE = `${slug}.pdf`;
 
   // Optional: safe encoded version if ever needed
   const ENCODED = encodeURIComponent(TITLE);
@@ -85,14 +85,14 @@
   </footer>
 
   <script>
-  const BASE = "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev";
+  const BASE = "";
 
   const frame = document.getElementById("preview-frame");
   frame.src = `${BASE}/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
   frame.title = `Preview — ${TITLE}`;
 
   document.getElementById("back-link").href =
-    `opus-${SLUG}.html`;
+    `opus-${slug}.html`;
 
   document.getElementById('year').textContent =
     new Date().getFullYear();
