@@ -54,8 +54,8 @@
   const TITLE = "Bathed In Starlight";
 
   const lower = TITLE.toLowerCase();
-  const SLUG = lower.replace(/'/g, "").replace(/\s+/g, "-");
-  const PREVIEW_SCORE = `${SLUG}.pdf`;
+  const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
+  const PREVIEW_SCORE = `${slug}.pdf`;
 
   // Optional: safe encoded version if ever needed
   const ENCODED = encodeURIComponent(TITLE);
@@ -92,7 +92,7 @@
   frame.title = `Preview — ${TITLE}`;
 
   document.getElementById("back-link").href =
-    `opus-${SLUG}.html`;
+    `opus-${slug}.html`;
 
   document.getElementById('year').textContent =
     new Date().getFullYear();
