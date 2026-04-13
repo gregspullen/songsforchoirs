@@ -151,17 +151,17 @@
 
 <div style="display:flex; align-items:flex-start; gap:16px; margin-top:6px;">
   
-  <input id="copy" name="copies" required type="number" min="1" max="30"
+  <input id="copy" name="copies" required type="number" min="1" max="100"
          style="width:110px; text-align:center; padding:6px;">
 
   <div style="font-size:0.85em; color:#b8964a; margin-top:6px;">
-    Orders are limited to 30 copies per transaction as a simple safeguard.
+    Enter the number of copies you need
   </div>
 
 </div>
 
 <p class="note" style="margin-top:6px;">
-  If you require more copies you can place multiple orders or you are welcome to contact us at
+  If you prefer, you can order directly from us - contact us at
   <a href="mailto:lyra@songsforchoirs.com">lyra@songsforchoirs.com</a>.
 </p>
 <label for="email">Where would you like your music to be delivered?</label>
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     const title = document.getElementById("title").value.trim();
 const choir = document.getElementById("choir").value.trim();
-const copies = Math.min(30, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
+const copies = Math.min(100, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
 const pricePerCopy = 1.25;
 const total = (copies * pricePerCopy).toFixed(2);
 const orderNum = generateOrderNumber();
