@@ -50,10 +50,18 @@
         
         <!-- Left: audio player -->
         <div class="opus-left">
+          <!-- Main audio -->
+          <p><strong>Listen to the piece</strong></p>
           <audio controls>
             <source id="audioSrc" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
+        
+          <!-- Rehearsal track -->
+          <p style="margin-top: 1em;"><strong>Rehearsal track (with guide vocal)</strong></p>
+            <audio controls>
+              <source id="backingSrc" type="audio/mpeg">
+            </audio>
         </div>
         
         <!-- Centre: cover -->
@@ -93,12 +101,17 @@
   <!-- 🔧 Wiring everything together -->
   <script>
     // Audio
-    const audio = document.querySelector("audio");
+    document.querySelectorAll("audio").forEach(a => a.load());
 
-document.getElementById("audioSrc").src =
-  `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
+    // Audio sources FIRST
+    document.getElementById("audioSrc").src =
+      `https://www.songsforchoirs.com/mp3/${slug}.mp3`;
 
-audio.load();
+    document.getElementById("backingSrc").src =
+      `https://www.songsforchoirs.com/mp3/${slug}-backing.mp3`;
+
+    // THEN load both players
+    document.querySelectorAll("audio").forEach(a => a.load());
 
     // Sheet link
     document.getElementById("sheetLink").href =
