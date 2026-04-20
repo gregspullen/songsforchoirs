@@ -88,7 +88,7 @@
   const BASE = "";
 
   const frame = document.getElementById("preview-frame");
-  frame.src = `${BASE}/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
+  frame.src = `/pdfjs/web/viewer.html?file=${encodeURIComponent(`${BASE}/preview?score=${PREVIEW_SCORE}`)}`;
   frame.title = `Preview — ${TITLE}`;
 
   document.getElementById("back-link").href =
