@@ -50,8 +50,10 @@
   <!-- Privacy-friendly analytics by Plausible -->
   <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
+  <script src="data.js"></script>
+
   <script>
-  const TITLE = "Lover And His Lass";
+  const TITLE = "Lavender's Blue";
 
   const lower = TITLE.toLowerCase();
   const SLUG = lower.replace(/'/g, "").replace(/\s+/g, "-");
@@ -85,17 +87,29 @@
   </footer>
 
   <script>
-  const BASE = "";
+  document.addEventListener("DOMContentLoaded", function () {
 
-  const frame = document.getElementById("preview-frame");
-  frame.src = `${BASE}/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
-  frame.title = `Preview — ${TITLE}`;
+  const slug = "REPLACE_ME";
+  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
 
-  document.getElementById("back-link").href =
-    `opus-${SLUG}.html`;
+  if (piece) {
+    const TITLE = piece.title;
+    const PREVIEW_SCORE = `${slug}.pdf`;
+
+    const frame = document.getElementById("preview-frame");
+    frame.src = `/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
+    frame.title = `Preview — ${TITLE}`;
+
+    document.title = `${TITLE} — Sheet Music | Songs for Choirs`;
+
+    document.getElementById("back-link").href =
+      `opus-${slug}.html`;
+  }
 
   document.getElementById('year').textContent =
     new Date().getFullYear();
+
+});
 </script>
   
 </body>
