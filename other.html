@@ -30,8 +30,8 @@
   <nav id="site-nav" class="site-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="choral.html">Choral</a></li>
-      <li><a href="young-voices.html">Young-Voices</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html">Concert</a></li>
       <li><a href="other.html" aria-current="page">Other</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -42,36 +42,8 @@
     <section class="panel">
       <h2>"Three Latin Dances — Accessible and happy-sounding music for cello and piano (Grades 3-5).</h2>
 
-      <div class="score-grid scroll">
-        <!-- Latin Dances -->
-        <figure class="cover">
-          <a href="opus-pass-the-salsa.html" class="cover-link">
-            <img src="images/Cover_png/pass-the-salsa.png"
-                 alt="Pass The Salsa cover"
-                 onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
-          </a>
-          <span class="hover-tag">Preview and Listen</span>
-        </figure>
-
-        <figure class="cover">
-          <a href="opus-cello-go-bolero.html" class="cover-link">
-            <img src="images/Cover_png/cello-go-bolero.png"
-                 alt="Cello Go Bolero cover"
-                 onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
-          </a>
-          <span class="hover-tag">Preview and Listen</span>
-        </figure>
-
-        <figure class="cover">
-          <a href="opus-tangissimo.html" class="cover-link">
-            <img src="images/Cover_png/tangissimo.png"
-                 alt="Tangissimo cover"
-                 onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
-          </a>
-          <span class="hover-tag">Preview and Listen</span>
-        </figure>
-        
-
+      <div class="score-grid scroll" id="pieces-container">
+    
       </div>
     </section>
   </main>
@@ -83,5 +55,35 @@
   </footer>
 
   <script src="pricing.js"></script>
+
+  <script src="data.js?v=2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.getElementById("pieces-container");
+
+  Object.keys(PIECES).forEach(slug => {
+    const piece = PIECES[slug];
+
+    if (!piece.categories || !piece.categories.includes("other")) return;
+
+    container.innerHTML += `
+      <figure class="cover">
+        <a href="opus-${slug}.html" class="cover-link">
+          <div class="cover-image">
+            <img
+              src="images/Cover_png/${slug}.png"
+              alt="${piece.title} cover"
+              onerror="this.onerror=null; this.src='images/placeholder.png';">
+          </div>
+          <span class="hover-tag">Preview and Listen</span>
+        </a>
+      </figure>
+    `;
+  });
+
+});
+</script>
 </body>
 </html>
