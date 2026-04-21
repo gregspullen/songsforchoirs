@@ -113,11 +113,7 @@ const BASE_URL = isLive
 
 if (frame) {
   if (piece.hasScore) {
-    frame.src = `pdfjs/web/viewer.html`;
-    frame.onload = () => {
-  const url = `${BASE_URL}/preview?score=${pdfFile}`;
-  frame.contentWindow.PDFViewerApplication.open(url);
-};
+    frame.src = `pdfjs/web/viewer.html#file=${encodeURIComponent(`${BASE_URL}/preview?score=${pdfFile}`)}&disableRange=true&disableStream=true`;
     frame.title = `Preview — ${piece.title}`;
   } else {
     frame.src = "";
