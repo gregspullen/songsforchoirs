@@ -113,7 +113,11 @@ const BASE_URL = isLive
 
 if (frame) {
   if (piece.hasScore) {
-    frame.src = `pdfjs/web/viewer.html?file=https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf`;
+    frame.src = `pdfjs/web/viewer.html`;
+    frame.onload = () => {
+  const url = `${BASE_URL}/preview?score=${pdfFile}`;
+  frame.contentWindow.PDFViewerApplication.open(url);
+};
     frame.title = `Preview — ${piece.title}`;
   } else {
     frame.src = "";
