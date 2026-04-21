@@ -106,10 +106,10 @@
   <nav class="site-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="choral.html">Choral</a></li>
-      <li><a href="young-voices.html">Young-Voices</a></li>
-      <li><a href="other.html">Other</a></li>
-      <li><a href="news.html">News</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -147,18 +147,25 @@
     
     </div>
 
+    <p id="priceDisplay" class="note"></p>
+
     <label for="copy">Number of copies:</label>
 
-<div style="display:flex; align-items:flex-start; gap:16px; margin-top:6px;">
-  
+<div style="display:flex; align-items:center; gap:16px; margin-top:6px;">
+
   <input id="copy" name="copies" required type="number" min="1" max="100"
          style="width:110px; text-align:center; padding:6px;">
 
-  <div style="font-size:0.85em; color:#b8964a; margin-top:6px;">
+  <div id="copyNote" style="font-size:0.85em; color:#b8964a; white-space:nowrap;">
     Enter the number of copies you need
   </div>
 
+  <div style="flex:1;"></div>
+
+  <p id="totalDisplay" class="note" style="margin:0; white-space:nowrap;"></p>
+
 </div>
+
 
 <p class="note" style="margin-top:6px;">
   If you prefer, you can order directly from us - contact us at
@@ -189,63 +196,200 @@ function generateOrderNumber() {
   const r = Math.floor(Math.random() * 900 + 100);
   return `SFC-${y}${m}${d}-${r}`;
 }
+  document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("orderForm");
-  const submitBtn = document.getElementById("submitBtn");
+  const copyInput = document.getElementById("copy");
+  const totalDisplay = document.getElementById("totalDisplay");
 
-  // Autofill title from ?title= parameter
+  function updateTotal() {
+    const copies = Math.max(1, parseInt(copyInput.value || "1", 10));
+
+  const params = new URLSearchParams(window.location.search);
+  const pricePerCopy = parseFloat(params.get("price")) || 1.25;
+  
+// 1–10
+let total = Math.min(copies, 10) * pricePerCopy;
+
+// 11–20
+if (copies > 10) {
+  total += Math.min(copies - 10, 10) * pricePerCopy * 0.67;
+}
+
+// 21–30
+if (copies > 20) {
+  total += Math.min(copies - 20, 10) * pricePerCopy * 0.58;
+}
+
+// 31–40
+if (copies > 30) {
+  total += Math.min(copies - 30, 10) * pricePerCopy * 0.50;
+}
+
+// 41–50
+if (copies > 40) {
+  total += Math.min(copies - 40, 10) * pricePerCopy * 0.42;
+}
+
+// 51–60
+if (copies > 50) {
+  total += Math.min(copies - 50, 10) * pricePerCopy * 0.33;
+}
+
+// 61–70
+if (copies > 60) {
+  total += Math.min(copies - 60, 10) * pricePerCopy * 0.25;
+}
+
+// 71–80
+if (copies > 70) {
+  total += Math.min(copies - 70, 10) * pricePerCopy * 0.17;
+}
+
+// 81–90
+if (copies > 80) {
+  total += Math.min(copies - 80, 10) * pricePerCopy * 0.08;
+}
+
+// 91–100
+if (copies > 90) {
+  total += Math.min(copies - 90, 10) * pricePerCopy * 0.04;
+}
+
+// 101+
+if (copies > 100) {
+  total += (copies - 100) * pricePerCopy * 0.01;
+}
+
+total = total.toFixed(2);
+
+if (totalDisplay) {
+  totalDisplay.textContent = `Total: £${total}`;
+}
+  }
+
+  if (copyInput) {
+    copyInput.addEventListener("input", updateTotal);
+    updateTotal();
+  }
+
+  const copyNote = document.getElementById("copyNote");
+  if (copyNote) {
+    copyNote.textContent = `Enter the number of copies you need`;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const titleParam = params.get("title");
   const titleField = document.getElementById("title");
+
+  const copiesParam = params.get("copies");
+
+if (copiesParam && copyInput) {
+  copyInput.value = copiesParam;
+  updateTotal();   // ← THIS is the magic line
+}
+
   if (titleParam && titleField) {
     titleField.value = decodeURIComponent(titleParam);
     titleField.readOnly = true;
   }
+
 });
 
 </script>
 
 <script>
-  document.getElementById("orderForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+  document.addEventListener("DOMContentLoaded", () => {
   
-    const title = document.getElementById("title").value.trim();
-const choir = document.getElementById("choir").value.trim();
-const copies = Math.min(100, Math.max(1, parseInt(document.getElementById("copy").value || "1", 10)));
-const pricePerCopy = 1.25;
-const total = (copies * pricePerCopy).toFixed(2);
-const orderNum = generateOrderNumber();
-const email = document.getElementById("email").value.trim();
+    document.getElementById("orderForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-const payload = {
-  title,
-  choir,
-  copies,
-  amount: total,
-  order: orderNum,
-  email
-};
+  const title = document.getElementById("title").value.trim();
+  const choir = document.getElementById("choir").value.trim();
   
-    try {
-      const res = await fetch(
-       "/send-email",
-
-        {
-
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        }
-      );
+  const copies = Math.min(
+    100,
+    Math.max(1, parseInt(document.getElementById("copy").value || "1", 10))
+  );
   
-      const text = await res.text();
+  const params = new URLSearchParams(window.location.search);
+  const pricePerCopy = parseFloat(params.get("price")) || 1.25;
+  
+  // incremental discount (always increases total)
+ 
+  let total = Math.min(copies, 10) * pricePerCopy;
+
+if (copies > 10) {
+  total += Math.min(copies - 10, 10) * pricePerCopy * 0.67;
+}
+if (copies > 20) {
+  total += Math.min(copies - 20, 10) * pricePerCopy * 0.58;
+}
+if (copies > 30) {
+  total += Math.min(copies - 30, 10) * pricePerCopy * 0.50;
+}
+if (copies > 40) {
+  total += Math.min(copies - 40, 10) * pricePerCopy * 0.42;
+}
+if (copies > 50) {
+  total += Math.min(copies - 50, 10) * pricePerCopy * 0.33;
+}
+if (copies > 60) {
+  total += Math.min(copies - 60, 10) * pricePerCopy * 0.25;
+}
+if (copies > 70) {
+  total += Math.min(copies - 70, 10) * pricePerCopy * 0.17;
+}
+if (copies > 80) {
+  total += Math.min(copies - 80, 10) * pricePerCopy * 0.08;
+}
+if (copies > 90) {
+  total += Math.min(copies - 90, 10) * pricePerCopy * 0.04;
+}
+if (copies > 100) {
+  total += (copies - 100) * pricePerCopy * 0.01;
+}
+
+total = total.toFixed(2);
+
+
+  const orderNum = generateOrderNumber();
+  const email = document.getElementById("email").value.trim();
+
+  const payload = {
+    title,
+    choir,
+    copies,
+    amount: total,
+    order: orderNum,
+    email
+  };
+
+  try {
+    const isLive = window.location.hostname === "songsforchoirs.com"
+                || window.location.hostname === "www.songsforchoirs.com";
+
+    const url = isLive
+      ? "/send-email"
+      : "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev/send-email";
+
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
       alert("We've sent you an email to verify your address. Please click the link in it to continue with your order.");
-    } catch (err) {
-      alert("Sorry — something went wrong.\n\nPlease try again. If the problem continues, contact us at lyra@songsforchoirs.com.");
+    } else {
+      throw new Error("Email failed");
     }
-  });
-  </script>
+
+  } catch (err) {
+    alert("Sorry — something went wrong.\n\nPlease try again. If the problem continues, contact us at lyra@songsforchoirs.com.");
+  }
+});
+});
+</script>
   
   <script>
     const form = document.getElementById("orderForm");
