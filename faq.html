@@ -3,27 +3,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Other — Songs for Choirs</title>
-  <meta name="description" content="A small collection of lyrical and imaginative works by Greg Pullen, sitting beyond the choral catalogue." />
-  <meta name="theme-color" content="#ffffff" />
-
-  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
+  <title>Our Mission — Songs for Choirs</title>
+  <meta name="description" content="The principles behind Songs for Choirs — keeping music affordable, beautifully written, and fair for every choir." />
   <link rel="stylesheet" href="styles.css?v=14">
 
+  <style>
+    /* Gentle line spacing just for the Mission page */
+    body.mission-page .score-card p {
+      line-height: 1.46; /* experiment between 1.45 and 1.5 */
+    }
+  </style>
+
   <!-- Privacy-friendly analytics by Plausible -->
-<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>  
+<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+
+<style>
+  main.score-grid {
+  margin-top: -1rem !important;
+}
+  .score-grid {
+  margin-top: 0rem;
+}
+.faq-item {
+  padding: 1rem 0;
+}
+.faq-item:first-child {
+  padding-top: 1rem;
+}
+.faq-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.faq-item h3 {
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin: 0.3rem 0 0 0;
+  line-height: 1.6;
+}
+.faq-signoff {
+  margin-top: 1.2rem;
+  font-style: italic;
+  opacity: 0.8;
+}
+  </style>
 </head>
 
-<body>
-
+<body class="mission-page">
   <header class="site-header">
     <h1 class="site-logo">
       songs<span class="gold">for</span>choirs
     </h1>
-    <p class="tagline">Recent work and what's next.</p>
+    <p class="tagline">Frequently asked questions.</p>
   </header>
 
   <nav id="site-nav" class="site-nav">
@@ -32,61 +65,43 @@
       <li><a href="sacred.html">Sacred</a></li>
       <li><a href="concert.html">Concert</a></li>
       <li><a href="albums.html">Albums</a></li>
-      <li><a href="faq.html" aria-current="page">FAQ</a></li>
+      <li><a href="faq.html">FAQ</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+  
+  <main class="score-grid">
+    <section class="score-card">
 
-  <main class="wrap">
-    <section class="panel">
-      <h2>What's new?</h2>
-
-      <div class="score-grid scroll">
-        <!-- Notice-Board -->
-        <figure class="cover noticeboard">
-            <div class="cover-image">
-              <img
-                src="images/Cover_png/News.png"
-                alt="News cover"
-                onerror="this.onerror=null; this.src='images/placeholder.png';">
-            </div>
-        </figure>
-
-        <figure class="cover">
-          <a href="opus-it-was-a-lover-and-his-lass.html" class="cover-link">
-            <div class="cover-image">
-              <img
-                src="images/Cover_png/it-was-a-lover-and-his-lass.png"
-                alt="Lover And His Lass cover"
-                onerror="this.onerror=null; this.src='images/placeholder.png';">
-            </div>
-            <span class="hover-tag">Preview and Listen</span>
-          </a>
-        </figure>
-
-        <figure class="cover">
-          <a href="opus-bathed-in-starlight.html" class="cover-link">
-            <div class="cover-image">
-              <img
-                src="images/Cover_png/bathed-in-starlight.png"
-                alt="Bathed in Starlight cover"
-                onerror="this.onerror=null; this.src='images/placeholder.png';">
-            </div>
-            <span class="hover-tag">Preview and Listen</span>
-          </a>
-        </figure>
-        
-
+      <div class="faq-item">
+        <h3>How should I print my sheet music?</h3>
+        <p>Our engraving takes page turns into account. Before printing, check the page numbers at the top of your score.</p>
+        <p>Many of our scores begin on page 2, which is designed to appear on the left-hand page when printed double-sided.</p>
       </div>
-    </section>
+    
+      <div class="faq-item">
+        <h3>Do I get a discount for larger orders?</h3>
+        <p>Yes. The price per copy reduces automatically as you increase the number of licensed copies.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can I share copies with my choir?</h3>
+        <p>Yes — that’s exactly what your licence is for.</p>
+        <p>When you purchase copies, you are licensing your choir to use that number of printed scores. We simply ask that each printed part is within the terms of your licence.</p>
+      </div>
+    
+      <div class="faq-item">
+        <h3>Can I download more copies later?</h3>
+        <p>We work on trust.</p> 
+        <p>Your download link remains active for 7 days after purchase. If you need more copies after that, just get in touch with your order number and we’ll happily send you a new link.</p>
+    
+        <p class="faq-signoff">— <em>“Music makes friends.”</em><br>
+          — The Songs for Choirs Team</p>
+      </div>
+    
+    </section>  
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
-    </div>
-  </footer>
-
-  <script src="pricing.js"></script>
+  <!-- Footer intentionally omitted for this page -->
 </body>
 </html>
