@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Benedictus – Sheet Music | Songs for Choirs</title>
-  <meta name="description" content="Benedictus – an atmospheric and accessible choral setting for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs." />
+  <title>Songs for Choirs</title>
+  <meta name="description" content="An English folk song arranged for SATB choir (a cappella). Listen, view sample pages, and order licensed copies instantly." />
   <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -50,19 +50,7 @@
   <!-- Privacy-friendly analytics by Plausible -->
   <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
-  <script>
-  const TITLE = "Benedictus";
-
-  const lower = TITLE.toLowerCase();
-  const slug = lower.replace(/'/g, "").replace(/\s+/g, "-");
-  const PREVIEW_SCORE = `${slug}.pdf`;
-
-  // Optional: safe encoded version if ever needed
-  const ENCODED = encodeURIComponent(TITLE);
-
-  // Set page title early (prevents flicker)
-  document.title = `${TITLE} — Sheet Music | Songs for Choirs`;
-</script>
+  <script src="data.js"></script>
 
 </head>
 
@@ -85,17 +73,67 @@
   </footer>
 
   <script>
-  const BASE = "";
+document.addEventListener("DOMContentLoaded", () => {
 
-  const frame = document.getElementById("preview-frame");
-  frame.src = `${BASE}/preview?score=${encodeURIComponent(PREVIEW_SCORE)}`;
-  frame.title = `Preview — ${TITLE}`;
+  // 🐸 Get slug from URL
+  const path = window.location.pathname;
+  const filename = path.split("/").pop();
+  const slug = filename.replace(".html", "").replace("sheet-", "");
 
-  document.getElementById("back-link").href =
-    `opus-${SLUG}.html`;
+  // 🐸 Get piece data
+  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
 
-  document.getElementById('year').textContent =
-    new Date().getFullYear();
+  // 🛑 Safety check FIRST
+  if (!piece) {
+    console.error("Piece not found:", slug);
+    return;
+  }
+
+  // 🐸 Title (clean + safe)
+  document.title = piece.metaTitle || `${piece.title} — Sheet Music | Songs for Choirs`;
+
+  // 🐸 Meta description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && piece.description) {
+    metaDesc.setAttribute("content", piece.description);
+  }
+
+  // 🐸 PDF preview
+  // 🐸 PDF preview
+const frame = document.getElementById("preview-frame");
+const pdfFile = `${slug}.pdf`;
+
+// 🐸 Environment-aware base
+const isLive = window.location.hostname === "songsforchoirs.com"
+            || window.location.hostname === "www.songsforchoirs.com";
+
+const BASE_URL = isLive
+  ? ""
+  : "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev";
+
+if (frame) {
+  if (piece.hasScore) {
+    frame.src = `${BASE_URL}/preview?score=${encodeURIComponent(pdfFile)}`;
+    frame.title = `Preview — ${piece.title}`;
+  } else {
+    frame.src = "";
+    frame.title = "No preview available";
+  }
+}
+
+  // 🐸 Back link
+  const backLink = document.getElementById("back-link");
+  if (backLink) {
+    backLink.href = `opus-${slug}.html`;
+  }
+
+  // 🐸 Footer year
+  const year = document.getElementById("year");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+});
 </script>
   
 </body>
