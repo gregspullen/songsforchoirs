@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Songs for Choirs</title>
+  <meta name="description" content="An English folk song arranged for SATB choir (a cappella). Listen, view sample pages, and order licensed copies instantly." />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #fdfcf9, #f7f5ee); /* soft parchment fade */
+    }
+
+    .sheet-container {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      height: 90vh;
+      padding-top: 1rem;
+    }
+
+    iframe {
+      width: 90%;
+      height: 100%;
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin: 0.5rem 0 1rem 1rem;
+      font-size: 0.9rem;
+      text-decoration: none;
+      color: #555;
+    }
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+
+  <script src="data.js"></script>
+
+</head>
+
+<body class="sheet">
+  <main class="wrap">
+    <a id="back-link" class="back-btn">← Back to Opus Page</a>
+
+    <div class="sheet-container">
+      <iframe
+      id="preview-frame"
+      title="">
+    </iframe>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© <span id="year"></span> Songs for Choirs. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // 🐸 Get slug from URL
+  const path = window.location.pathname;
+  const filename = path.split("/").pop();
+  const slug = filename.replace(".html", "").replace("sheet-", "");
+
+  // 🐸 Get piece data
+  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
+
+  // 🛑 Safety check FIRST
+  if (!piece) {
+    console.error("Piece not found:", slug);
+    return;
+  }
+
+  // 🐸 Title (clean + safe)
+  document.title = piece.metaTitle || `${piece.title} — Sheet Music | Songs for Choirs`;
+
+  // 🐸 Meta description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && piece.description) {
+    metaDesc.setAttribute("content", piece.description);
+  }
+
+  // 🐸 PDF preview
+  // 🐸 PDF preview
+const frame = document.getElementById("preview-frame");
+const pdfFile = `${slug}.pdf`;
+
+// 🐸 Environment-aware base
+const isLive = window.location.hostname === "songsforchoirs.com"
+            || window.location.hostname === "www.songsforchoirs.com";
+
+const BASE_URL = isLive
+  ? ""
+  : "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev";
+
+if (frame) {
+  if (piece.hasScore) {
+    frame.src = `${BASE_URL}/preview?score=${encodeURIComponent(pdfFile)}`;
+    frame.title = `Preview — ${piece.title}`;
+  } else {
+    frame.src = "";
+    frame.title = "No preview available";
+  }
+}
+
+  // 🐸 Back link
+  const backLink = document.getElementById("back-link");
+  if (backLink) {
+    backLink.href = `opus-${slug}.html`;
+  }
+
+  // 🐸 Footer year
+  const year = document.getElementById("year");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
+
+});
+</script>
+  
+</body>
+</html>

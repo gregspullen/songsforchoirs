@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- DATA -->
+  <script src="data.js?v=1"></script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const path = window.location.pathname;
+  const slug = path
+    .split("/")
+    .pop()
+    .replace(/^opus-/, "")
+    .replace(/\.html$/, "");
+
+  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
+
+  if (!piece) {
+    console.error("Piece not found:", slug);
+    return;
+  }
+
+  const price = piece.price || 1.25;
+  const copyInput = document.getElementById("copyInput");
+  const eurSpan = document.querySelector(".eur");
+const usdSpan = document.querySelector(".usd");
+
+if (eurSpan && usdSpan) {
+  const eur = (price * 1.17).toFixed(2); // approx conversion
+  const usd = (price * 1.27).toFixed(2); // approx conversion
+
+  eurSpan.textContent = `€${eur}`;
+  usdSpan.textContent = `$${usd}`;
+}
+
+  // Title
+  document.title = piece.metaTitle || `${piece.title} — Songs for Choirs`;
+
+  // Cover
+  const cover = document.getElementById("coverImg");
+  if (cover) {
+    cover.src = `/images/Cover_png/${slug}.png`;
+    cover.alt = `${piece.title} cover`;
+  }
+
+  // Sheet link
+  const sheetLink = document.getElementById("sheetLink");
+  if (sheetLink) {
+    sheetLink.href = `sheet-${slug}.html`;
+  }
+
+  // Meta description
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && piece.description) {
+    metaDesc.setAttribute("content", piece.description);
+  }
+
+  // Audio
+  const audio = document.querySelector("audio");
+  const audioSrc = document.getElementById("audioSrc");
+
+  const isLive = window.location.hostname === "songsforchoirs.com"
+              || window.location.hostname === "www.songsforchoirs.com";
+
+  const audioBase = isLive
+    ? "https://www.songsforchoirs.com"
+    : "https://dev.songsforchoirs.net";
+
+  if (audio && audioSrc) {
+    const src = `${audioBase}/mp3/${slug}.mp3`;
+    audioSrc.src = src;
+    audio.load();
+  }
+
+  // Price display
+  const priceDisplayBtn = document.getElementById("priceDisplayBtn");
+  if (priceDisplayBtn) {
+    priceDisplayBtn.textContent = price.toFixed(2);
+  }
+
+// === PRICE CALCULATOR ===
+
+const totalGBP = document.getElementById("totalGBP");
+const totalEUR = document.getElementById("totalEUR");
+const totalUSD = document.getElementById("totalUSD");
+
+function updateTotal() {
+  const copies = Math.max(1, parseInt(copyInput.value || "1", 10));
+
+  let total = Math.min(copies, 10) * price;
+
+// 11–20
+if (copies > 10) {
+  total += Math.min(copies - 10, 10) * price * 0.67;
+}
+
+// 21–30
+if (copies > 20) {
+  total += Math.min(copies - 20, 10) * price * 0.58;
+}
+
+// 31–40
+if (copies > 30) {
+  total += Math.min(copies - 30, 10) * price * 0.50;
+}
+
+// 41–50
+if (copies > 40) {
+  total += Math.min(copies - 40, 10) * price * 0.42;
+}
+
+// 51–60
+if (copies > 50) {
+  total += Math.min(copies - 50, 10) * price * 0.33;
+}
+
+// 61–70
+if (copies > 60) {
+  total += Math.min(copies - 60, 10) * price * 0.25;
+}
+
+// 71–80
+if (copies > 70) {
+  total += Math.min(copies - 70, 10) * price * 0.17;
+}
+
+// 81–90
+if (copies > 80) {
+  total += Math.min(copies - 80, 10) * price * 0.08;
+}
+
+// 91–100
+if (copies > 90) {
+  total += Math.min(copies - 90, 10) * price * 0.04;
+}
+
+// 101+
+if (copies > 100) {
+  total += (copies - 100) * price * 0.01;
+}
+
+  const gbp = total.toFixed(2);
+  const eur = (total * 1.17).toFixed(2);
+  const usd = (total * 1.27).toFixed(2);
+
+  if (totalGBP) totalGBP.textContent = gbp;
+  if (totalEUR) totalEUR.textContent = `€${eur}`;
+  if (totalUSD) totalUSD.textContent = `$${usd}`;
+}
+
+if (copyInput) {
+  copyInput.addEventListener("input", updateTotal);
+  updateTotal();
+}
+  // Order button
+  const orderBtn = document.getElementById("orderBtn");
+  if (orderBtn) {
+    orderBtn.onclick = () => {
+      const copies = copyInput ? copyInput.value : 12;
+
+window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&price=${price}&copies=${copies}`;
+    };
+  }
+
+});
+</script>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Analytics -->
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+</head>
+
+<body class="opus-page">
+
+  <header class="site-header">
+    <h1 class="site-logo">
+      songs<span class="gold">for</span>choirs
+    </h1>
+    <p class="tagline">New accessible choral music.</p>
+  </header>
+
+  <nav class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+    <section class="panel">
+
+      <div class="score-grid single-opus">
+        
+        <div class="opus-left">
+          <p><strong>Listen</strong></p>
+          <p>
+            <a href="mp3/it-was-a-lover-and-his-lass.mp3">▶ Cello Go Bolero</a><br>
+            <a href="mp3/bobby-shafto.mp3">▶ Pass the Salsa</a><br>
+            <a href="mp3/the-ash-grove.mp3">▶ Tangissimo</a>
+            <a href="mp3/lavenders-blue.mp3">▶ Tangissimo</a>
+          </p>
+        </div>
+        
+        <figure class="cover">
+          <a id="sheetLink" class="cover-link">
+            <img 
+              id="coverImg"
+              onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
+          </a>
+          <span class="hover-tag">VIEW SAMPLE</span>
+        </figure>
+
+        <div class="opus-right">
+
+            <div class="paypal-box">
+          
+              <label for="copyInput" style="display:block; text-align:center; margin-bottom:6px;">
+                How many singers?
+              </label>
+          
+              <input 
+                id="copyInput" 
+                type="number" 
+                value="12" 
+                min="1"
+                style="display:block; margin:0 auto 10px auto; text-align:center; width:80px;">
+          
+                <button class="price" id="orderBtn" type="button">
+                  Order — £<span id="totalGBP">0.00</span>
+                  (<span id="totalEUR"></span>, <span id="totalUSD"></span>) total
+                </button>
+          
+              <p style="font-size:0.8em; color:#b8964a; margin-top:6px; text-align:center;">
+                Currency conversions are approximate.<br>
+                Final pricing is shown in PayPal.
+              </p>
+          
+            </div>
+          
+          </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a></small>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Concert Choir Sheet Music | Inspiring Songs for Schools & Young Voices – Songs for Choirs</title>
+  <meta name="description" content="Discover original concert choir sheet music by Gregory Pullen and Lyra Harker—fun, accessible songs for youth, school, church and community choirs, and young singers. Instant PDF downloads." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="styles.css?v=999css">
+
+  <!-- Privacy-friendly analytics by Plausible -->
+<script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>  
+</head>
+<body>
+  <header class="site-header">
+  <h1 class="site-logo">
+  songs<span class="gold">for</span>choirs
+</h1>
+<p class="tagline">A selection of accessible concert pieces.</p>
+
+</header>
+
+
+  <nav id="site-nav" class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html" aria-current="page">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>Available Scores &lsaquo; scroll to view &rsaquo;</scroll></h2>
+
+     <div class="score-grid scroll" id="pieces-container">
+      
+      </div>
+      
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="pricing.js"></script>
+
+  <script src="data.js?v=2"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.getElementById("pieces-container");
+
+  Object.keys(PIECES).forEach(slug => {
+    const piece = PIECES[slug];
+
+   if (!piece.categories || !piece.categories.includes("concert")) return;
+
+    container.innerHTML += `
+      <figure class="cover">
+        <a href="opus-${slug}.html" class="cover-link">
+          <div class="cover-image">
+            <img
+              src="images/Cover_png/${slug}.png"
+              alt="${piece.title} cover"
+              onerror="this.onerror=null; this.src='images/placeholder.png';">
+          </div>
+          <span class="hover-tag">Preview and Listen</span>
+        </a>
+      </figure>
+    `;
+  });
+
+  // after the forEach finishes
+container.innerHTML += `
+  <figure class="cover">
+    <a href="opus-your-monster-is-your-friend.html" class="cover-link">
+      <div class="cover-image">
+        <img
+          src="images/Cover_png/your-monster-is-your-friend.png"
+          alt="Your Monster Is Your Friend cover"
+          onerror="this.onerror=null; this.src='images/placeholder.png';">
+      </div>
+      <span class="hover-tag">Watch Video</span>
+    </a>
+  </figure>
+`;
+
+});
+</script>
+</body>
+</html>
