@@ -201,21 +201,18 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
       <div class="score-grid single-opus">
         
         <div class="opus-left">
-          <p><strong>Listen</strong></p>
-          <p>
-            <a href="mp3/cello-go-bolero.mp3">▶ Cello Go Bolero</a><br>
-            <a href="mp3/pass-the-salsa.mp3">▶ Pass the Salsa</a><br>
-            <a href="mp3/tangissimo.mp3">▶ Tangissimo</a>
-          </p>
+          <audio controls>
+            <source id="audioSrc" type="audio/mpeg">
+          </audio>
         </div>
         
         <figure class="cover">
-          <a id="sheetLink" class="cover-link">
-            <img 
-              id="coverImg"
-              onerror="this.classList.add('placeholder'); this.src='images/placeholder.png';">
-          </a>
-          <span class="hover-tag">VIEW SAMPLE</span>
+          <img id="opus-preview-page" src="" alt="Score preview">
+        
+          <div class="watermark">PREVIEW COPY</div>
+          <div class="preview-footer">© 2026 www.songsforchoirs.com</div>
+        
+          <span class="hover-tag">Click to view</span>
         </figure>
 
         <div class="opus-right">
@@ -255,6 +252,86 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
       <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a></small>
     </div>
   </footer>
+
+  <script>
+    const path = window.location.pathname;
+    const slug = path.split("/").pop()
+      .replace("opus-", "")
+      .replace(".html", "");
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+let currentPage = 0;
+const img = document.getElementById("opus-preview-page");
+const hover = document.querySelector(".hover-tag");
+
+img.src = `images/Cover_png/${slug}.png`;
+
+// 🐸 NEW: detect first available page automatically
+let basePage = 1;
+
+function findFirstPage(callback) {
+  let i = 1;
+
+  function check() {
+    const test = new Image();
+    const filename = `preview_images/${slug}/${slug}_${String(i).padStart(4, '0')}.png`;
+
+    test.onload = () => {
+      basePage = i;
+      callback();
+    };
+
+    test.onerror = () => {
+      i++;
+      if (i < 10) {
+        check(); // try next
+      } else {
+        basePage = 1;
+        callback();
+      }
+    };
+
+    test.src = filename;
+  }
+
+  check();
+}
+
+function goToPage(n) {
+  const realPage = basePage + (n - 1);
+  const test = new Image();
+
+  const filename = `preview_images/${slug}/${slug}_${String(realPage).padStart(4, '0')}.png`;
+
+  test.onload = () => {
+  currentPage = n;
+  img.src = filename;
+  hover.style.display = "none";
+
+  document.querySelector(".preview-footer").style.display = "block";
+};
+
+  test.onerror = () => {
+    currentPage = 1;
+    img.src = `preview_images/${slug}/${slug}_${String(basePage).padStart(4, '0')}.png`;
+  };
+
+  test.src = filename;
+}
+
+findFirstPage(() => {
+  img.addEventListener("click", () => {
+    goToPage(currentPage + 1);
+  });
+});
+
+});
+    </script>
+  
+
 
 </body>
 </html>
