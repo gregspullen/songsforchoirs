@@ -358,7 +358,9 @@ p em {
 .opus-page .preview-footer {
   display: none;
 }
-
+.opus-page .watermark {
+  display: none;
+}
 /* =========================
      Audio Player Notes
      ========================= */
