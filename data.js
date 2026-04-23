@@ -59,7 +59,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.10
   },
   "benedictus": {
