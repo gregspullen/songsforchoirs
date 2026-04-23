@@ -208,8 +208,8 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
         
         <figure class="cover">
           <img id="opus-preview-page" src="" alt="Score preview">
-    
-          <span class="hover-tag">Click to view</span>
+        
+          <span id="hover-tag" class="hover-tag">Click to view</span>
         </figure>
 
         <div class="opus-right">
@@ -265,6 +265,15 @@ const img = document.getElementById("opus-preview-page");
 const hover = document.querySelector(".hover-tag");
 
 img.src = `images/Cover_png/${slug}.png`;
+      const piece = PIECES[slug];
+      if (!piece.hasScore) {
+  img.src = `images/Cover_png/${slug}.png`;
+  hover.textContent = "Preview not yet available";
+  img.style.cursor = "default";
+
+  // STOP everything else from running
+  return;
+}
 
 // 🐸 NEW: detect first available page automatically
 let basePage = 1;
