@@ -5,7 +5,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 3.00
   },
   "three-latin-dances": {
@@ -14,7 +14,7 @@ window.PIECES = {
     "voicing": "SATB / SB",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 4.50
   },
   "magnificat-and-venite": {
@@ -23,7 +23,7 @@ window.PIECES = {
     "voicing": "SATB / SB",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.75
    },
   "the-ash-grove": {
@@ -32,7 +32,7 @@ window.PIECES = {
     "voicing": "SAB",
     "accompaniment": "a cappella",
     "categories": ["concert"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 0.85
   },
   "lavenders-blue": {
@@ -41,7 +41,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "bathed-in-starlight": {
@@ -68,7 +68,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "bobby-shafto": {
@@ -77,7 +77,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "cello-go-bolero": {
@@ -86,7 +86,7 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 3.50
   },
   "if-i-was-that-donkey": {
@@ -95,7 +95,7 @@ window.PIECES = {
     "voicing": "unison voices",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "it-was-a-lover-and-his-lass": {
@@ -105,7 +105,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "my-soul-doth-magnify-the-lord": {
@@ -114,7 +114,7 @@ window.PIECES = {
     "voicing": "SATB amd SB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.20
   },
   "pass-the-salsa": {
@@ -123,7 +123,7 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 3.50
   },
   "tangissimo": {
@@ -132,7 +132,7 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 3.50
   },
   "the-lords-prayer": {
@@ -141,7 +141,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 0.90
   },
   "the-lord-is-my-shepherd": {
@@ -150,7 +150,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
   },
   "make-a-joyful-noise": {
@@ -159,7 +159,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": true,
+    "hasScore": false,
     "price": 1.00
    }
   };
