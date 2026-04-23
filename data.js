@@ -68,7 +68,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "bobby-shafto": {
