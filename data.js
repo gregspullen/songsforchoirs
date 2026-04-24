@@ -23,7 +23,7 @@ window.PIECES = {
     "voicing": "SATB / SB",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.75
    },
   "the-ash-grove": {
@@ -95,7 +95,7 @@ window.PIECES = {
     "voicing": "unison voices",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "it-was-a-lover-and-his-lass": {
@@ -114,7 +114,7 @@ window.PIECES = {
     "voicing": "SATB amd SB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.20
   },
   "pass-the-salsa": {
@@ -159,7 +159,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
    }
   };
