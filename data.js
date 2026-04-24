@@ -95,7 +95,7 @@ window.PIECES = {
     "voicing": "unison voices",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "it-was-a-lover-and-his-lass": {
