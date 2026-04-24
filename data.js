@@ -141,7 +141,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 0.90
   },
   "the-lord-is-my-shepherd": {
