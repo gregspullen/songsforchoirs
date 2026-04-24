@@ -23,7 +23,7 @@ window.PIECES = {
     "voicing": "SATB / SB",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.75
    },
   "the-ash-grove": {
