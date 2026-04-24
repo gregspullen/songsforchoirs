@@ -41,7 +41,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "bathed-in-starlight": {
