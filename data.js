@@ -114,7 +114,7 @@ window.PIECES = {
     "voicing": "SATB amd SB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.20
   },
   "pass-the-salsa": {
