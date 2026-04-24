@@ -32,7 +32,7 @@ window.PIECES = {
     "voicing": "SAB",
     "accompaniment": "a cappella",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 0.85
   },
   "lavenders-blue": {
