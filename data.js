@@ -1,8 +1,8 @@
 window.PIECES = {
-  "four-british-songs": {
-    "title": "Four British Songs",
-    "description": "Four British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
+  "four-very-british-songs": {
+    "title": "Four Very British Songs",
+    "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB / SAB",
     "accompaniment": "piano (optional)",
     "categories": ["albums"],
     "hasScore": false,
