@@ -5,7 +5,7 @@ window.PIECES = {
     "voicing": "SATB / SAB",
     "accompaniment": "piano (optional)",
     "categories": ["albums"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 3.00
   },
   "three-latin-dances": {
