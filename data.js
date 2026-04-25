@@ -1,11 +1,11 @@
 window.PIECES = {
-  "four-british-songs": {
-    "title": "Four British Songs",
-    "description": "Four British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
+  "four-very-british-songs": {
+    "title": "Four Very British Songs",
+    "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB / SAB",
     "accompaniment": "piano (optional)",
     "categories": ["albums"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 3.00
   },
   "three-latin-dances": {
@@ -32,7 +32,7 @@ window.PIECES = {
     "voicing": "SAB",
     "accompaniment": "a cappella",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 0.85
   },
   "lavenders-blue": {
@@ -41,7 +41,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "bathed-in-starlight": {
@@ -77,7 +77,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "cello-go-bolero": {
@@ -105,7 +105,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "my-soul-doth-magnify-the-lord": {
@@ -141,7 +141,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 0.90
   },
   "the-lord-is-my-shepherd": {
@@ -150,7 +150,7 @@ window.PIECES = {
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
-    "hasScore": false,
+    "hasScore": true,
     "price": 1.00
   },
   "make-a-joyful-noise": {
