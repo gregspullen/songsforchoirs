@@ -1,13 +1,20 @@
 window.PIECES = {
   "four-very-british-songs": {
-    "title": "Four Very British Songs",
-    "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB / SAB",
-    "accompaniment": "piano (optional)",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  },
+  "title": "Four Very British Songs",
+  "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. Listen, and download licensed copies from Songs for Choirs.",
+  "voicing": "SATB / SAB",
+  "accompaniment": "piano (optional)",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-ash-grove",
+    "bobby-shafto",
+    "lavenders-blue",
+    "it-was-a-lover-and-his-lass"
+  ],
+  "hasScore": true,
+  "price": 3.00
+},
   "three-latin-dances": {
     "title": "Three Latin Dances",
     "description": "Three Latin Dances - a lively and characterful suite of pieces for cello and piano. Playful and full of flair, these offer a step up in challenge while remaining accessible at around Grade 3 - 5. View the score, listen, and download from Songs for Choirs.",
