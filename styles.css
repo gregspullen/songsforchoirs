@@ -228,7 +228,63 @@ p em {
     text-decoration: underline;
     color: #8b6a09;
   }
-  
+
+/* Available in sets (opus pages) */
+.opus-left .available-in-sets a {
+  color: #c9a646;
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.opus-left .available-in-sets a:hover {
+  text-decoration: underline;
+}
+
+.opus-left .available-in-sets {
+  margin-top: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.available-in-sets ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+}
+
+.available-in-sets li::before {
+  content: "– ";
+  color: #c9a646;
+}
+
+.set-heading,
+.set-links {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.set-heading {
+  font-weight: 500;      /* was 600 */
+  font-size: 0.95em;     /* slightly smaller */
+  margin-bottom: 6px;
+  color: #444;           /* softer than full black */
+}
+
+.set-links div {
+  margin-bottom: 2px;
+}
+
+.set-links {
+  line-height: 1.6;
+}
+
+.set-links a {
+  color: #c9a646;
+  text-decoration: none;
+}
+
+.set-links a:hover {
+  text-decoration: underline;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */
@@ -406,27 +462,88 @@ p em {
   /* =========================
      Opus Layout
      ========================= */
-  .opus-layout {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 20px;
-    align-items: center;
-    justify-items: center;
-    margin-top: 20px;
+.opus-layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.panel .opus-layout {
+  background: transparent;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  .opus-layout, .panel .opus-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  
-  .panel .opus-layout {
-    background: transparent;
-    padding: 0;
-  }
-  
-  @media (max-width: 900px) {
-    .opus-layout, .panel .opus-layout {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-  }
-  
+}
+
+/* Hide number input arrows (clean input) */
+/*
+#copyInput::-webkit-inner-spin-button,
+#copyInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#copyInput {
+  appearance: textfield;
+}
+*/
+
+.per-copy {
+  font-size: 0.8em;
+  color: #888;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+.copy-line {
+  display: inline-flex;
+  align-items: baseline;  /* ← this is the key change */
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.9em;   /* slightly smaller */
+  color: #555;         /* softer than black */
+  opacity: 0.9;       /* gentle fade */
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+.copy-line input {
+  display: inline-block;
+  width: 64px;
+  max-width: 64px !important;
+  text-align: center;
+  margin: 0 6px;
+  font-size: 1.05em;
+  padding: 2px 4px;
+  flex: 0 0 auto;
+  vertical-align: baseline;   /* ← key */
+}
+
+.copy-line input {
+  position: relative;
+  top: -0px;
+}
+
+.per-part {
+  font-size: 0.75em;
+  color: #777;
+  position: relative;
+  top: 0px;
+}
+
+.lead-text {
+  display: inline-block;
+  transform: translateY(-1px);
+}
 /* =========================
    Sample Note (under cover image)
    ========================= */
@@ -783,9 +900,15 @@ button.price small {
   }
  
   .single-opus .paypal-box {
-    text-align: right;
-    margin-right: -5rem; /* gentle outward nudge to mirror the player */
+  text-align: right;
+  margin-right: 0;
+}
+
+@media (min-width: 768px) {
+  .single-opus .paypal-box {
+    margin-right: -5rem;
   }
+}
   
   .single-opus .price {
     padding: 0.6em 1.35em;  /* slightly roomier sides */
