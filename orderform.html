@@ -81,6 +81,36 @@
   body.order-page section {
     max-width: 100% !important;
   }
+
+  body.order-page label {
+  margin-top: 16px;
+}
+
+body.order-page input {
+  margin-top: 4px;
+}
+
+body.order-page .note {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.copies-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.copies-line input {
+  width: 70px;
+  text-align: center;
+}
+body.order-page .copies-line input {
+  width: 70px;
+}
+
+
 </style>
 
 
@@ -98,7 +128,7 @@
   <header class="site-header">
     <div class="wrap">
       <h1 class="site-logo">songs<span class="gold">for</span>choirs</h1>
-      <p class="tagline">Secure licensed downloads — trusted by choirs.</p>
+      <p class="tagline">Secure licensed downloads — instant delivery to your email</p>
     </div>
   </header>
 
@@ -133,38 +163,32 @@
     <input type="hidden" name="cancel_return" value="https://www.songsforchoirs.com/orderform.html">
     
     <!-- Regular form fields -->
-    <div style="display:flex; gap:20px;">
+    <label for="title">Title of piece:</label>
+    <input type="text" id="title" name="title" required placeholder="e.g. The Lord Is My Shepherd">
 
-      <div style="flex:1;">
-        <label for="title">Title of piece:</label>
-        <input id="title" name="title" required placeholder="e.g. The Lord Is My Shepherd">
-      </div>
-    
-      <div style="flex:1;">
-        <label for="choir">Organisation / Choir:</label>
-        <input id="choir" name="choir" class="choir-field" required>
-      </div>
-    
-    </div>
+<label for="choir">Organisation / Choir:</label>
+<input type="text" id="choir" name="choir" required>
 
     <p id="priceDisplay" class="note"></p>
 
-    <label for="copy">Number of copies:</label>
 
-<div style="display:flex; align-items:center; gap:16px; margin-top:6px;">
 
-  <input id="copy" name="copies" required type="number" min="1" max="100"
-         style="width:110px; text-align:center; padding:6px;">
 
-  <div id="copyNote" style="font-size:0.85em; color:#b8964a; white-space:nowrap;">
-    Enter the number of copies you need
-  </div>
+    <div class="copies-line">
+      <span>I need</span>
+    
+      <input id="copy" name="copies" required type="number" min="1" max="100">
+    
+      <span>
+        parts (@ £<span id="pricePerPart">1.25</span> per part)
+        <strong id="totalDisplay"></strong>
+      </span>
+    </div>
 
-  <div style="flex:1;"></div>
 
-  <p id="totalDisplay" class="note" style="margin:0; white-space:nowrap;"></p>
 
-</div>
+    
+
 
 
 <p class="note" style="margin-top:6px;">
@@ -200,6 +224,7 @@ function generateOrderNumber() {
 
   const copyInput = document.getElementById("copy");
   const totalDisplay = document.getElementById("totalDisplay");
+  const priceDisplayEl = document.getElementById("pricePerPart");
 
   function updateTotal() {
     const copies = Math.max(1, parseInt(copyInput.value || "1", 10));
@@ -265,6 +290,13 @@ total = total.toFixed(2);
 if (totalDisplay) {
   totalDisplay.textContent = `Total: £${total}`;
 }
+
+const effectivePrice = (total / copies).toFixed(2);
+
+const priceDisplayEl = document.getElementById("pricePerPart");
+if (priceDisplayEl) {
+  priceDisplayEl.textContent = effectivePrice;
+}
   }
 
   if (copyInput) {
@@ -297,6 +329,8 @@ if (copiesParam && copyInput) {
 
 </script>
 
+  <script src="data.js?v=3"></script>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
   
@@ -304,6 +338,14 @@ if (copiesParam && copyInput) {
   e.preventDefault();
 
   const title = document.getElementById("title").value.trim();
+
+  const slug = title
+    .toLowerCase()
+    .replace(/'/g, "")  
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  
   const choir = document.getElementById("choir").value.trim();
   
   const copies = Math.min(
@@ -355,14 +397,18 @@ total = total.toFixed(2);
   const orderNum = generateOrderNumber();
   const email = document.getElementById("email").value.trim();
 
-  const payload = {
-    title,
-    choir,
-    copies,
-    amount: total,
-    order: orderNum,
-    email
-  };
+  const piece = window.PIECES ? PIECES[slug] : null;
+
+const payload = {
+  title,
+  slug,
+  items: piece && piece.pieces ? piece.pieces : [slug],
+  choir,
+  copies,
+  amount: total,
+  order: orderNum,
+  email
+};
 
   try {
     const isLive = window.location.hostname === "songsforchoirs.com"
@@ -371,6 +417,8 @@ total = total.toFixed(2);
     const url = isLive
       ? "/send-email"
       : "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev/send-email";
+
+    console.log("PAYLOAD:", payload);
 
     const res = await fetch(url, {
       method: "POST",

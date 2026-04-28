@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const price = piece.price || 1.25;
+  const price = piece.price || 1.00;
   const copyInput = document.getElementById("copyInput");
   const eurSpan = document.querySelector(".eur");
 const usdSpan = document.querySelector(".usd");
@@ -143,6 +143,13 @@ if (copies > 100) {
   total += (copies - 100) * price * 0.01;
 }
 
+  const perPart = total / copies;
+  const perPartEl = document.getElementById("pricePerPart");
+  
+  if (perPartEl) {
+    perPartEl.textContent = perPart.toFixed(2);
+}
+
   const gbp = total.toFixed(2);
   const eur = (total * 1.17).toFixed(2);
   const usd = (total * 1.27).toFixed(2);
@@ -169,7 +176,7 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
 });
 </script>
 
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css?v=999">
 
   <!-- Analytics -->
   <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
@@ -216,16 +223,13 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
 
             <div class="paypal-box">
           
-              <label for="copyInput" style="display:block; text-align:center; margin-bottom:6px;">
-                How many singers?
-              </label>
-          
-              <input 
-                id="copyInput" 
-                type="number" 
-                value="12" 
-                min="1"
-                style="display:block; margin:0 auto 10px auto; text-align:center; width:80px;">
+              <div style="text-align:center; margin-bottom:10px;">
+                <div class="copy-line">
+                  <span class="lead-text">I need</span> 
+                  <input id="copyInput" type="number" value="12" min="1">
+                  <span class="parts-word">parts</span> 
+                  <span class="per-part">(@ £<span id="pricePerPart">0.00</span> per part)</span>
+                </div>
           
                 <button class="price" id="orderBtn" type="button">
                   Order — £<span id="totalGBP">0.00</span>
@@ -266,7 +270,36 @@ const hover = document.querySelector(".hover-tag");
 
 img.src = `images/Cover_png/${slug}.png`;
       const piece = PIECES[slug];
-      if (!piece.hasScore) {
+
+const inSets = Object.keys(PIECES).filter(s => {
+  const p = PIECES[s];
+  return p.type === "bundle" && p.pieces && p.pieces.includes(slug);
+});
+
+if (inSets.length) {
+  const box = document.createElement("div");
+  box.className = "available-in-sets";
+  box.style.marginTop = "16px";
+  box.innerHTML = "<strong>Also available in sets:</strong>";
+
+  const ul = document.createElement("ul");
+
+  inSets.forEach(s => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+
+    link.href = `set-${s}.html`;
+    link.textContent = PIECES[s].title;
+
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
+
+ box.appendChild(ul);
+ document.querySelector(".opus-left").appendChild(box);
+}
+
+if (!piece.hasScore) {
   img.src = `images/Cover_png/${slug}.png`;
   hover.textContent = "Preview not yet available";
   img.style.cursor = "default";

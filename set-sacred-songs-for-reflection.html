@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- DATA -->
-  <script src="data.js?v=1"></script>
+  <script defer src="data.js?v=1"></script>
 
   <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,17 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const slug = path
     .split("/")
     .pop()
+    .replace(/^set-/, "")
     .replace(/^opus-/, "")
     .replace(/\.html$/, "");
 
-  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
-
+const piece = PIECES[slug];
   if (!piece) {
     console.error("Piece not found:", slug);
     return;
   }
 
-  const price = piece.price || 1.00;
+  const price = piece.price || 1.25;
   const copyInput = document.getElementById("copyInput");
   const eurSpan = document.querySelector(".eur");
 const usdSpan = document.querySelector(".usd");
@@ -41,7 +41,7 @@ if (eurSpan && usdSpan) {
   document.title = piece.metaTitle || `${piece.title} — Songs for Choirs`;
 
   // Cover
-  const cover = document.getElementById("coverImg");
+  const cover = document.getElementById("opus-preview-page");
   if (cover) {
     cover.src = `/images/Cover_png/${slug}.png`;
     cover.alt = `${piece.title} cover`;
@@ -59,22 +59,26 @@ if (eurSpan && usdSpan) {
     metaDesc.setAttribute("content", piece.description);
   }
 
-  // Audio
-  const audio = document.querySelector("audio");
-  const audioSrc = document.getElementById("audioSrc");
+  // Links
+  const container = document.getElementById("set-links");
 
-  const isLive = window.location.hostname === "songsforchoirs.com"
-              || window.location.hostname === "www.songsforchoirs.com";
+if (container && piece.pieces) {
 
-  const audioBase = isLive
-    ? "https://www.songsforchoirs.com"
-    : "https://dev.songsforchoirs.net";
+  const heading = document.createElement("div");
+  heading.className = "set-heading";
+  heading.textContent = "Contents";
+  container.appendChild(heading);
 
-  if (audio && audioSrc) {
-    const src = `${audioBase}/mp3/${slug}.mp3`;
-    audioSrc.src = src;
-    audio.load();
-  }
+  piece.pieces.forEach(p => {
+    const item = document.createElement("div");
+
+    item.innerHTML = `
+      – <a href="opus-${p}.html">${PIECES[p].title}</a>
+    `;
+
+    container.appendChild(item);
+  });
+}
 
   // Price display
   const priceDisplayBtn = document.getElementById("priceDisplayBtn");
@@ -143,22 +147,23 @@ if (copies > 100) {
   total += (copies - 100) * price * 0.01;
 }
 
-  const perPart = total / copies;
-  const perPartEl = document.getElementById("pricePerPart");
-  
-  if (perPartEl) {
-    perPartEl.textContent = perPart.toFixed(2);
-}
-
   const gbp = total.toFixed(2);
   const eur = (total * 1.17).toFixed(2);
   const usd = (total * 1.27).toFixed(2);
+
+  const pricePerPartEl = document.getElementById("pricePerPart");
+
+  const perPart = total / copies;
+
+  if (pricePerPartEl) {
+    pricePerPartEl.textContent = perPart.toFixed(2);
+  }
 
   if (totalGBP) totalGBP.textContent = gbp;
   if (totalEUR) totalEUR.textContent = `€${eur}`;
   if (totalUSD) totalUSD.textContent = `$${usd}`;
 }
-
+  
 if (copyInput) {
   copyInput.addEventListener("input", updateTotal);
   updateTotal();
@@ -176,7 +181,7 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
 });
 </script>
 
-  <link rel="stylesheet" href="/styles.css?v=999">
+  <link rel="stylesheet" href="styles.css">
 
   <!-- Analytics -->
   <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
@@ -208,15 +213,13 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
       <div class="score-grid single-opus">
         
         <div class="opus-left">
-          <audio controls>
-            <source id="audioSrc" type="audio/mpeg">
-          </audio>
+          <div id="set-links" class="set-links"></div>
         </div>
         
         <figure class="cover">
           <img id="opus-preview-page" src="" alt="Score preview">
         
-          <span id="hover-tag" class="hover-tag">Click to view</span>
+          <span id="hover-tag" class="hover-tag">Preview from contents</span>
         </figure>
 
         <div class="opus-right">
@@ -230,11 +233,12 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
                   <span class="parts-word">parts</span> 
                   <span class="per-part">(@ £<span id="pricePerPart">0.00</span> per part)</span>
                 </div>
-          
+              
                 <button class="price" id="orderBtn" type="button">
                   Order — £<span id="totalGBP">0.00</span>
                   (<span id="totalEUR"></span>, <span id="totalUSD"></span>) total
                 </button>
+              </div>
           
               <p style="font-size:0.8em; color:#b8964a; margin-top:6px; text-align:center;">
                 Currency conversions are approximate.<br>
@@ -253,124 +257,6 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
       <small>© 2026 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a></small>
     </div>
   </footer>
-
-  <script>
-    const path = window.location.pathname;
-    const slug = path.split("/").pop()
-      .replace("opus-", "")
-      .replace(".html", "");
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-
-let currentPage = 0;
-const img = document.getElementById("opus-preview-page");
-const hover = document.querySelector(".hover-tag");
-
-img.src = `images/Cover_png/${slug}.png`;
-      const piece = PIECES[slug];
-
-const inSets = Object.keys(PIECES).filter(s => {
-  const p = PIECES[s];
-  return p.type === "bundle" && p.pieces && p.pieces.includes(slug);
-});
-
-if (inSets.length) {
-  const box = document.createElement("div");
-  box.className = "available-in-sets";
-  box.style.marginTop = "16px";
-  box.innerHTML = "<strong>Also available in sets:</strong>";
-
-  const ul = document.createElement("ul");
-
-  inSets.forEach(s => {
-    const li = document.createElement("li");
-    const link = document.createElement("a");
-
-    link.href = `set-${s}.html`;
-    link.textContent = PIECES[s].title;
-
-    li.appendChild(link);
-    ul.appendChild(li);
-  });
-
- box.appendChild(ul);
- document.querySelector(".opus-left").appendChild(box);
-}
-
-if (!piece.hasScore) {
-  img.src = `images/Cover_png/${slug}.png`;
-  hover.textContent = "Preview not yet available";
-  img.style.cursor = "default";
-
-  // STOP everything else from running
-  return;
-}
-
-// 🐸 NEW: detect first available page automatically
-let basePage = 1;
-
-function findFirstPage(callback) {
-  let i = 1;
-
-  function check() {
-    const test = new Image();
-    const filename = `preview_images/${slug}/${slug}_${String(i).padStart(4, '0')}.png`;
-
-    test.onload = () => {
-      basePage = i;
-      callback();
-    };
-
-    test.onerror = () => {
-      i++;
-      if (i < 10) {
-        check(); // try next
-      } else {
-        basePage = 1;
-        callback();
-      }
-    };
-
-    test.src = filename;
-  }
-
-  check();
-}
-
-function goToPage(n) {
-  const realPage = basePage + (n - 1);
-  const test = new Image();
-
-  const filename = `preview_images/${slug}/${slug}_${String(realPage).padStart(4, '0')}.png`;
-
-  test.onload = () => {
-  currentPage = n;
-  img.src = filename;
-  hover.style.display = "none";
-
-  document.querySelector(".preview-footer").style.display = "block";
-};
-
-  test.onerror = () => {
-    currentPage = 1;
-    img.src = `preview_images/${slug}/${slug}_${String(basePage).padStart(4, '0')}.png`;
-  };
-
-  test.src = filename;
-}
-
-findFirstPage(() => {
-  img.addEventListener("click", () => {
-    goToPage(currentPage + 1);
-  });
-});
-
-});
-    </script>
   
-
-
 </body>
 </html>

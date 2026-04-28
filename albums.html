@@ -40,7 +40,7 @@
 
   <main class="wrap">
     <section class="panel">
-      <h2>Available Scores &lsaquo; scroll to view &rsaquo;</scroll></h2>
+      <h2>Available Scores &lsaquo; scroll to view &rsaquo;</h2>
 
       <div class="score-grid scroll" id="pieces-container">
     
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     container.innerHTML += `
       <figure class="cover">
-        <a href="opus-${slug}.html" class="cover-link">
+        <a href="${piece.type === 'bundle' ? `set-${slug}.html` : `opus-${slug}.html`}" class="cover-link">
           <div class="cover-image">
             <img
               src="images/Cover_png/${slug}.png"

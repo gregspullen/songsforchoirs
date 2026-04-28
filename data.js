@@ -18,21 +18,62 @@ window.PIECES = {
   "three-latin-dances": {
     "title": "Three Latin Dances",
     "description": "Three Latin Dances - a lively and characterful suite of pieces for cello and piano. Playful and full of flair, these offer a step up in challenge while remaining accessible at around Grade 3 - 5. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "SATB / SB",
+    "voicing": "cello and piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
-    "price": 4.50
+    "type": "bundle",
+    "pieces": [
+    "pass-the-salsa",
+    "cello-go-bolero",
+    "tangissimo"
+  ],
+    "hasScore": true,
+    "price": 4.75
   },
   "magnificat-and-venite": {
-    "title": "Magnificat and Venite",
-    "description": "Magnificat and Venite - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
-    "voicing": "SATB / SB",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 1.75
-   },
+  "title": "Magnificat and Venite",
+  "description": "Magnificat and Venite - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "my-soul-doth-magnify-the-lord",
+    "make-a-joyful-noise"
+  ],
+  "hasScore": true,
+  "price": 1.75
+},
+  "songs-for-the-nativity": {
+  "title": "Songs for the Nativity",
+  "description": "Songs for the Nativity - a beautiful and expressive Christmas collection for young voices. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SSA / unison",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "bathed-in-starlight",
+    "away-in-a-manger",
+    "if-i-was-that-donkey"
+  ],
+  "hasScore": true,
+  "price": 2.50
+},
+  "sacred-songs-for-reflection": {
+  "title": "Sacred Songs for Reflection",
+  "description": "Sacred Songs for Reflection - Three reflective sacred works for SATB choir and piano, suitable for services and concert use. listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SSA / unison",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-lords-prayer",
+    "the-lord-is-my-shepherd",
+    "benedictus"
+  ],
+  "hasScore": true,
+  "price": 2.20
+  },
   "the-ash-grove": {
     "title": "The Ash Grove",
     "description": "The Ash Grove - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -67,7 +108,7 @@ window.PIECES = {
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
     "hasScore": true,
-    "price": 1.10
+    "price": 1.00
   },
   "benedictus": {
     "title": "Benedictus",
@@ -93,8 +134,8 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
-    "price": 3.50
+    "hasScore": true,
+    "price": 3.00
   },
   "if-i-was-that-donkey": {
     "title": "If I was that Donkey",
@@ -113,7 +154,7 @@ window.PIECES = {
     "accompaniment": "piano (optional)",
     "categories": ["concert"],
     "hasScore": true,
-    "price": 1.00
+    "price": 0.85
   },
   "my-soul-doth-magnify-the-lord": {
     "title": "My Soul Doth Magnify The Lord",
@@ -122,7 +163,7 @@ window.PIECES = {
     "accompaniment": "piano",
     "categories": ["sacred"],
     "hasScore": true,
-    "price": 1.20
+    "price": 1.00
   },
   "pass-the-salsa": {
     "title": "Pass the Salsa",
@@ -130,8 +171,8 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
-    "price": 3.50
+    "hasScore": true,
+    "price": 3.00
   },
   "tangissimo": {
     "title": "Tangissimo",
@@ -139,8 +180,8 @@ window.PIECES = {
     "voicing": "cello & piano",
     "accompaniment": "piano",
     "categories": ["albums"],
-    "hasScore": false,
-    "price": 3.50
+    "hasScore": true,
+    "price": 3.00
   },
   "the-lords-prayer": {
     "title": "The Lord's Prayer",
@@ -149,7 +190,7 @@ window.PIECES = {
     "accompaniment": "piano (optional)",
     "categories": ["sacred"],
     "hasScore": true,
-    "price": 0.90
+    "price": 0.85
   },
   "the-lord-is-my-shepherd": {
     "title": "The Lord is my Shepherd",
