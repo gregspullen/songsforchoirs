@@ -113,15 +113,6 @@ window.PIECES = {
     "hasScore": true,
     "price": 1.00
   },
-  "cello-go-bolero": {
-    "title": "Cello Go Bolero",
-    "description": "Cello Go Bolero - a lively and rhythmic piece for cello in a bolero style. Characterful and full of energy, it brings the cello to the party at last. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  },
   "if-i-was-that-donkey": {
     "title": "If I was that Donkey",
     "description": "If I was that Donkey - a tender and expressive lullaby in a contemporary pop ballad style, perfect for Nativity performances. Warm, gentle, and accessible for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -149,24 +140,6 @@ window.PIECES = {
     "categories": ["sacred"],
     "hasScore": true,
     "price": 1.00
-  },
-  "pass-the-salsa": {
-    "title": "Pass the Salsa",
-    "description": "Pass the Salsa – a lively and rhythmic piece for cello and piano in a vibrant Latin style. Accessible yet exciting, it’s ideal for the intermediate cellist (around Grade 4). View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  },
-  "tangissimo": {
-    "title": "Tangissimo",
-    "description": "Tangissimo - a lively and characterful tango-inspired piece for cello and piano, completing a set of three Latin dances. Playful and full of flair, it offers a step up in challenge while remaining accessible at around Grade 5. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
   },
   "the-lords-prayer": {
     "title": "The Lord's Prayer",
@@ -209,5 +182,32 @@ window.PIECES = {
     "categories": ["sacred"],
     "hasScore": true,
     "price": 1.00
-   }
+   },
+  "pass-the-salsa": {
+    "title": "Pass the Salsa",
+    "description": "Pass the Salsa – a lively and rhythmic piece for cello and piano in a vibrant Latin style. Accessible yet exciting, it’s ideal for the intermediate cellist (around Grade 4). View the score, listen, and download from Songs for Choirs.",
+    "voicing": "cello & piano",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "hasScore": true,
+    "price": 3.00
+  },
+  "cello-go-bolero": {
+    "title": "Cello Go Bolero",
+    "description": "Cello Go Bolero - a lively and rhythmic piece for cello in a bolero style. Characterful and full of energy, it brings the cello to the party at last. View the score, listen, and download from Songs for Choirs.",
+    "voicing": "cello & piano",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "hasScore": true,
+    "price": 3.00
+  },
+  "tangissimo": {
+    "title": "Tangissimo",
+    "description": "Tangissimo - a lively and characterful tango-inspired piece for cello and piano, completing a set of three Latin dances. Playful and full of flair, it offers a step up in challenge while remaining accessible at around Grade 5. View the score, listen, and download from Songs for Choirs.",
+    "voicing": "cello & piano",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "hasScore": true,
+    "price": 3.00
+  }
   };
