@@ -58,21 +58,11 @@ Your licence covers the number of copies selected above. If you need additional 
   </footer>
 
   <script>
-  console.log("SCRIPT START");
-  
-  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
     
       const params = new URLSearchParams(window.location.search);
       const order = params.get("order");
       if (!order) return;
-
-    console.log("TRY LOG ORDER");
-
-      fetch("/log-order", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ orderId: order })
-      });
     
       fetch(`/get-order?order=${order}`)
         .then(res => {
@@ -87,22 +77,6 @@ Your licence covers the number of copies selected above. If you need additional 
           document.getElementById("order").textContent = order;
           document.getElementById("amount").textContent = data.amount;
           document.getElementById("copies").textContent = data.copies;
-
-          // 🟢 LOG ORDER (quietly, once per page load)
-          fetch("/log-order", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              orderId: order,
-              organisation: data.choir,
-              title: data.title,
-              copies: data.copies,
-              amount: data.amount,
-              email: data.email
-            })
-          })
-          .then(res => console.log("Order logged:", res.status))
-          .catch(err => console.error("Order log failed:", err));
     
           // Trigger fulfilment once per order
           const emailSentKey = `emailSent_${order}`;
