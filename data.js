@@ -15,6 +15,21 @@ window.PIECES = {
   "hasScore": true,
   "price": 3.00
 },
+  "sacred-songs-for-reflection": {
+  "title": "Sacred Songs for Reflection",
+  "description": "Sacred Songs for Reflection - Three reflective sacred works for SATB choir and piano, suitable for services and concert use. listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SSA / unison",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-lords-prayer",
+    "the-lord-is-my-shepherd",
+    "benedictus"
+  ],
+  "hasScore": true,
+  "price": 2.20
+},
   "magnificat-and-venite": {
   "title": "Magnificat and Venite",
   "description": "Magnificat and Venite - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
@@ -44,21 +59,6 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
-  "sacred-songs-for-reflection": {
-  "title": "Sacred Songs for Reflection",
-  "description": "Sacred Songs for Reflection - Three reflective sacred works for SATB choir and piano, suitable for services and concert use. listen, and download licensed copies from Songs for Choirs.",    
-  "voicing": "SATB / SSA / unison",
-  "accompaniment": "piano",
-  "categories": ["albums"],
-  "type": "bundle",
-  "pieces": [
-    "the-lords-prayer",
-    "the-lord-is-my-shepherd",
-    "benedictus"
-  ],
-  "hasScore": true,
-  "price": 2.20
-  },
   "the-ash-grove": {
     "title": "The Ash Grove",
     "description": "The Ash Grove - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
