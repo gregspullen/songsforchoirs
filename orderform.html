@@ -414,9 +414,7 @@ const payload = {
     const isLive = window.location.hostname === "songsforchoirs.com"
                 || window.location.hostname === "www.songsforchoirs.com";
 
-    const url = isLive
-      ? "/send-email"
-      : "https://sfc-watermark-worker-dev.lyra-6b2.workers.dev/send-email";
+    const url = "/send-email";
 
     console.log("PAYLOAD:", payload);
 
