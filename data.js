@@ -15,21 +15,6 @@ window.PIECES = {
   "hasScore": true,
   "price": 3.00
 },
-  "three-latin-dances": {
-    "title": "Three Latin Dances",
-    "description": "Three Latin Dances - a lively and characterful suite of pieces for cello and piano. Playful and full of flair, these offer a step up in challenge while remaining accessible at around Grade 3 - 5. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello and piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "type": "bundle",
-    "pieces": [
-    "pass-the-salsa",
-    "cello-go-bolero",
-    "tangissimo"
-  ],
-    "hasScore": true,
-    "price": 4.75
-  },
   "magnificat-and-venite": {
   "title": "Magnificat and Venite",
   "description": "Magnificat and Venite - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
@@ -200,6 +185,21 @@ window.PIECES = {
     "categories": ["sacred"],
     "hasScore": true,
     "price": 1.00
+  },
+   "three-latin-dances": {
+    "title": "Three Latin Dances",
+    "description": "Three Latin Dances - a lively and characterful suite of pieces for cello and piano. Playful and full of flair, these offer a step up in challenge while remaining accessible at around Grade 3 - 5. View the score, listen, and download from Songs for Choirs.",
+    "voicing": "cello and piano",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "pass-the-salsa",
+    "cello-go-bolero",
+    "tangissimo"
+  ],
+    "hasScore": true,
+    "price": 4.75
   },
   "make-a-joyful-noise": {
     "title": "Make a Joyful Noise",
