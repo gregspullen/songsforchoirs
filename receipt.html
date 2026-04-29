@@ -65,6 +65,14 @@ Your licence covers the number of copies selected above. If you need additional 
       const params = new URLSearchParams(window.location.search);
       const order = params.get("order");
       if (!order) return;
+
+    console.log("TRY LOG ORDER");
+
+      fetch("/log-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ orderId: order })
+      });
     
       fetch(`/get-order?order=${order}`)
         .then(res => {
