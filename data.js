@@ -59,6 +59,33 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
+  "my-soul-doth-magnify-the-lord": {
+    "title": "My Soul Doth Magnify The Lord",
+    "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB amd SB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
+  "the-lords-prayer": {
+    "title": "The Lord's Prayer",
+    "description": "The Lord's Prayer - a dynamic, neo-baroque choral setting for SATB choir. Short and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB",
+    "accompaniment": "piano (optional)",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 0.85
+  },
+  "the-lord-is-my-shepherd": {
+    "title": "The Lord is my Shepherd",
+    "description": "The Lord is my Shepherd - a lyrical and devotional choral setting for SATB choir. Warm, flowing, and expressive. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
   "the-ash-grove": {
     "title": "The Ash Grove",
     "description": "The Ash Grove - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -131,33 +158,6 @@ window.PIECES = {
     "categories": ["concert"],
     "hasScore": true,
     "price": 0.85
-  },
-  "my-soul-doth-magnify-the-lord": {
-    "title": "My Soul Doth Magnify The Lord",
-    "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB amd SB",
-    "accompaniment": "piano",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
-  },
-  "the-lords-prayer": {
-    "title": "The Lord's Prayer",
-    "description": "The Lord's Prayer - a dynamic, neo-baroque choral setting for SATB choir. Short and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano (optional)",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 0.85
-  },
-  "the-lord-is-my-shepherd": {
-    "title": "The Lord is my Shepherd",
-    "description": "The Lord is my Shepherd - a lyrical and devotional choral setting for SATB choir. Warm, flowing, and expressive. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
   },
    "three-latin-dances": {
     "title": "Three Latin Dances",
