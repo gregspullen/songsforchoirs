@@ -68,6 +68,15 @@ window.PIECES = {
     "hasScore": true,
     "price": 1.00
   },
+  "make-a-joyful-noise": {
+    "title": "Make a Joyful Noise",
+    "description": "Make a Joyful Noise - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+   },
   "the-lords-prayer": {
     "title": "The Lord's Prayer",
     "description": "The Lord's Prayer - a dynamic, neo-baroque choral setting for SATB choir. Short and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -80,6 +89,15 @@ window.PIECES = {
   "the-lord-is-my-shepherd": {
     "title": "The Lord is my Shepherd",
     "description": "The Lord is my Shepherd - a lyrical and devotional choral setting for SATB choir. Warm, flowing, and expressive. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
+  "benedictus": {
+    "title": "Benedictus",
+    "description": "Benedictus - an atmospheric and accessible choral setting for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
     "voicing": "SATB",
     "accompaniment": "piano",
     "categories": ["sacred"],
@@ -118,15 +136,6 @@ window.PIECES = {
     "description": "Away in a Manger - a fresh and inventive choral setting combining two traditional melodies. Originally conceived a cappella, with optional piano support. A lively concert piece for SATB choir with rich and rewarding part-writing. View the score, listen, and download licensed copies from Songs for Choirs.",
     "voicing": "SATB",
     "accompaniment": "piano (optional)",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
-  },
-  "benedictus": {
-    "title": "Benedictus",
-    "description": "Benedictus - an atmospheric and accessible choral setting for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano",
     "categories": ["sacred"],
     "hasScore": true,
     "price": 1.00
@@ -174,15 +183,6 @@ window.PIECES = {
     "hasScore": true,
     "price": 4.75
   },
-  "make-a-joyful-noise": {
-    "title": "Make a Joyful Noise",
-    "description": "Make a Joyful Noise - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
-    "voicing": "SATB",
-    "accompaniment": "piano",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
-   },
   "pass-the-salsa": {
     "title": "Pass the Salsa",
     "description": "Pass the Salsa – a lively and rhythmic piece for cello and piano in a vibrant Latin style. Accessible yet exciting, it’s ideal for the intermediate cellist (around Grade 4). View the score, listen, and download from Songs for Choirs.",
