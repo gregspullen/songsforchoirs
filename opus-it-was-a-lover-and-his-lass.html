@@ -63,12 +63,7 @@ if (eurSpan && usdSpan) {
   const audio = document.querySelector("audio");
   const audioSrc = document.getElementById("audioSrc");
 
-  const isLive = window.location.hostname === "songsforchoirs.com"
-              || window.location.hostname === "www.songsforchoirs.com";
-
-  const audioBase = isLive
-    ? "https://www.songsforchoirs.com"
-    : "https://dev.songsforchoirs.net";
+  const audioBase = window.location.origin;
 
   if (audio && audioSrc) {
     const src = `${audioBase}/mp3/${slug}.mp3`;
