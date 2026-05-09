@@ -53,6 +53,7 @@ window.PIECES = {
   "type": "bundle",
   "pieces": [
     "bathed-in-starlight",
+    "josephs-prayer",
     "away-in-a-manger",
     "if-i-was-that-donkey"
   ],
