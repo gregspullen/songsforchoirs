@@ -53,12 +53,22 @@ window.PIECES = {
   "type": "bundle",
   "pieces": [
     "bathed-in-starlight",
+    "josephs-prayer",
     "away-in-a-manger",
     "if-i-was-that-donkey"
   ],
   "hasScore": true,
   "price": 2.50
 },
+  "josephs-prayer": {
+    "title": "Joseph's Prayer",
+    "description": "Joseph's Prayer - a lively, rhythmic choral setting for SATB choir, Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
   "my-soul-doth-magnify-the-lord": {
     "title": "My Soul Doth Magnify The Lord",
     "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
