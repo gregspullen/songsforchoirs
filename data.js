@@ -12,7 +12,7 @@ window.PIECES = {
     "josephs-prayer"
   ],
   "hasScore": true,
-  "price": 1.75
+  "price": 2.50
 },
   "four-very-british-songs": {
   "title": "Four Very British Songs",
