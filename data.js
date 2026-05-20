@@ -93,6 +93,15 @@ window.PIECES = {
     "hasScore": true,
     "price": 1.00
   },
+  "non-erit-impossibile": {
+    "title": "Gabriel: Non Erit Impossibile",
+    "description": "Gabriel: Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SSSAAA",
+    "accompaniment": "a cappella",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
   "make-a-joyful-noise": {
     "title": "Make a Joyful Noise",
     "description": "Make a Joyful Noise - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
