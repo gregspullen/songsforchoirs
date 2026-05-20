@@ -16,7 +16,7 @@ window.PIECES = {
 },
   "songs-of-advent": {
   "title": "Songs of Advent",
-  "description": "Songs of Thanksgiving - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "description": "ongs of Advent - joyful and atmospheric choral settings for mixed choirs. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
   "voicing": "Mixed Choirs",
   "accompaniment": "piano",
   "categories": ["albums"],
