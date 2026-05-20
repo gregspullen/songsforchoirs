@@ -14,6 +14,22 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
+  "songs-of-advent": {
+  "title": "Songs of Advent",
+  "description": "Songs of Thanksgiving - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "Mixed Choirs",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "make-a-joyful-noise",
+    "josephs-prayer",
+    "non-erit-impossiblile",
+    "my-soul-doth-magnify-the-lord"
+  ],
+  "hasScore": true,
+  "price": 3.00
+},
   "four-very-british-songs": {
   "title": "Four Very British Songs",
   "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. Listen, and download licensed copies from Songs for Choirs.",
