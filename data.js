@@ -94,7 +94,7 @@ window.PIECES = {
     "price": 1.00
   },
     "non-erit-impossibile": {
-    "title": "Gabriel: Non Erit Impossibile",
+    "title": "Non Erit Impossibile",
     "description": "Gabriel: Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
     "voicing": "SSSAAA",
     "accompaniment": "a cappella",
