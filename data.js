@@ -24,7 +24,7 @@ window.PIECES = {
   "pieces": [
     "make-a-joyful-noise",
     "josephs-prayer",
-    "non-erit-impossiblile",
+    "non-erit-impossibile",
     "my-soul-doth-magnify-the-lord"
   ],
   "hasScore": true,
