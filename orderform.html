@@ -442,7 +442,7 @@ const payload = {
     const host = window.location.hostname;
     const businessField = form.querySelector('input[name="business"]');
   
-    if (host.startsWith("dev.")) {
+    if (host.includes("dev")) {
       form.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
       businessField.value = "sb-6bkuc46652199@business.example.com";
     } else {
