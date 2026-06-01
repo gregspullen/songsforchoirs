@@ -140,7 +140,7 @@ body.order-page .copies-line input {
       <li><a href="concert.html">Concert</a></li>
       <li><a href="albums.html">Sets</a></li>
       <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html">Patrons & Us</a></li>
     </ul>
   </nav>
 
@@ -169,6 +169,12 @@ body.order-page .copies-line input {
 <label for="choir">Organisation / Choir:</label>
 <input type="text" id="choir" name="choir" required>
 
+
+    <p style="font-size:0.9em; margin-top:8px;">
+  <a href="https://staging.songsforchoirs.net/invite"><strong>Patron?</strong></a>
+Your 50% discount will be applied automatically when you reach PayPal.
+    
+
     <p id="priceDisplay" class="note"></p>
 
 
@@ -192,7 +198,7 @@ body.order-page .copies-line input {
 
 
 <p class="note" style="margin-top:6px;">
-  If you prefer, you can order directly from us - contact us at
+  If you prefer, you can order directly - contact us at
   <a href="mailto:lyra@songsforchoirs.com">lyra@songsforchoirs.com</a>.
 </p>
 <label for="email">Where would you like your music to be delivered?</label>
@@ -442,13 +448,13 @@ const payload = {
     const host = window.location.hostname;
     const businessField = form.querySelector('input[name="business"]');
   
-    if (host.includes("dev")) {
-      form.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
-      businessField.value = "sb-6bkuc46652199@business.example.com";
-    } else {
-      form.action = "https://www.paypal.com/cgi-bin/webscr";
-      businessField.value = "8LF2NJAGZW5EG";
-    }
+  if (host.includes("dev")) {
+    form.action = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+    businessField.value = "sb-6bkuc46652199@business.example.com";
+  } else {
+    form.action = "https://www.paypal.com/cgi-bin/webscr";
+    businessField.value = "8LF2NJAGZW5EG";
+  }
   </script>
   
     

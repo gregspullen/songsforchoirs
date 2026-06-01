@@ -1,0 +1,9 @@
+<h1>Patron Payment</h1>
+
+<p>Email: <span id="email"></span></p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+document.getElementById("email").textContent =
+  params.get("email");
+</script>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sign up — Songs for Choirs</title>
+
+  <link rel="stylesheet" href="styles.css?v=999">
+
+  <style>
+    body.login-page .panel {
+      width: 90%;
+      max-width: 520px;
+      margin: 3rem auto;
+      padding: 2rem 2.5rem;
+      display: block;
+    }
+
+    body.login-page input[type="email"] {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 6px;
+    }
+
+    body.login-page label {
+      display: block;
+      margin-top: 18px;
+    }
+
+    body.login-page .note {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+    }
+
+    body.login-page button {
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+    body.login-page .features {
+    white-space: nowrap;
+  }
+  </style>
+</head>
+
+<body class="login-page">
+
+<header class="site-header">
+  <div class="wrap">
+    <h1 class="site-logo">songs<span class="gold">for</span>choirs</h1>
+    <p class="tagline">
+      Become a Friend
+    </p>
+  </div>
+</header>
+
+<nav class="site-nav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sacred.html">Sacred</a></li>
+    <li><a href="concert.html">Concert</a></li>
+    <li><a href="albums.html">Sets</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="panel">
+
+  <h2>Become a Friend</h2>
+
+  <p class="note features" style="text-align:left;">
+  Friends receive:
+</p>
+
+<p class="note features" style="text-align:left;">
+Our monthly newsletter. 
+</p>
+
+  <form id="loginForm">
+
+    <label for="email">
+      Email address
+    </label>
+
+    <input id="email"
+      type="email"
+      name="email"
+      placeholder="yourname@example.com"
+      required
+    >
+
+    <button
+    id="signupButton"
+    type="submit"
+    class="price">
+      Count me in...
+    </button>
+
+  </form>
+
+  <p class="note features">
+    We’ll send you a secure link by email.
+  </p>
+
+  <p class="note features">
+    We won't share your information with anyone else.
+  </p>
+
+</div>
+
+  <script>
+
+document
+  .getElementById("signupButton")
+  .addEventListener("click", async (event) => {
+
+    event.preventDefault();
+
+    const email =
+      document.getElementById("email").value;
+
+    const response = await fetch(
+      "https://friends.songsforchoirs.net/send-login-link",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+        email,
+        type: "friend"
+      })
+      }
+    );
+
+    const result = await response.json();
+
+    alert(result.message);
+
+});
+
+</script>
+
+</body>
+</html>

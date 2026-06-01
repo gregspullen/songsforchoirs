@@ -212,11 +212,11 @@ p em {
     text-decoration-color: rgba(0,0,0,0.25);
     transition: background-color 0.2s ease, color 0.2s ease;
   }
-  a:hover {
+  a:not(.button):hover {
     text-decoration-color: currentColor;
     background-color: #fef9e6;
     border-radius: 4px;
-  }
+}
   
   /* Mailto Links */
   a[href^="mailto:"] {
