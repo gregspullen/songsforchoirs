@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Friends of Songs for Choirs</title>
+
+<link rel="stylesheet" href="/styles.css?v=999">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: linear-gradient(to bottom, #faf8f5, #f3efe8);
+    color: #2d2d2d;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px 100px;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .hero img {
+    max-width: 340px;
+    width: 100%;
+    margin-bottom: 25px;
+    opacity: 0.95;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .intro {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 70px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+
+  .card h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .card p {
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .features {
+    margin: 25px 0 35px;
+    padding-left: 20px;
+  }
+
+  .features li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: #6a0dad;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+
+  .small-note {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 700px) {
+    h1 {
+      font-size: 2.3rem;
+    }
+
+    .card {
+      padding: 30px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="hero">
+    <img src="/images/banner.png" alt="Songs for Choirs">
+
+    <h1>Friends of SongsforChoirs</h1>
+
+    <div class="intro">
+      <p>
+        SongsforChoirs exists to create original choral music that is accessible and
+        affordable.
+      </p>
+
+      <p>
+        If you would like to stay connected with new publications and help support
+        the creation of original works you are warmly invited to join as either
+        a Friend or a Patron.
+      </p>
+    </div>
+  </div>
+
+  <div class="options">
+
+    <div class="card">
+      <h2>Friend</h2>
+
+      <p>
+        Help to support new works, recordings, and future publications.
+      </p>
+
+      <ul class="features">
+        <li>Receive our monthly newsletter</li>
+        <li>Free to register</li>
+      </ul>
+
+      <a class="button" href="friends.html">
+        Join as a Friend
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Patron</h2>
+
+      <p>
+        Help to support new works while receiving discounted prices
+        on all sheet music.
+      </p>
+
+      <ul class="features">
+        <li>Receive our monthly newsletter</li>
+        <li>50% discount on all sheet music</li>
+        <li>£12 per year</li>
+      </ul>
+
+      <a class="button" href="patrons.html">
+        Become a Patron
+      </a>
+    </div>
+
+  </div>
+
+  <div class="small-note">
+    We will only send a monthly newsletter and occasional relevant updates.<br>
+    Your email address will never be shared with anyone else.
+  </div>
+
+</div>
+
+</body>
+</html>
