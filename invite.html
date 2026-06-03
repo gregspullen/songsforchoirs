@@ -1,197 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Friends of Songs for Choirs</title>
-
-<link rel="stylesheet" href="/styles.css?v=999">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Songs for Choirs | New and Original Choral Music for Church, School & Community Choirs</title>
+  <meta name="description"
+content="Discover new choral music and choir sheet music for church, school and community choirs. Sacred, concert and seasonal works available as instant PDF downloads." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css?v=14">
+  <meta name="msvalidate.01" content="C447C2F82F3AD68EB6455179CCABCA2F" />
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
 
 <style>
-  body {
-    margin: 0;
-    font-family: Georgia, serif;
-    background: linear-gradient(to bottom, #faf8f5, #f3efe8);
-    color: #2d2d2d;
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 20px 100px;
-  }
-
-  .hero {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .hero img {
-    max-width: 340px;
-    width: 100%;
-    margin-bottom: 25px;
-    opacity: 0.95;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: normal;
-    margin-bottom: 20px;
-    letter-spacing: 0.02em;
-  }
-
-  .intro {
-    max-width: 760px;
-    margin: 0 auto;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    color: #444;
-  }
-
-  .options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
-    margin-top: 70px;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.75);
-    backdrop-filter: blur(5px);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-    border: 1px solid rgba(255,255,255,0.5);
-  }
-
-  .card h2 {
-    font-size: 2rem;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 20px;
-  }
-
-  .card p {
-    line-height: 1.8;
-    color: #444;
-  }
-
-  .features {
-    margin: 25px 0 35px;
-    padding-left: 20px;
-  }
-
-  .features li {
-    margin-bottom: 12px;
-    line-height: 1.6;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 14px 28px;
-    border-radius: 999px;
-    background: #6a0dad;
-    color: white;
+  
+  .newsletter-link {
     text-decoration: none;
-    font-size: 1rem;
-    transition: transform 0.15s ease, opacity 0.15s ease;
   }
 
-  .button:hover {
-    transform: translateY(-2px);
-    opacity: 0.92;
+@media (max-width: 1024px) {
+
+  /* Kill horizontal scroll layout */
+  .score-grid.scroll {
+    display: block !important;
   }
 
-  .small-note {
-    margin-top: 70px;
-    text-align: center;
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.7;
+  .score-grid {
+    display: block;
+    padding: 0 10px;
   }
 
-  @media (max-width: 700px) {
-    h1 {
-      font-size: 2.3rem;
-    }
-
-    .card {
-      padding: 30px;
-    }
+  /* Override ALL card constraints */
+  .score-grid figure.cover {
+    width: 100%;
+    height: 100px !important;        /* ← THIS is your control */
+    flex: none !important;          /* ← disables flex sizing */
+    aspect-ratio: auto !important;  /* ← removes portrait lock */
+    margin: 0.3rem 0;
+    overflow: hidden;
   }
+
+  .score-grid .cover-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-grid .cover-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-grid .cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20% !important;   /* keeps title, cuts bottom */
+    display: block;
+  }
+
+  .score-grid .hover-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+}
+
 </style>
+  
 </head>
-
 <body>
+  <header class="site-header">
+    <h1 class="site-logo">
+      songs<span class="gold">for</span>choirs
+    </h1>
+    <p class="tagline">
+  <a href="newsletter.html" class="newsletter-link">Notes from the Pond</a>
+</p>
+  </header>
+  <nav id="site-nav" class="site-nav">
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Patrons & Us</a></li>
+    </ul>
+  </nav>
+  <main class="wrap">
+    <section class="panel">
+      <h2>Welcome to songsforchoirs</h2>
+      <div class="score-grid scroll">
 
-<div class="container">
+          <figure class="cover">
+            <a href="affordable.html" class="cover-link">
+              <div class="cover-image">
+                <img
+                  src="images/Cover_png/welcome.png"
+                  alt="welcome cover"
+                  onerror="this.onerror=null; this.src='images/placeholder.png';">
+              </div>
+              <span class="hover-tag">Click</span>
+            </a>
+          </figure>
 
-  <div class="hero">
-    <img src="/images/banner.png" alt="Songs for Choirs">
+        <figure class="cover">
+          <a href="sacred.html" class="cover-link">
+            <div class="cover-image">
+              <img
+                src="images/Cover_png/sacred.png"
+                alt="Placeholder cover"
+                onerror="this.onerror=null; this.src='images/placeholder.png';">
+            </div>
+            <span class="hover-tag">Browse Sacred Music</span>
+          </a>
+        </figure>
 
-    <h1>Friends of SongsforChoirs</h1>
-
-    <div class="intro">
-      <p>
-        SongsforChoirs exists to create original choral music that is accessible and
-        affordable.
-      </p>
-
-      <p>
-        If you would like to stay connected with new publications and help support
-        the creation of original works you are warmly invited to join as either
-        a Friend or a Patron.
-      </p>
+        <figure class="cover">
+          <a href="concert.html" class="cover-link">
+            <div class="cover-image">
+              <img
+                src="images/Cover_png/concert.png"
+                alt="Placeholder cover"
+                onerror="this.onerror=null; this.src='images/placeholder.png';">
+            </div>
+            <span class="hover-tag">Browse Concert Music</span>
+          </a>
+        </figure>
+        
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
     </div>
-  </div>
-
-  <div class="options">
-
-    <div class="card">
-      <h2>Friend</h2>
-
-      <p>
-        Help to support new works, recordings, and future publications.
-      </p>
-
-      <ul class="features">
-        <li>Receive our monthly newsletter</li>
-        <li>Free to register</li>
-      </ul>
-
-      <a class="button" href="friends.html">
-        Join as a Friend
-      </a>
-    </div>
-
-    <div class="card">
-      <h2>Patron</h2>
-
-      <p>
-        Help to support new works while receiving discounted prices
-        on all sheet music.
-      </p>
-
-      <ul class="features">
-        <li>Receive our monthly newsletter</li>
-        <li>50% discount on all sheet music</li>
-        <li>£12 per year</li>
-      </ul>
-
-      <a class="button" href="patrons.html">
-        Become a Patron
-      </a>
-    </div>
-
-  </div>
-
-  <div class="small-note">
-    We will only send a monthly newsletter and occasional relevant updates.<br>
-    Your email address will never be shared with anyone else.
-  </div>
-
-</div>
-
+  </footer>
+  <script src="pricing.js"></script>
 </body>
 </html>
