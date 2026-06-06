@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>confirm unsubscribe | Inspiring, Original Choral, Children’s & Folk Sheet Music for Youth, Community, School & Church Choirs – Gregory Pullen & Lyra Harker</title>
+  <meta name="description" content="Browse and discover original choral, children’s, and folk song sheet music by Gregory Pullen and Lyra Harker. Instant PDF downloads for youth, community, school, church choirs, and singers." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="images/favicon.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles.css?v=14">
+  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+
+<style>
+
+@media (max-width: 1024px) {
+
+  /* Kill horizontal scroll layout */
+  .score-grid.scroll {
+    display: block !important;
+  }
+
+  .score-grid {
+    display: block;
+    padding: 0 10px;
+  }
+
+  /* Override ALL card constraints */
+  .score-grid figure.cover {
+    width: 100%;
+    height: 100px !important;        /* ← THIS is your control */
+    flex: none !important;          /* ← disables flex sizing */
+    aspect-ratio: auto !important;  /* ← removes portrait lock */
+    margin: 0.3rem 0;
+    overflow: hidden;
+  }
+
+  .score-grid .cover-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-grid .cover-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-grid .cover-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 20% !important;   /* keeps title, cuts bottom */
+    display: block;
+  }
+
+  .score-grid .hover-tag {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+}
+
+</style>
+  
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="site-logo">
+      songs<span class="gold">for</span>choirs
+    </h1>
+    <p class="tagline">
+    Your email preferences have been updated.
+  </p>
+  </header>
+  <nav id="site-nav" class="site-nav">
+    <ul>
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Patrons & Us</a></li>
+    </ul>
+  </nav>
+  <main class="wrap">
+    <section class="panel">
+      <h2 style="font-weight: normal;">You have been unsubscribed from our mailing list.</h2>
+      <div class="score-grid scroll">
+
+          <figure class="cover">
+            <a href="affordable.html" class="cover-link">
+              <div class="cover-image">
+                <img
+                  src="images/Cover_png/welcome.png"
+                  alt="welcome cover"
+                  onerror="this.onerror=null; this.src='images/placeholder.png';">
+              </div>
+              <span class="hover-tag">Click</span>
+            </a>
+          </figure>
+
+        <figure class="cover">
+          <a href="sacred.html" class="cover-link">
+            <div class="cover-image">
+              <img
+                src="images/Cover_png/sacred.png"
+                alt="Placeholder cover"
+                onerror="this.onerror=null; this.src='images/placeholder.png';">
+            </div>
+            <span class="hover-tag">Browse Sacred Music</span>
+          </a>
+        </figure>
+
+        <figure class="cover">
+          <a href="concert.html" class="cover-link">
+            <div class="cover-image">
+              <img
+                src="images/Cover_png/concert.png"
+                alt="Placeholder cover"
+                onerror="this.onerror=null; this.src='images/placeholder.png';">
+            </div>
+            <span class="hover-tag">Browse Concert Music</span>
+          </a>
+        </figure>
+        
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+    </div>
+  </footer>
+  <script src="pricing.js"></script>
+
+  <script>
+  const email =
+    new URLSearchParams(window.location.search).get("email");
+  
+  if (email) {
+    document.getElementById("userEmail").textContent = email;
+  }
+  </script>
+  
+</body>
+</html>
