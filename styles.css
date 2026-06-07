@@ -81,7 +81,7 @@ p em {
   letter-spacing: 0.04em;
   color: #000;
   margin: 0; /* remove h1’s default spacing */
-  padding: 0.25em 0; /* smaller breathing space */
+  padding: 0.1em 0; /* smaller breathing space */
   text-transform: lowercase;
 }
 
@@ -96,55 +96,81 @@ p em {
   color: var(--muted);
 }
 
-
   /* =========================
-     Navigation
-     ========================= */
+   Navigation
+   ========================= */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 0.5rem 0.75rem;
+}
+
+.site-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #222;
+  border-bottom: 2px solid transparent;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
+  background: rgba(201,162,39,0.15);
+}
+
+.site-nav a[aria-current="page"],
+.site-nav li > a.active {
+  background: rgba(218,165,32,0.12);
+  color: goldenrod;
+  border-bottom-color: goldenrod;
+}
+
+.site-nav.is-stuck {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* Mobile navigation */
+
+@media (max-width: 700px) {
+
   .site-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: saturate(180%) blur(6px);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 0.5rem 0.75rem;
+    padding: 0.35rem;
   }
-  
+
   .site-nav ul {
     display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    flex-wrap: wrap;
+    gap: 6px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
   }
-  
+
   .site-nav a {
-    display: inline-block;
-    padding: 0.4rem 0.8rem;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
-    color: #222;
-    border-bottom: 2px solid transparent;
-    transition: background 0.15s ease, color 0.15s ease;
+    padding: 0.28rem 0.55rem;
+    font-size: 0.88rem;
+    white-space: nowrap;
   }
-  
-  .site-nav a:hover { background: rgba(201,162,39,0.15); }
-  
-  .site-nav a[aria-current="page"],
-  .site-nav li > a.active {
-    background: rgba(218,165,32,0.12);
-    color: goldenrod;
-    border-bottom-color: goldenrod;
-  }
-  
-  .site-nav.is-stuck { box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
-  
-  /* Slim nav (Children only) */
-  body.children .site-nav { padding: 0.3rem 0.6rem; }
-  body.children .site-nav a { padding: 0.3rem 0.7rem; font-size: 0.95rem; }
+
+}
   
   /* =========================
      Panels
@@ -156,7 +182,7 @@ p em {
     border-radius: 14px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.05);
     padding: 16px 20px;
-    margin: 18px 0;
+    margin: 12px 0;
     scroll-margin-top: 96px;
   }
   
@@ -1010,7 +1036,19 @@ button.price small {
     scroll-behavior: smooth;
   }
 
+.swipe-hint {
+  display: none;
+}
+
 @media (max-width: 700px) {
+
+  .swipe-hint {
+    display: block;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0.25rem 0 1rem;
+  }
 
   input,
   select,
