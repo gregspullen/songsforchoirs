@@ -48,7 +48,7 @@ window.PIECES = {
     "bathed-in-starlight"
   ],
   "hasScore": true,
-  "price": 3.00
+  "price": 1.75
 },
   "sacred-songs-for-reflection": {
   "title": "Sacred Songs for Reflection",
