@@ -36,6 +36,20 @@ window.PIECES = {
   "hasScore": true,
   "price": 3.00
 },
+  "two-pieces-for-treble-voices": {
+  "title": "Two Pieces for Treble Voices",
+  "description": "Two Pieces for Treble Voices - joyful and atmospheric choral settings for treble voices. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "Treble Voices",
+  "accompaniment": "piano and a cappella",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "non-erit-impossibile",
+    "bathed-in-starlight"
+  ],
+  "hasScore": true,
+  "price": 1.75
+},
   "sacred-songs-for-reflection": {
   "title": "Sacred Songs for Reflection",
   "description": "Sacred Songs for Reflection - Three reflective sacred works for SATB choir and piano, suitable for services and concert use. listen, and download licensed copies from Songs for Choirs.",    
