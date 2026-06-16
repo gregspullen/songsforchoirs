@@ -152,6 +152,12 @@ if (copies > 100) {
   if (totalGBP) totalGBP.textContent = gbp;
   if (totalEUR) totalEUR.textContent = `€${eur}`;
   if (totalUSD) totalUSD.textContent = `$${usd}`;
+
+  const patronPrice = document.getElementById("patronPrice");
+  if (patronPrice) {
+    patronPrice.textContent =
+      `Patrons would pay just £${(total / 2).toFixed(2)}`;
+  }
 }
 
 if (copyInput) {
@@ -189,7 +195,7 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
   <nav class="site-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="sacred.html" aria-current="page">Sacred</a></li>
       <li><a href="concert.html">Concert</a></li>
       <li><a href="albums.html">Sets</a></li>
       <li><a href="faq.html">FAQ</a></li>
@@ -230,6 +236,11 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
                   Order — £<span id="totalGBP">0.00</span>
                   (<span id="totalEUR"></span>, <span id="totalUSD"></span>) total
                 </button>
+
+                <div id="patronPrice"
+                     style="font-size:0.9em; color:#b8964a; margin-top:8px; text-align:center;">
+                  Patrons pay £0.00
+                </div>
           
               <p style="font-size:0.8em; color:#b8964a; margin-top:6px; text-align:center;">
                 Currency conversions are approximate.<br>
