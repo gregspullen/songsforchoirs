@@ -162,6 +162,12 @@ if (copies > 100) {
   if (totalGBP) totalGBP.textContent = gbp;
   if (totalEUR) totalEUR.textContent = `€${eur}`;
   if (totalUSD) totalUSD.textContent = `$${usd}`;
+
+  const patronPrice = document.getElementById("patronPrice");
+    if (patronPrice) {
+      patronPrice.textContent =
+        `Patrons pay £${(total / 2).toFixed(2)}`;
+    }
 }
   
 if (copyInput) {
