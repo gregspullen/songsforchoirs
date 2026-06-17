@@ -96,6 +96,12 @@ p em {
   color: var(--muted);
 }
 
+.scroll-heading {
+  text-align: center;
+  color: #d8b65c;
+  font-weight: 600;
+}
+
   /* =========================
    Navigation
    ========================= */
