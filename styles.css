@@ -96,6 +96,10 @@ p em {
   color: var(--muted);
 }
 
+.scroll-heading {
+  text-align: center;
+}
+
   /* =========================
    Navigation
    ========================= */
