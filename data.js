@@ -167,6 +167,15 @@ window.PIECES = {
     "hasScore": true,
     "price": 0.85
   },
+  "apple-wassail": {
+    "title": "Apple Wassail",
+    "description": "Apple Wassail - an accessible, light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SAB",
+    "accompaniment": "piano",
+    "categories": ["concert"],
+    "hasScore": true,
+    "price": 0.85
+  },
     "lavenders-blue": {
     "title": "Lavender's Blue",
     "description": "Lavenders Blue - a light and humorous arrangement of the traditional folk song for SATB choir. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
