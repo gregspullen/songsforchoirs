@@ -1,10 +1,11 @@
 window.PIECES = {
   "patron": {
-    "title": "Patron Membership",
-    "description": "Support the creation of new choral music and receive 50% discounts on all score purchases for one year.",
-   "categories": ["concert"], 
-    "price": 12.00
-  },
+  "title": "Patron Membership",
+  "description": "Support the creation of new choral music and receive 50% discounts on all score purchases for one year.",
+  "categories": ["concert"],
+  "price": 12.00,
+  "link": "invite"
+},
   "songs-of-thanksgiving": {
   "title": "Songs of Thanksgiving",
   "description": "Songs of Thanksgiving - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
