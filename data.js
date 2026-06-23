@@ -29,7 +29,7 @@ window.PIECES = {
     "categories": ["albums"],
     "type": "bundle",
     "pieces": [
-    "apple-wassail"
+    "apple-wassail",
     "the-ash-grove",
     "it-was-a-lover-and-his-lass"
   ],
