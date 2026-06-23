@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     container.innerHTML += `
       <figure class="cover">
-        <a href="opus-${slug}.html" class="cover-link">
+        <a href="${piece.link || `opus-${slug}.html`}" class="cover-link">
           <div class="cover-image">
             <img
               src="images/Cover_png/${slug}.png"

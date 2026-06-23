@@ -1,10 +1,11 @@
 window.PIECES = {
   "patron": {
-    "title": "Patron Membership",
-    "description": "Support the creation of new choral music and receive 50% discounts on all score purchases for one year.",
-   "categories": ["concert"], 
-    "price": 12.00
-  },
+  "title": "Patron Membership",
+  "description": "Support the creation of new choral music and receive 50% discounts on all score purchases for one year.",
+  "categories": ["concert"],
+  "price": 12.00,
+  "link": "invite"
+},
   "songs-of-thanksgiving": {
   "title": "Songs of Thanksgiving",
   "description": "Songs of Thanksgiving - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
@@ -19,6 +20,21 @@ window.PIECES = {
   ],
   "hasScore": true,
   "price": 2.50
+},
+  "three-short-concert-pieces-for-sab-choir": {
+  "title": "Three Short Concert Pieces for SAB Choir",
+  "description": "Three Short Concert Pieces for SAB Choir - light arrangements of traditional folk songs for SAB choir and piano. Fun, accessible. Listen, and download licensed copies from Songs for Choirs.",
+  "voicing": "SAB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-ash-grove",
+    "apple-wassail",
+    "it-was-a-lover-and-his-lass"
+  ],
+  "hasScore": true,
+  "price": 2.00
 },
   "songs-of-advent": {
   "title": "Songs of Advent",
@@ -240,8 +256,8 @@ window.PIECES = {
     "type": "bundle",
     "pieces": [
     "the-ash-grove",
-    "bobby-shafto",
     "lavenders-blue",
+    "bobby-shafto",
     "it-was-a-lover-and-his-lass"
   ],
     "hasScore": true,
