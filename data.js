@@ -256,8 +256,8 @@ window.PIECES = {
     "type": "bundle",
     "pieces": [
     "the-ash-grove",
-    "bobby-shafto",
     "lavenders-blue",
+    "bobby-shafto",
     "it-was-a-lover-and-his-lass"
   ],
     "hasScore": true,
