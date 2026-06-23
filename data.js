@@ -21,6 +21,21 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
+  "three-short-concert-pieces-for-SAB-choir": {
+    "title": "Three Short Concert Pieces for SAB Choir",
+    "description": "Three Short Concert Pieces for SAB Choir - light arrangements of traditional folk songs for SAB choir and piano. Fun, accessible. Listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SAB",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "apple-wassail"
+    "the-ash-grove",
+    "it-was-a-lover-and-his-lass"
+  ],
+    "hasScore": true,
+    "price": 2.00
+  },
   "songs-of-advent": {
   "title": "Songs of Advent",
   "description": "Songs of Advent - joyful and atmospheric choral settings for mixed choirs. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
