@@ -21,7 +21,7 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
-  "three-short-concert-pieces-for-SAB-choir": {
+  "three-short-concert-pieces-for-sab-choir": {
     "title": "Three Short Concert Pieces for SAB Choir",
     "description": "Three Short Concert Pieces for SAB Choir - light arrangements of traditional folk songs for SAB choir and piano. Fun, accessible. Listen, and download licensed copies from Songs for Choirs.",
     "voicing": "SAB",
