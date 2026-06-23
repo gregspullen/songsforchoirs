@@ -29,8 +29,8 @@ window.PIECES = {
   "categories": ["albums"],
   "type": "bundle",
   "pieces": [
-    "apple-wassail",
     "the-ash-grove",
+    "apple-wassail",
     "it-was-a-lover-and-his-lass"
   ],
   "hasScore": true,
