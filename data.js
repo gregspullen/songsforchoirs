@@ -201,6 +201,15 @@ window.PIECES = {
     "hasScore": true,
     "price": 1.00
   },
+  "summer-is-acomin-in": {
+    "title": "Summer is acomin in",
+    "description": "Summer is acomin in - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "mixed voices",
+    "accompaniment": "a cappella",
+    "categories": ["concert"],
+    "hasScore": true,
+    "price": 0.50
+  },
     "bathed-in-starlight": {
     "title": "Bathed in Starlight",
     "description": "Bathed in Starlight - a beautiful and expressive narrative choral work for young voices. For SSA or flexible two-part and unison choir, it moves from lyrical, flowing lines to rhythmic, percussive energy. View the score, listen, and download licensed copies from Songs for Choirs.",
