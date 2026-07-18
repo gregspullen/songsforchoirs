@@ -32,7 +32,11 @@
   </nav>
   <main class="wrap">
     <section class="panel">
-      <h2 class="scroll-heading">← Scroll to view →</h2>
+      <h2 class="scroll-heading">
+        <span id="scroll-left" class="scroll-arrow">←</span>
+        <span>Scroll to view</span>
+        <span id="scroll-right" class="scroll-arrow">→</span>
+      </h2>
       <p class="swipe-hint">Swipe to browse • Tap to preview</p>
       <div class="score-grid scroll" id="pieces-container">
 
@@ -70,11 +74,58 @@ document.addEventListener("DOMContentLoaded", () => {
               alt="${piece.title} cover"
               onerror="this.onerror=null; this.src='images/placeholder.png';">
           </div>
-          <span class="hover-tag">Preview and Listen</span>
+          <span class="hover-tag">Preview • Listen • Buy</span>
         </a>
       </figure>
     `;
   });
+
+
+// ===== Scroll arrows =====
+
+const leftArrow = document.getElementById("scroll-left");
+const rightArrow = document.getElementById("scroll-right");
+
+const firstCover = container.querySelector(".cover");
+
+if (leftArrow && rightArrow && firstCover) {
+
+    function updateArrows() {
+
+  leftArrow.classList.toggle(
+      "disabled",
+      container.scrollLeft <= 2
+  );
+
+  rightArrow.classList.toggle(
+      "disabled",
+      container.scrollLeft >=
+      container.scrollWidth - container.clientWidth - 2
+  );
+
+}
+
+    const step = firstCover.offsetWidth;   // cover width + gap
+
+    leftArrow.addEventListener("click", () => {
+        container.scrollBy({
+            left: -step,
+            behavior: "smooth"
+        });
+    });
+
+    rightArrow.addEventListener("click", () => {
+        container.scrollBy({
+            left: step,
+            behavior: "smooth"
+        });
+    });
+
+    container.addEventListener("scroll", updateArrows);
+    updateArrows();
+
+}
+
 
 });
 </script>

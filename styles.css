@@ -102,6 +102,24 @@ p em {
   font-weight: 600;
 }
 
+.scroll-arrow {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.2s ease;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.15);
+}
+
+.scroll-arrow.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
   /* =========================
    Navigation
    ========================= */
@@ -372,14 +390,14 @@ p em {
   
   .cover .hover-tag {
     position: absolute;                /* pins it over the image */
-    bottom: 70px;                      /* vertical position */
+    bottom: 80px;                      /* vertical position */
     left: 50%;                         /* centred horizontally */
     transform: translateX(-50%);       /* perfect centre alignment */
     font-size: 1.4rem;                 /* medium text size */
     font-weight: 500;                  /* slightly lighter weight */
     font-family: "Georgia", serif;     /* classic typeface */
-    color: rgba(191,161,74,0.35);      /* pale gold mist (very soft) */
-    background: rgba(255,255,255,0.6); /* faint translucent pearl backdrop */
+    color: #000;
+    background: rgba(255,255,255,0.8);
     padding: 0.3em 0.8em;              /* space around text */
     border-radius: 0.4em;              /* soft rounded corners */
     letter-spacing: 0.4px;             /* gentle spacing between letters */
