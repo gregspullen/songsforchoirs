@@ -102,6 +102,17 @@ p em {
   font-weight: 600;
 }
 
+.scroll-arrow {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.2);
+}
+
   /* =========================
    Navigation
    ========================= */
