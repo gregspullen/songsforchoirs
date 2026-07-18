@@ -39,7 +39,11 @@
 
   <main class="wrap">
     <section class="panel">
-      <h2 class="scroll-heading">← Scroll to view →</h2>
+      <h2 class="scroll-heading">
+        <span id="scroll-left" class="scroll-arrow">←</span>
+        <span>Scroll to view</span>
+        <span id="scroll-right" class="scroll-arrow">→</span>
+      </h2>
       <p class="swipe-hint">Swipe to browse • Tap to preview</p>
 
      <div class="score-grid scroll" id="pieces-container">
@@ -102,7 +106,36 @@ container.innerHTML += `
   </figure>
 `;
 
+
+// ===== Scroll arrows =====
+
+const leftArrow = document.getElementById("scroll-left");
+const rightArrow = document.getElementById("scroll-right");
+
+const firstCover = container.querySelector(".cover");
+
+if (leftArrow && rightArrow && firstCover) {
+
+    const step = firstCover.offsetWidth;
+
+    leftArrow.addEventListener("click", () => {
+        container.scrollBy({
+            left: -step,
+            behavior: "smooth"
+        });
+    });
+
+    rightArrow.addEventListener("click", () => {
+        container.scrollBy({
+            left: step,
+            behavior: "smooth"
+        });
+    });
+
+}
+
 });
+
 </script>
 </body>
 </html>
