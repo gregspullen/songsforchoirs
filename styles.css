@@ -106,11 +106,18 @@ p em {
   display: inline-block;
   cursor: pointer;
   user-select: none;
-  transition: transform 0.2s ease;
+
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.2s ease;
 }
 
 .scroll-arrow:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+}
+
+.scroll-arrow.disabled {
+  opacity: 0.2;
+  pointer-events: none;
 }
 
   /* =========================

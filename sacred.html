@@ -90,6 +90,21 @@ const firstCover = container.querySelector(".cover");
 
 if (leftArrow && rightArrow && firstCover) {
 
+    function updateArrows() {
+
+  leftArrow.classList.toggle(
+      "disabled",
+      container.scrollLeft <= 2
+  );
+
+  rightArrow.classList.toggle(
+      "disabled",
+      container.scrollLeft >=
+      container.scrollWidth - container.clientWidth - 2
+  );
+
+}
+
     const step = firstCover.offsetWidth;   // cover width + gap
 
     leftArrow.addEventListener("click", () => {
@@ -105,6 +120,9 @@ if (leftArrow && rightArrow && firstCover) {
             behavior: "smooth"
         });
     });
+
+    container.addEventListener("scroll", updateArrows);
+    updateArrows();
 
 }
 
