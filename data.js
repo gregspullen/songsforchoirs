@@ -292,7 +292,7 @@ window.PIECES = {
   "accompaniment": "piano",
   "categories": ["sacred"],
   "hasScore": true,
-  "price": 1.00
+  "price": 0.85
 },
   "apple-wassail": {
     "title": "Apple Wassail",
