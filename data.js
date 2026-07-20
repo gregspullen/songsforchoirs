@@ -208,30 +208,96 @@ window.PIECES = {
     "make-a-joyful-noise": {
     "title": "Make a Joyful Noise",
     "description": "Make a Joyful Noise - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
-    "voicing": "SATB",
-    "accompaniment": "piano",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
-  },
+    "fromComposer":
+      "Originally composed as part of our <i>Songs of Thanksgiving</i> collection, its strong rhythmic drive and changing time signatures give it a distinct character, allowing the words to flow naturally and creating an exuberant outburst of celebration.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'56"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "the-lords-prayer": {
     "title": "The Lord's Prayer",
     "description": "The Lord's Prayer - a dynamic, neo-baroque choral setting for SATB choir. Short and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano (optional)",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 0.85
-  },
+    "fromComposer":
+      "Written in a Baroque style, this setting combines flowing counterpoint with a clear, singable vocal texture. Lyra Harker's sensitive music brings warmth and natural expression to the most significant prayer in the Christian tradition.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'23"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 0.85
+},
     "the-lord-is-my-shepherd": {
     "title": "The Lord is my Shepherd",
     "description": "The Lord is my Shepherd - a lyrical and devotional choral setting for SATB choir. Warm, flowing, and expressive. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano",
-    "categories": ["sacred"],
-    "hasScore": true,
-    "price": 1.00
-  },
+    "fromComposer":
+      "This restful but optimistic setting reflects the quiet confidence of Psalm 23. Its gentle, flowing character mirrors the Psalm's message of comfort, hope and enduring faith before blossoming into its closing canonic promise; 'I will dwell in the house of the Lord for ever.'",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'43"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "benedictus": {
     "title": "Benedictus",
     "description": "Benedictus - an atmospheric and accessible choral setting for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -390,12 +456,34 @@ window.PIECES = {
     "bathed-in-starlight": {
     "title": "Bathed in Starlight",
     "description": "Bathed in Starlight - a beautiful and expressive narrative choral work for young voices. For SSA or flexible two-part and unison choir, it moves from lyrical, flowing lines to rhythmic, percussive energy. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SSA",
-    "accompaniment": "piano",
-    "categories": ["sacred", "young-voices"],
-    "hasScore": true,
-    "price": 1.00
-  },
+    "fromComposer":
+      "The animals gather around the crib, each aware that something extraordinary is unfolding. As they compete for attention, each comes to represent a different Christian virtue in this joyful nativity celebration.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SSA"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "3'12"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SSA",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 1.00
+},
     "away-in-a-manger": {
     "title": "Away in a Manger",
     "description": "Away in a Manger - a fresh and inventive choral setting combining two traditional melodies. Originally conceived a cappella, with optional piano support. A lively concert piece for SATB choir with rich and rewarding part-writing. View the score, listen, and download licensed copies from Songs for Choirs.",
