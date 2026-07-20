@@ -472,6 +472,11 @@ p em {
   margin-top: 2.5rem;   /* gentle breathing space above */
 }
 
+/* Set page tweaks */
+.set-page .single-opus {
+  gap: 3rem;
+}
+
 .single-opus .price {
   padding: 0.6em 1.25em;
   min-width: 160px;
@@ -1046,6 +1051,20 @@ button.price small {
 .opus-page #atAGlance {
   width: 100%;
   box-sizing: border-box;
+}
+
+.set-page .opus-left,
+.set-page .opus-right {
+    align-self: center;
+}
+
+.set-page .paypal-box {
+  text-align: center;
+}
+
+.set-page .paypal-box .price {
+  width: auto;
+  display: inline-block;
 }
 
 #atAGlance h3 {
