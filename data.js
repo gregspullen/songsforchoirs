@@ -416,7 +416,7 @@ window.PIECES = {
       }
   ],
 
-  "voicing": "SATB",
+  "voicing": "SAB",
   "accompaniment": "piano",
   "categories": ["concert"],
   "hasScore": true,
