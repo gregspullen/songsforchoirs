@@ -259,7 +259,7 @@ window.PIECES = {
 
   "voicing": "SATB",
   "accompaniment": "piano",
-  "categories": ["sacred"],
+  "categories": ["concert"],
   "hasScore": true,
   "price": 1.00
 },
