@@ -463,20 +463,25 @@ p em {
   }
   
   /* Single opus layout (for individual pieces) */
-  .single-opus {
-    margin-top: 2.5rem; /* add gentle breathing space above */
-  }
-  .single-opus .paypal-box {
-    text-align: right;
-  }
-  
-  .single-opus .price {
-    padding: 0.6em 1.25em;   /* slightly narrower sides */
-    min-width: 160px;        /* roughly matches audio player width */
-    margin-right: 1rem;      /* gentle outward nudge */
-  }
-  
-    
+.single-opus {
+  display: grid;
+  grid-template-columns: 320px 380px 320px;
+  gap: 2rem;
+  justify-content: center;
+  align-items: start;
+  margin-top: 2.5rem;   /* gentle breathing space above */
+}
+
+/* Set page tweaks */
+.set-page .single-opus {
+  gap: 3.05rem;
+}
+
+.single-opus .price {
+  padding: 0.6em 1.25em;
+  min-width: 160px;
+  margin-right: 1rem;
+}
   
   .score-card { max-width: 340px; }
   
@@ -524,6 +529,37 @@ p em {
 .panel .opus-layout {
   background: transparent;
   padding: 0;
+}
+
+.info-card {
+  background: #fffdf8;
+  border: 1px solid #e6d8ad;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+/* From the Composer typography */
+
+#fromComposer {
+  width: 100%;
+  height: 250px;
+}
+
+#fromComposer h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #666;
+}
+
+#fromComposer p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
@@ -645,7 +681,7 @@ p em {
 
   /* Opus pages sit slightly lower, so lift them a little */
   body.opus-page .panel {
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
   }
 
   /* =========================
@@ -676,9 +712,9 @@ p em {
    ========================= */
 
 .site-footer {
-  margin-top: auto;              /* let flex push it to the bottom */
-  padding: 1.5rem 0;             /* consistent vertical spacing */
-  border-top: 1px solid #e8edf5;
+  margin-top: -2rem;              /* let flex push it to the bottom */
+  padding: 2.8rem 0;             /* consistent vertical spacing */
+  /*border-top: 1px solid #e8edf5;*/
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
@@ -939,10 +975,14 @@ button.price small {
     background: #fffdf8;
     border: 1px solid #e6d8ad;
     border-radius: 10px;
-    padding: 0.0em 0.8em;   /* reduces overall height ≈ 15px */
-    margin-top: -0.15em;     /* keeps the top in perfect alignment */
+    padding: 0 0.8em;
     box-shadow: 0 1px 1px rgba(0,0,0,0.02);
-  }
+
+    width: 100%;
+    box-sizing: border-box;
+
+    text-align: center;
+}
 
   .opus-page .paypal-box .price {
     position: relative;
@@ -950,8 +990,8 @@ button.price small {
   }
  
   .single-opus .paypal-box {
-  text-align: right;
-  margin-right: 0;
+    position: relative;
+    left: -40px;
 }
 
 @media (min-width: 768px) {
@@ -981,31 +1021,76 @@ button.price small {
 /* Audio player frame */
 .opus-page .opus-left audio {
   display: block;
-  background: #fffdf8;
+  background: #fffaf3;
   border: 1px solid #e6d8ad;
   border-radius: 8px;
   padding: 0.5em 0.8em;
   box-shadow: 0 2px 4px rgba(0,0,0,0.04);
 }
-/* Nudge player box down slightly for balance */
-.opus-page .opus-right {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-top: 0.3em;
-}
 
-.opus-page .opus-left audio {
-  background: #fffaf3;
-  border: 1px solid #e6d8ad;
-}
+/* Left and right columns */
 
-/* Final bedtime alignment hop 🌙 */
 .opus-page .opus-left,
 .opus-page .opus-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.opus-page .opus-right {
+  width: 320px;
+}
+
+#atAGlance {
+  width: 100%;
+  height: 250px;
+}
+
+.opus-page .paypal-box,
+.opus-page #atAGlance {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.set-page .opus-left,
+.set-page .opus-right {
+    align-self: center;
+}
+
+.set-page .paypal-box {
+  text-align: center;
+}
+
+.set-page .paypal-box .price {
+  width: auto;
+  display: inline-block;
+}
+
+#atAGlance h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.glance-row {
   display: flex;
-  align-items: center;  /* perfect vertical harmony */
-  justify-content: center;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3rem 0;
+}
+
+.glance-label {
+  color: #8d7a52;
+  font-weight: 600;
+  flex: 0 0 42%;
+}
+
+.glance-value {
+  flex: 1;
+  text-align: right;
+  color: #222;
 }
 
 /* Home page: limit vertical footprint of covers */

@@ -209,47 +209,59 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
       <div class="score-grid single-opus">
         
         <div class="opus-left">
-          <audio controls>
-            <source id="audioSrc" type="audio/mpeg">
-          </audio>
+
+          <div id="fromComposer" class="info-card"></div>
+        
+            <audio controls>
+                <source id="audioSrc" type="audio/mpeg">
+            </audio>
+        
+            <div id="availableInSets"></div>
+        
         </div>
         
         <figure class="cover">
           <img id="opus-preview-page" src="" alt="Score preview">
         
-          <span id="hover-tag" class="hover-tag">Click to view</span>
+          <span id="hover-tag" class="hover-tag">Preview score</span>
         </figure>
 
         <div class="opus-right">
 
-            <div class="paypal-box">
-          
-              <div style="text-align:center; margin-bottom:10px;">
-                <div class="copy-line">
-                  <span class="lead-text">I need</span> 
-                  <input id="copyInput" type="number" value="12" min="1">
-                  <span class="parts-word">parts</span> 
-                  <span class="per-part">(@ £<span id="pricePerPart">0.00</span> per part)</span>
-                </div>
-          
-                <button class="price" id="orderBtn" type="button">
-                  Order — £<span id="totalGBP">0.00</span>
-                  (<span id="totalEUR"></span>, <span id="totalUSD"></span>) total
-                </button>
-
-                <div id="patronPrice"
-                     style="font-size:0.9em; color:#b8964a; margin-top:8px; text-align:center;">
-                  Patrons pay £0.00
-                </div>
-          
+          <div class="paypal-box">
+        
+            <div style="text-align:center; margin-bottom:10px;">
+        
+              <div class="copy-line">
+                <span class="lead-text">I need</span>
+                <input id="copyInput" type="number" value="12" min="1">
+                <span class="parts-word">parts</span>
+                <span class="per-part">(@ £<span id="pricePerPart">0.00</span> each)</span>
+              </div>
+        
+              <button class="price" id="orderBtn" type="button">
+                Order — £<span id="totalGBP">0.00</span>
+                (<span id="totalEUR"></span>, <span id="totalUSD"></span>)
+              </button>
+        
+              <div id="patronPrice"
+                   style="font-size:0.9em; color:#b8964a; margin-top:8px; text-align:center;">
+                Patrons pay £0.00
+              </div>
+        
               <p style="font-size:0.8em; color:#b8964a; margin-top:6px; text-align:center;">
                 Currency conversions are approximate.<br>
                 Final pricing is shown in PayPal.
               </p>
-          
+        
             </div>
-          
+        
           </div>
+        
+          <!-- NEW -->
+          <div id="atAGlance" class="info-card"></div>
+        
+        </div>
 
     </section>
   </main>
@@ -277,6 +289,38 @@ const hover = document.querySelector(".hover-tag");
 img.src = `images/Cover_png/${slug}.png`;
       const piece = PIECES[slug];
 
+      // ===== FROM THE COMPOSER =====
+
+      if (piece.fromComposer) {
+
+      const panel = document.getElementById("fromComposer");
+
+      panel.innerHTML = `
+          <h3>...from the composer</h3>
+          <p>${piece.fromComposer}</p>
+      `;
+      }
+
+      if (piece.atAGlance) {
+
+        const panel = document.getElementById("atAGlance");
+
+        let html = "<h3>At a glance</h3>";
+
+        piece.atAGlance.forEach(item => {
+
+            html += `
+                <div class="glance-row">
+                    <span class="glance-label">${item.label}</span>
+                    <span class="glance-value">${item.value}</span>
+                </div>
+            `;
+
+        });
+
+        panel.innerHTML = html;
+      }
+
 const inSets = Object.keys(PIECES).filter(s => {
   const p = PIECES[s];
   return p.type === "bundle" && p.pieces && p.pieces.includes(slug);
@@ -285,8 +329,8 @@ const inSets = Object.keys(PIECES).filter(s => {
 if (inSets.length) {
   const box = document.createElement("div");
   box.className = "available-in-sets";
-  box.style.marginTop = "16px";
-  box.innerHTML = "<strong>Also available in sets:</strong>";
+  box.style.marginTop = "-5px";
+  box.innerHTML = "<strong>Available in these sets:</strong>";
 
   const ul = document.createElement("ul");
 
@@ -302,7 +346,7 @@ if (inSets.length) {
   });
 
  box.appendChild(ul);
- document.querySelector(".opus-left").appendChild(box);
+ document.getElementById("availableInSets").appendChild(box);
 }
 
 if (!piece.hasScore) {
@@ -356,7 +400,11 @@ function goToPage(n) {
   img.src = filename;
   hover.style.display = "none";
 
-  document.querySelector(".preview-footer").style.display = "block";
+  const footer = document.querySelector(".preview-footer");
+
+  if (footer) {
+      footer.style.display = "block";
+  }
 };
 
   test.onerror = () => {
