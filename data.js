@@ -561,15 +561,15 @@ window.PIECES = {
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "SAB"
+          "value": "Cello & Piano"
       },
       {
           "label": "Accompaniment",
-          "value": "Piano (optional)"
+          "value": "Piano"
       },
       {
           "label": "Duration",
-          "value": "3'36"
+          "value": "2'19"
       },
       {
           "label": "Difficulty",
@@ -581,7 +581,7 @@ window.PIECES = {
   "accompaniment": "piano",
   "categories": ["concert"],
   "hasScore": true,
-  "price": 0.85
+  "price": 3.00
 },
     "cello-go-bolero": {
     "title": "Cello Go Bolero",
@@ -592,7 +592,7 @@ window.PIECES = {
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "solo or unison"
+          "value": "Cello & Piano"
       },
       {
           "label": "Accompaniment",
@@ -600,7 +600,7 @@ window.PIECES = {
       },
       {
           "label": "Duration",
-          "value": "2'36"
+          "value": "1'37"
       },
       {
           "label": "Difficulty",
@@ -610,9 +610,9 @@ window.PIECES = {
 
   "voicing": "SATB",
   "accompaniment": "piano",
-  "categories": ["sacred"],
+  "categories": ["concert"],
   "hasScore": true,
-  "price": 1.00
+  "price": 3.00
 },
     "tangissimo": {
     "title": "Tangissimo",
@@ -623,15 +623,15 @@ window.PIECES = {
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "SAB"
+          "value": "Cello & Piano"
       },
       {
           "label": "Accompaniment",
-          "value": "Piano (optional)"
+          "value": "Piano"
       },
       {
           "label": "Duration",
-          "value": "3'36"
+          "value": "2'34"
       },
       {
           "label": "Difficulty",
@@ -643,6 +643,6 @@ window.PIECES = {
   "accompaniment": "piano",
   "categories": ["concert"],
   "hasScore": true,
-  "price": 0.85
+  "price": 3.00
 }
   };
