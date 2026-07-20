@@ -178,7 +178,7 @@ window.PIECES = {
     "title": "Non Erit Impossibile",
     "description": "Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "Archangel Training Manual<br> Section 7.3: Delivering Annunciations<br><br> ✓ Begin with 'Ne timeas, Maria'<br> ✓ Deliver the message calmly.<br> ✓ Avoid unnecessary displays of &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  heavenly glory.<br> ✗ Please do not <i>terrify</i> the recipient.",
+      "Ref: <strong>Archangel Training Manual</strong><br> Section 7.3: Delivering Annunciations<br><br> ✓ Begin with 'Ne timeas...'<br> ✓ Deliver all messages calmly.<br> ✓ Avoid unnecessary displays of &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Heavenly glory.<br> ✗ Please do not <i>terrify</i> the recipient.",
 
   "atAGlance": [
       {
@@ -266,39 +266,127 @@ window.PIECES = {
     "the-ash-grove": {
     "title": "The Ash Grove",
     "description": "The Ash Grove - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SAB",
-    "accompaniment": "a cappella",
-    "categories": ["concert"],
-    "hasScore": true,
-    "price": 0.85
-  },
+    "fromComposer":
+      "This is my version of a lovely lyrical Welsh melody. The lines flow quite naturally and are a pleasure to sing. Should you wish to extend the piece, there are more than two verses, but I decided to omit the tragic ones so as to focus on the beautiful harmony.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "2'"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
   "apple-wassail": {
     "title": "Apple Wassail",
     "description": "Apple Wassail - an accessible, light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SAB",
-    "accompaniment": "piano",
-    "categories": ["concert"],
-    "hasScore": true,
-    "price": 0.85
-  },
+    "fromComposer":
+      "Wassail a local orchard with this arrangement of a traditional English song. The first and last verses may be sung in unison, with a verse of canon in between, making it quick to learn and an excellent introduction to part singing for a less experienced choir. Please no scrumping without permission.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "2'28"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "lavenders-blue": {
     "title": "Lavender's Blue",
     "description": "Lavenders Blue - a light and humorous arrangement of the traditional folk song for SATB choir. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano (optional)",
-    "categories": ["concert"],
-    "hasScore": true,
-    "price": 1.00
-  },
+    "fromComposer":
+      "A light-hearted and witty arrangement of a traditional English folk song. This works well as an a cappella arrangement, although the modulation requires careful pitching, so the optional piano part is included for less experienced choirs. Enjoy the <i>Tra la</i> moment!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "1'35"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
   "summer-is-acomin-in": {
     "title": "Summer is acomin in",
     "description": "Summer is acomin in - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "mixed voices",
-    "accompaniment": "a cappella",
-    "categories": ["concert"],
-    "hasScore": true,
-    "price": 0.50
-  },
+    "fromComposer":
+      "This is probably the oldest recorded secular song in the English language – Sumer is icumen in (Middle English for 'Summer is A-Coming In') – dating from the mid-thirteenth century. Should you wish to extend the piece, you can repeat the round section ad infinitum, but I wouldn't recommend it!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SSSAAA"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "2'10"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "bathed-in-starlight": {
     "title": "Bathed in Starlight",
     "description": "Bathed in Starlight - a beautiful and expressive narrative choral work for young voices. For SSA or flexible two-part and unison choir, it moves from lyrical, flowing lines to rhythmic, percussive energy. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -342,12 +430,34 @@ window.PIECES = {
     "bobby-shafto": {
     "title": "Bobby Shafto",
     "description": "Bobby Shafto - a light and humorous arrangement of the traditional folk song for SATB choir. Short, accessible, and full of character, it makes an ideal encore. View the score, listen, and download licensed copies from Songs for Choirs.",
-    "voicing": "SATB",
-    "accompaniment": "piano (optional)",
-    "categories": ["concert"],
-    "hasScore": true,
-    "price": 1.00
-  },
+    "fromComposer":
+      "Robert Shafto is said to have written this as a campaign song in his successul bid to become a Member of Parliament. I love the tongue-in-cheek narcissism and wanted to bring that to the fore in this arrangement. Sing it with humour and big smiles!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "1'47"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "if-i-was-that-donkey": {
     "title": "If I was that Donkey",
     "description": "If I was that Donkey - a tender and expressive lullaby in a contemporary pop ballad style, perfect for Nativity performances. Warm, gentle, and accessible for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -445,28 +555,94 @@ window.PIECES = {
     "pass-the-salsa": {
     "title": "Pass the Salsa",
     "description": "Pass the Salsa – a lively and rhythmic piece for cello and piano in a vibrant Latin style. Accessible yet exciting, it’s ideal for the intermediate cellist (around Grade 4). View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  },
+    "fromComposer":
+      "The first piece from a suite of three. After more than forty years of teaching the cello, I wanted some genuinely happy music for my elementary students. The backward extensions are there for a reason, but I hope they'll be discovered through the joy of playing rather than as an exercise.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "3'36"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 3"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.85
+},
     "cello-go-bolero": {
     "title": "Cello Go Bolero",
     "description": "Cello Go Bolero - a lively and rhythmic piece for cello in a bolero style. Characterful and full of energy, it brings the cello to the party at last. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  },
+    "fromComposer":
+      "The second piece from Three Latin Dances. Joyful, rhythmic and fun to play, it introduces the tenor clef almost by stealth, allowing young cellists to become familiar with it through music rather than exercises.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "solo or unison"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'36"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 4"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "tangissimo": {
     "title": "Tangissimo",
     "description": "Tangissimo - a lively and characterful tango-inspired piece for cello and piano, completing a set of three Latin dances. Playful and full of flair, it offers a step up in challenge while remaining accessible at around Grade 5. View the score, listen, and download from Songs for Choirs.",
-    "voicing": "cello & piano",
-    "accompaniment": "piano",
-    "categories": ["albums"],
-    "hasScore": true,
-    "price": 3.00
-  }
+    "fromComposer":
+      "The final piece from Three Latin Dances. This catchy, rhythmic and passionate tango gives the cello student the opportunity to shift confidently between the first four positions.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "3'36"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 5"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.85
+}
   };
