@@ -400,7 +400,7 @@ window.PIECES = {
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "SAB"
+          "value": "SATB"
       },
       {
           "label": "Accompaniment",
@@ -416,7 +416,7 @@ window.PIECES = {
       }
   ],
 
-  "voicing": "SAB",
+  "voicing": "SATB",
   "accompaniment": "piano",
   "categories": ["concert"],
   "hasScore": true,
