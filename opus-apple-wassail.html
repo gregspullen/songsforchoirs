@@ -1,16 +1,37 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- DATA -->
+  <!-- Default SEO (overwritten by JavaScript) -->
+  <title>Songs for Choirs</title>
+
+  <meta name="description" content="Affordable original choral music by Gregory Pullen, available as instant PDF downloads.">
+
+  <link rel="canonical" href="">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Data -->
   <script src="data.js?v=1"></script>
 
   <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   const path = window.location.pathname;
+
   const slug = path
     .split("/")
     .pop()
@@ -24,163 +45,214 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const price = piece.price || 1.00;
+  const price = piece.price ?? 1.00;
+
   const copyInput = document.getElementById("copyInput");
   const eurSpan = document.querySelector(".eur");
-const usdSpan = document.querySelector(".usd");
+  const usdSpan = document.querySelector(".usd");
 
-if (eurSpan && usdSpan) {
-  const eur = (price * 1.17).toFixed(2); // approx conversion
-  const usd = (price * 1.27).toFixed(2); // approx conversion
+  if (eurSpan && usdSpan) {
+    eurSpan.textContent = `€${(price * 1.17).toFixed(2)}`;
+    usdSpan.textContent = `$${(price * 1.27).toFixed(2)}`;
+  }
 
-  eurSpan.textContent = `€${eur}`;
-  usdSpan.textContent = `$${usd}`;
-}
+  // --------------------------------------------------
+  // SEO
+  // --------------------------------------------------
 
-  // Title
-  document.title = piece.metaTitle || `${piece.title} — Songs for Choirs`;
+  document.title = piece.metaTitle || `${piece.title} | Songs for Choirs`;
 
+  const description =
+    piece.description ||
+    "Affordable original choral music by Gregory Pullen.";
+
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute("content", description);
+
+  const canonical =
+    `${window.location.origin}${window.location.pathname}`;
+
+  document
+    .querySelector('link[rel="canonical"]')
+    ?.setAttribute("href", canonical);
+
+  const coverImage =
+    `${window.location.origin}/images/Cover_png/${slug}.png`;
+
+  document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute("content", document.title);
+
+  document
+    .querySelector('meta[property="og:description"]')
+    ?.setAttribute("content", description);
+
+  document
+    .querySelector('meta[property="og:image"]')
+    ?.setAttribute("content", coverImage);
+
+  document
+    .querySelector('meta[property="og:url"]')
+    ?.setAttribute("content", canonical);
+
+  document
+    .querySelector('meta[name="twitter:title"]')
+    ?.setAttribute("content", document.title);
+
+  document
+    .querySelector('meta[name="twitter:description"]')
+    ?.setAttribute("content", description);
+
+  document
+    .querySelector('meta[name="twitter:image"]')
+    ?.setAttribute("content", coverImage);
+
+  // --------------------------------------------------
   // Cover
+  // --------------------------------------------------
+
   const cover = document.getElementById("coverImg");
+
   if (cover) {
     cover.src = `/images/Cover_png/${slug}.png`;
     cover.alt = `${piece.title} cover`;
   }
 
-  // Sheet link
+  // --------------------------------------------------
+  // Preview score link
+  // --------------------------------------------------
+
   const sheetLink = document.getElementById("sheetLink");
+
   if (sheetLink) {
     sheetLink.href = `sheet-${slug}.html`;
   }
 
-  // Meta description
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc && piece.description) {
-    metaDesc.setAttribute("content", piece.description);
-  }
-
+  // --------------------------------------------------
   // Audio
+  // --------------------------------------------------
+
   const audio = document.querySelector("audio");
   const audioSrc = document.getElementById("audioSrc");
 
-  const audioBase = window.location.origin;
-
   if (audio && audioSrc) {
-    const src = `${audioBase}/mp3/${slug}.mp3`;
-    audioSrc.src = src;
+    audioSrc.src = `/mp3/${slug}.mp3`;
     audio.load();
   }
 
+  // --------------------------------------------------
   // Price display
+  // --------------------------------------------------
+
   const priceDisplayBtn = document.getElementById("priceDisplayBtn");
+
   if (priceDisplayBtn) {
     priceDisplayBtn.textContent = price.toFixed(2);
   }
 
-// === PRICE CALCULATOR ===
+  // --------------------------------------------------
+  // Price calculator
+  // --------------------------------------------------
 
-const totalGBP = document.getElementById("totalGBP");
-const totalEUR = document.getElementById("totalEUR");
-const totalUSD = document.getElementById("totalUSD");
+  const totalGBP = document.getElementById("totalGBP");
+  const totalEUR = document.getElementById("totalEUR");
+  const totalUSD = document.getElementById("totalUSD");
 
-function updateTotal() {
-  const copies = Math.max(1, parseInt(copyInput.value || "1", 10));
+  function updateTotal() {
 
-  let total = Math.min(copies, 10) * price;
+    const copies = Math.max(
+      1,
+      parseInt(copyInput.value || "1", 10)
+    );
 
-// 11–20
-if (copies > 10) {
-  total += Math.min(copies - 10, 10) * price * 0.67;
-}
+    let total = Math.min(copies, 10) * price;
 
-// 21–30
-if (copies > 20) {
-  total += Math.min(copies - 20, 10) * price * 0.58;
-}
+    if (copies > 10)
+      total += Math.min(copies - 10, 10) * price * 0.67;
 
-// 31–40
-if (copies > 30) {
-  total += Math.min(copies - 30, 10) * price * 0.50;
-}
+    if (copies > 20)
+      total += Math.min(copies - 20, 10) * price * 0.58;
 
-// 41–50
-if (copies > 40) {
-  total += Math.min(copies - 40, 10) * price * 0.42;
-}
+    if (copies > 30)
+      total += Math.min(copies - 30, 10) * price * 0.50;
 
-// 51–60
-if (copies > 50) {
-  total += Math.min(copies - 50, 10) * price * 0.33;
-}
+    if (copies > 40)
+      total += Math.min(copies - 40, 10) * price * 0.42;
 
-// 61–70
-if (copies > 60) {
-  total += Math.min(copies - 60, 10) * price * 0.25;
-}
+    if (copies > 50)
+      total += Math.min(copies - 50, 10) * price * 0.33;
 
-// 71–80
-if (copies > 70) {
-  total += Math.min(copies - 70, 10) * price * 0.17;
-}
+    if (copies > 60)
+      total += Math.min(copies - 60, 10) * price * 0.25;
 
-// 81–90
-if (copies > 80) {
-  total += Math.min(copies - 80, 10) * price * 0.08;
-}
+    if (copies > 70)
+      total += Math.min(copies - 70, 10) * price * 0.17;
 
-// 91–100
-if (copies > 90) {
-  total += Math.min(copies - 90, 10) * price * 0.04;
-}
+    if (copies > 80)
+      total += Math.min(copies - 80, 10) * price * 0.08;
 
-// 101+
-if (copies > 100) {
-  total += (copies - 100) * price * 0.01;
-}
+    if (copies > 90)
+      total += Math.min(copies - 90, 10) * price * 0.04;
 
-  const perPart = total / copies;
-  const perPartEl = document.getElementById("pricePerPart");
-  
-  if (perPartEl) {
-    perPartEl.textContent = perPart.toFixed(2);
-}
+    if (copies > 100)
+      total += (copies - 100) * price * 0.01;
 
-  const gbp = total.toFixed(2);
-  const eur = (total * 1.17).toFixed(2);
-  const usd = (total * 1.27).toFixed(2);
+    const perPart = total / copies;
 
-  if (totalGBP) totalGBP.textContent = gbp;
-  if (totalEUR) totalEUR.textContent = `€${eur}`;
-  if (totalUSD) totalUSD.textContent = `$${usd}`;
+    document.getElementById("pricePerPart").textContent =
+      perPart.toFixed(2);
 
-  const patronPrice = document.getElementById("patronPrice");
-  if (patronPrice) {
-    patronPrice.textContent =
-      `Patrons pay £${(total / 2).toFixed(2)}`;
+    if (totalGBP) totalGBP.textContent = total.toFixed(2);
+    if (totalEUR) totalEUR.textContent = `€${(total * 1.17).toFixed(2)}`;
+    if (totalUSD) totalUSD.textContent = `$${(total * 1.27).toFixed(2)}`;
+
+    const patronPrice = document.getElementById("patronPrice");
+
+    if (patronPrice)
+      patronPrice.textContent =
+        `Patrons pay £${(total / 2).toFixed(2)}`;
   }
-}
 
-if (copyInput) {
-  copyInput.addEventListener("input", updateTotal);
-  updateTotal();
-}
+  if (copyInput) {
+    ["input", "change"].forEach(event =>
+      copyInput.addEventListener(event, updateTotal)
+    );
+
+    updateTotal();
+  }
+
+  // --------------------------------------------------
   // Order button
-  const orderBtn = document.getElementById("orderBtn");
-  if (orderBtn) {
-    orderBtn.onclick = () => {
-      const copies = copyInput ? copyInput.value : 12;
+  // --------------------------------------------------
 
-window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&price=${price}&copies=${copies}`;
+  const orderBtn = document.getElementById("orderBtn");
+
+  if (orderBtn) {
+
+    orderBtn.onclick = () => {
+
+      const copies =
+        copyInput ? copyInput.value : 12;
+
+      window.location.href =
+        `orderform.html?title=${encodeURIComponent(piece.title)}&price=${price}&copies=${copies}`;
+
     };
+
   }
 
 });
-</script>
+  </script>
 
-  <link rel="stylesheet" href="/styles.css?v=999">
+  <link rel="stylesheet" href="/styles.css?v=20260722">
 
-  <!-- Analytics -->
-  <script defer data-domain="songsforchoirs.com" src="https://plausible.io/js/script.js"></script>
+  <!-- Plausible Analytics -->
+  <script defer
+          data-domain="songsforchoirs.com"
+          src="https://plausible.io/js/script.js">
+  </script>
+
 </head>
 
 <body class="opus-page">
