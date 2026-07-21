@@ -178,7 +178,7 @@ window.PIECES = {
     "title": "Non Erit Impossibile",
     "description": "Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "Ref: <strong>Archangel Training Manual</strong><br> Section 7.3: Delivering Annunciations<br><br> ✓ Begin with 'Ne timeas...'<br> ✓ Deliver all messages calmly.<br> ✓ Avoid unnecessary displays of &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Heavenly glory.<br> ✗ Please do not <i>terrify</i> the recipient.",
+      "We imagined Gabriel beginning the Annunciation with calm reassurance: 'Ne timeas...' But as the full immensity of the declaration, 'Nothing is impossible for God', consumes him, wonder overcomes self-restraint, and both Gabriel and the music build relentlessly to a terrifying climax.",
 
   "atAGlance": [
       {
