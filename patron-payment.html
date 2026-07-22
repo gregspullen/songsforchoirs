@@ -2,8 +2,10 @@
 
 <p>Email: <span id="email"></span></p>
 
+<meta name="robots" content="noindex,nofollow">
+
 <script>
 const params = new URLSearchParams(window.location.search);
 document.getElementById("email").textContent =
-  params.get("email");
+  params.get("email") || "";
 </script>
