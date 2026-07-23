@@ -480,7 +480,7 @@ window.PIECES = {
 
   "voicing": "SSA",
   "accompaniment": "piano",
-  "categories": ["concert"],
+  "categories": ["sacred"],
   "hasScore": true,
   "price": 1.00
 },
