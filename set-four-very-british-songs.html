@@ -39,6 +39,7 @@ if (eurSpan && usdSpan) {
 
   // Title
   document.title = piece.metaTitle || `${piece.title} — Songs for Choirs`;
+  document.getElementById("page-tagline").textContent = piece.title;
 
   // Cover
   const cover = document.getElementById("opus-preview-page");
