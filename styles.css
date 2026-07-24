@@ -989,10 +989,12 @@ button.price small {
     top: -9px; /* relaxes the offset */
   }
  
-  .single-opus .paypal-box {
-    position: relative;
-    left: -40px;
-}
+  @media (min-width: 769px) {
+    .single-opus .paypal-box {
+      position: relative;
+      left: -40px;
+    }
+  }
 
 @media (min-width: 768px) {
   .single-opus .paypal-box {
@@ -1215,13 +1217,21 @@ button.price small {
     grid-template-columns: 1fr;
   }
 
-  .cover {
+  .cover,
+  .cover img {
     width: 100%;
     max-width: 100%;
   }
 
   .cover img {
-    width: 100%;
     height: auto;
+  }
+
+  .opus-page .opus-right,
+  .opus-page .opus-right .paypal-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
   }
 }
