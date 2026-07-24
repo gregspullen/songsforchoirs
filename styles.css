@@ -650,7 +650,7 @@ p em {
 }
 
   .about-hero img {
-    max-width: 240px;
+    max-width: 620px;
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
@@ -989,10 +989,12 @@ button.price small {
     top: -9px; /* relaxes the offset */
   }
  
-  .single-opus .paypal-box {
-    position: relative;
-    left: -40px;
-}
+  @media (min-width: 769px) {
+    .single-opus .paypal-box {
+      position: relative;
+      left: -40px;
+    }
+  }
 
 @media (min-width: 768px) {
   .single-opus .paypal-box {
@@ -1208,4 +1210,28 @@ button.price small {
   display: flex;
   justify-content: center;
   gap: 10px;
+}*/
+
+@media (max-width: 768px) {
+  .single-opus {
+    grid-template-columns: 1fr;
+  }
+
+  .cover,
+  .cover img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cover img {
+    height: auto;
+  }
+
+  .opus-page .opus-right,
+  .opus-page .opus-right .paypal-box {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
 }
