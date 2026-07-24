@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------
 
   document.title = piece.metaTitle || `${piece.title} | Songs for Choirs`;
+  document.getElementById("page-tagline").textContent = piece.title;
 
   const description =
     piece.description ||
@@ -265,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <h1 class="site-logo">
       songs<span class="gold">for</span>choirs
     </h1>
-    <p class="tagline">New accessible choral music.</p>
+    <p class="tagline" id="page-tagline">New accessible choral music.</p>
   </header>
 
   <nav class="site-nav">

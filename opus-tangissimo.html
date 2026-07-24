@@ -7,7 +7,7 @@
   <!-- Default SEO (populated by JavaScript) -->
   <title>Songs for Choirs</title>
   
-  <meta name="description" content="Affordable original cello music by Lyra Harker, available as instant PDF downloads.">
+  <meta name="description" content="Affordable original choral music by Lyra Harker, available as instant PDF downloads.">
 
   <link rel="canonical" href="">
 
@@ -65,10 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------
 
   document.title = piece.metaTitle || `${piece.title} | Songs for Choirs`;
+  document.getElementById("page-tagline").textContent = piece.title;
 
   const description =
     piece.description ||
-    "Affordable original cello music by Lyra Harker, available as instant PDF downloads.";
+    "Affordable original choral music by Lyra Harker, available as instant PDF downloads.";
 
   document
     .querySelector('meta[name="description"]')
@@ -265,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <h1 class="site-logo">
       songs<span class="gold">for</span>choirs
     </h1>
-    <p class="tagline">New accessible cello music.</p>
+    <p class="tagline" id="page-tagline">New accessible choral music.</p>
   </header>
 
   <nav class="site-nav">
