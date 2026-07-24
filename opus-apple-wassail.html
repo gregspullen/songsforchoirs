@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------
 
   document.title = piece.metaTitle || `${piece.title} | Songs for Choirs`;
+  document.getElementById("page-tagline").textContent = piece.title;
 
   const description =
     piece.description ||
