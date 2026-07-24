@@ -147,7 +147,7 @@ window.PIECES = {
     "title": "My Soul Doth Magnify The Lord",
     "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "We wanted to write an exuberant and joyful Magnificat with a contemporary feel. The frequent changes of key and time signature mirror the energy of Mary's song while allowing the text to flow naturally. The original two-part version is also included.",
+      "I wanted to create an exuberant, joyful setting of the Magnificat with a fresh, contemporary feel. Shifts of key and metre reflect the energy and spontaneity of Mary’s song, while allowing the text to unfold naturally. The work is available in two versions: the original two-part setting and a full SATB arrangement.",
 
   "atAGlance": [
       {
