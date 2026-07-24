@@ -1208,6 +1208,20 @@ button.price small {
   display: flex;
   justify-content: center;
   gap: 10px;
-}
+}*/
 
-   
+@media (max-width: 768px) {
+  .single-opus {
+    grid-template-columns: 1fr;
+  }
+
+  .cover {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cover img {
+    width: 100%;
+    height: auto;
+  }
+}
