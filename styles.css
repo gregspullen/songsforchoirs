@@ -1209,10 +1209,5 @@ button.price small {
   justify-content: center;
   gap: 10px;
 }
-   @media (max-width: 768px) {
-  .single-opus {
-    grid-template-columns: 1fr;
-  }
-}
 
    
