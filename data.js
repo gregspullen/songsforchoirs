@@ -178,7 +178,7 @@ window.PIECES = {
     "title": "Non Erit Impossibile",
     "description": "Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "We imagined Gabriel beginning the Annunciation with calm reassurance: 'Ne timeas...' But as the full immensity of the declaration, 'Nothing is impossible for God', consumes him, wonder overcomes self-restraint, and both Gabriel and the music build relentlessly to a terrifying climax.",
+      "I imagined Gabriel beginning the Annunciation with calm reassurance: 'Ne timeas...' But as the full immensity of the declaration, 'Nothing is impossible for God', consumes him, wonder overcomes self-restraint, and both Gabriel and the music build relentlessly to a terrifying climax.",
 
   "atAGlance": [
       {
@@ -191,7 +191,7 @@ window.PIECES = {
       },
       {
           "label": "Duration",
-          "value": "2'10"
+          "value": "2'30"
       },
       {
           "label": "Difficulty",
@@ -200,7 +200,7 @@ window.PIECES = {
   ],
 
   "voicing": "SATB",
-  "accompaniment": "piano",
+  "accompaniment": "a cappella",
   "categories": ["sacred"],
   "hasScore": true,
   "price": 1.00
