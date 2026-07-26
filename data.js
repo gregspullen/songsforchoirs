@@ -550,7 +550,7 @@ window.PIECES = {
     "title": "If I was that Donkey",
     "description": "If I was that Donkey - a tender and expressive lullaby in a contemporary pop ballad style, perfect for Nativity performances. Warm, gentle, and accessible for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "A contemplative donkey meditates on the mysteries of Jesus's life, his purpose and the suffering that lies ahead. As he asks one innocent question after another, he unwittingly reveals profound truths. A gentle, reflective lullaby for a junior choir, which may also be performed as a solo in a Nativity play.",
+      "A contemplative donkey meditates on the mysteries of Jesus's life, his purpose and the suffering that lies ahead. As he considers past events, he unwittingly reveals profound truths. A gentle, reflective lullaby for a junior choir, which may also be performed as a solo in a Nativity play.",
 
   "atAGlance": [
       {
