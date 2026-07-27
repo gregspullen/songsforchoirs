@@ -1234,4 +1234,18 @@ button.price small {
     margin: 0;
     box-sizing: border-box;
   }
+
 }
+
+  #score-preview {
+    height: 540px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-gutter: stable;
+  }
+
+  #score-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
