@@ -298,8 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         
         <figure class="cover">
-          <img id="opus-preview-page" src="" alt="Score preview">
-        
+          <div id="score-preview"></div>
           <span id="hover-tag" class="hover-tag">Preview score</span>
         </figure>
 
@@ -359,11 +358,6 @@ document.addEventListener("DOMContentLoaded", () => {
   <script>
     document.addEventListener("DOMContentLoaded", () => {
 
-let currentPage = 0;
-const img = document.getElementById("opus-preview-page");
-const hover = document.querySelector(".hover-tag");
-
-img.src = `images/Cover_png/${slug}.png`;
       const piece = PIECES[slug];
 
       // ===== FROM THE COMPOSER =====
@@ -435,73 +429,10 @@ if (!piece.hasScore) {
   return;
 }
 
-// 🐸 NEW: detect first available page automatically
-let basePage = 1;
-
-function findFirstPage(callback) {
-  let i = 1;
-
-  function check() {
-    const test = new Image();
-    const filename = `preview_images/${slug}/${slug}_${String(i).padStart(4, '0')}.png`;
-
-    test.onload = () => {
-      basePage = i;
-      callback();
-    };
-
-    test.onerror = () => {
-      i++;
-      if (i < 10) {
-        check(); // try next
-      } else {
-        basePage = 1;
-        callback();
-      }
-    };
-
-    test.src = filename;
-  }
-
-  check();
-}
-
-function goToPage(n) {
-  const realPage = basePage + (n - 1);
-  const test = new Image();
-
-  const filename = `preview_images/${slug}/${slug}_${String(realPage).padStart(4, '0')}.png`;
-
-  test.onload = () => {
-  currentPage = n;
-  img.src = filename;
-  hover.style.display = "none";
-
-  const footer = document.querySelector(".preview-footer");
-
-  if (footer) {
-      footer.style.display = "block";
-  }
-};
-
-  test.onerror = () => {
-    currentPage = 1;
-    img.src = `preview_images/${slug}/${slug}_${String(basePage).padStart(4, '0')}.png`;
-  };
-
-  test.src = filename;
-}
-
-findFirstPage(() => {
-  img.addEventListener("click", () => {
-    goToPage(currentPage + 1);
-  });
-});
-
 });
     </script>
   
-
+  <script src="preview.js"></script>
 
 </body>
 </html>
