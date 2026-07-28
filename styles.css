@@ -1263,3 +1263,15 @@ button.price small {
      width: 100%;
      height: auto;
    }
+
+   .opus-page .cover {
+     height: auto;
+     min-height: 0;
+     padding-bottom: 0;
+   }
+   
+   .opus-page .cover img {
+     display: block;
+     width: 100%;
+     height: auto;
+   }
