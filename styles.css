@@ -1249,3 +1249,17 @@ button.price small {
     width: 100%;
     height: auto;
   }
+
+   .cover-link,
+   .cover-wrapper {
+     height: auto;
+     min-height: 0;
+     padding-bottom: 0;
+   }
+   
+   .cover-link img,
+   .cover-wrapper img {
+     display: block;
+     width: 100%;
+     height: auto;
+   }
