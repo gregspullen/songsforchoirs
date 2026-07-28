@@ -1249,20 +1249,3 @@ button.price small {
     width: 100%;
     height: auto;
   }
-   
-   .opus-page .cover,
-   .opus-page #score-preview,
-   .opus-page .cover img {
-     top: auto;
-     margin-top: 0;
-     transform: none;
-   }
-
-   .opus-page .cover {
-     padding-top: 0;
-   }
-   
-   .opus-page #score-preview,
-   .opus-page .cover img {
-     margin-top: 50;
-   }
