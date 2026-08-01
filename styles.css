@@ -337,18 +337,18 @@ p em {
 
 .licensed-note {
   margin-top: 28px;
-  font-size: 0.9em;
-  line-height: 1.5;
-  color: #b8964a;
+  font-size: 0.82em;
+  line-height: 1.45;
+  color: #777;
 }
 
 .licensed-note p {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 
 .licensed-note p:first-child {
-  color: #666;
-  font-size: 1.05em;
+  color: #b8964a;
+  font-size: 1em;
 }
 
   /* =========================
