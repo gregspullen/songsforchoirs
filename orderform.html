@@ -429,12 +429,6 @@ const payload = {
       body: JSON.stringify(payload)
     });
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
     console.log("SEND STATUS:", res.status);
     console.log("SEND TYPE:", res.headers.get("content-type"));
 
