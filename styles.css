@@ -351,6 +351,15 @@ p em {
   font-size: 1em;
 }
 
+.licensed-purchase-button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0 0 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */
