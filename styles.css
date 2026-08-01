@@ -351,6 +351,14 @@ p em {
   font-size: 1em;
 }
 
+.minimum-note {
+  margin: 4px 0 7px;
+  font-size: 0.75em;
+  line-height: 1.25;
+  color: #b8964a;
+  text-align: center;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */

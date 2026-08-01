@@ -237,10 +237,14 @@ window.location.href = `orderform.html?title=${encodeURIComponent(piece.title)}&
               <div style="text-align:center; margin-bottom:10px;">
                 <div class="copy-line">
                   <span class="lead-text">I need</span> 
-                  <input id="copyInput" type="number" value="12" min="1">
+                  <input id="copyInput" type="number" value="10" min="1">
                   <span class="parts-word">parts</span> 
                   <span class="per-part">(@ £<span id="pricePerPart">0.00</span> each)</span>
                 </div>
+
+                <p class="minimum-note">
+                  Minimum order: 10 copies. Patrons may order any quantity.
+                </p>
               
                 <button class="price" id="orderBtn" type="button">
                   Order — £<span id="totalGBP">0.00</span>

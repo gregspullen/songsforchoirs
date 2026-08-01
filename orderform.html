@@ -182,7 +182,7 @@ Your 50% discount will be applied automatically before checkout.
     <div class="copies-line">
       <span>I need</span>
     
-      <input id="copy" name="copies" required type="number" min="1" max="100">
+      <input id="copy" name="copies" required type="number" min="1">
     
       <span>
         parts (@ £<span id="pricePerPart">1.25</span> per part)
@@ -353,9 +353,9 @@ if (copiesParam && copyInput) {
   
   const choir = document.getElementById("choir").value.trim();
   
-  const copies = Math.min(
-    100,
-    Math.max(1, parseInt(document.getElementById("copy").value || "1", 10))
+  const copies = Math.max(
+    1,
+    parseInt(document.getElementById("copy").value || "1", 10)
   );
   
   const params = new URLSearchParams(window.location.search);
@@ -429,10 +429,21 @@ const payload = {
       body: JSON.stringify(payload)
     });
 
+    console.log("SEND STATUS:", res.status);
+    console.log("SEND TYPE:", res.headers.get("content-type"));
+
     if (res.ok) {
       alert("We've sent you an email to verify your address. Please click the link in it to continue with your order.");
     } else {
-      throw new Error("Email failed");
+      const message = await res.text();
+
+    if (message.includes("Minimum order is 10 copies.")) {
+      alert("Minimum order is 10 copies.");
+    } else {
+      alert("Sorry — something went wrong.\n\nPlease try again. If the problem continues, contact us at lyra@songsforchoirs.com.");
+    }
+    
+    return;
     }
 
   } catch (err) {
