@@ -422,6 +422,37 @@ window.PIECES = {
   "hasScore": true,
   "price": 1.00
 },
+  "mr-blue-sky": {
+    "title": "Mr. Blue Sky",
+    "description": "Mr. Blue Sky - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is probably the oldest recorded secular song in the English language – Sumer is icumen in (Middle English for 'Summer is A-Coming In') – dating from the mid-thirteenth century. Should you wish to extend the piece, you can repeat the round section ad infinitum, but I wouldn't recommend it!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "2'10"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": false,
+  "price": 2.99
+},
   "summer-is-acomin-in": {
     "title": "Summer is acomin in",
     "description": "Summer is acomin in - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -452,6 +483,37 @@ window.PIECES = {
   "categories": ["concert"],
   "hasScore": true,
   "price": 0.50
+},
+  "bridge-over-troubled-water": {
+    "title": "Bridge over Troubled Water",
+    "description": "Bridge over Troubled Water - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is probably the oldest recorded secular song in the English language – Sumer is icumen in (Middle English for 'Summer is A-Coming In') – dating from the mid-thirteenth century. Should you wish to extend the piece, you can repeat the round section ad infinitum, but I wouldn't recommend it!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "2'10"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 2.99
 },
     "bathed-in-starlight": {
     "title": "Bathed in Starlight",
