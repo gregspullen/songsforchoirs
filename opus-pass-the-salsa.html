@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
     orderBtn.onclick = () => {
 
       const copies =
-        copyInput ? copyInput.value : 12;
+        copyInput ? copyInput.value : 1;
 
       window.location.href =
         `orderform.html?title=${encodeURIComponent(piece.title)}&price=${price}&copies=${copies}`;
