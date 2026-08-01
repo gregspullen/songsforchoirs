@@ -293,7 +293,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <source id="audioSrc" type="audio/mpeg">
             </audio>
         
-            <div id="availableInSets"></div>
+            <div class="licensed-note">
+              <p class="licensed-note-title">Copyright notice</p>
+              <p>
+                We are unable to offer patron discounts and set pricing on licensed arrangements. Pricing is at the discretion of the retailer.
+              </p>
+            </div>
         
         </div>
         
@@ -305,33 +310,40 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="opus-right">
 
           <div class="paypal-box">
-        
+
             <div style="text-align:center; margin-bottom:10px;">
-        
-              <div class="copy-line">
-                <span class="lead-text">I need</span>
-                <input id="copyInput" type="number" value="12" min="1">
-                <span class="parts-word">parts</span>
-                <span class="per-part">(@ £<span id="pricePerPart">0.00</span> each)</span>
-              </div>
-        
-              <button class="price" id="orderBtn" type="button">
-                Order — £<span id="totalGBP">0.00</span>
-                (<span id="totalEUR"></span>, <span id="totalUSD"></span>)
-              </button>
-        
-              <div id="patronPrice"
-                   style="font-size:0.9em; color:#b8964a; margin-top:8px; text-align:center;">
-                Patrons pay £0.00
-              </div>
-        
-              <p style="font-size:0.8em; color:#b8964a; margin-top:6px; text-align:center;">
-                Currency conversions are approximate.<br>
-                Final pricing is shown in PayPal.
+          
+              <p style="margin:0 0 14px;">
+                This licensed arrangement is exclusively available from:
               </p>
-        
+          
+              <button
+                class="price"
+                type="button"
+                style="margin-bottom:12px;"
+                onclick="window.open(
+                  'https://www.sheetmusicplus.com/en/product/bridge-over-troubled-water-23834211.html',
+                  '_blank',
+                  'noopener,noreferrer'
+                )"
+              >
+                Sheet Music Plus
+              </button>
+          
+              <button
+                class="price"
+                type="button"
+                onclick="window.open(
+                  'https://www.sheetmusicdirect.com/se/ID_No/2080497/Product.aspx',
+                  '_blank',
+                  'noopener,noreferrer'
+                )"
+              >
+                Sheet Music Direct
+              </button>
+          
             </div>
-        
+          
           </div>
         
           <!-- NEW -->
