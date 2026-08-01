@@ -432,7 +432,9 @@ const payload = {
     if (res.ok) {
       alert("We've sent you an email to verify your address. Please click the link in it to continue with your order.");
     } else {
-      throw new Error("Email failed");
+      const message = await res.text();
+      alert(message);
+      return;
     }
 
   } catch (err) {
