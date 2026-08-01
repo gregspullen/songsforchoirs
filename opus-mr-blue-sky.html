@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Default SEO (populated by JavaScript) -->
+  <title>Songs for Choirs</title>
+  
+  <meta name="description" content="Affordable original choral music by Lyra Harker, available as instant PDF downloads.">
+
+  <link rel="canonical" href="">
+
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="icon" href="/images/favicon.ico" sizes="any">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Songs for Choirs">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Data -->
+  <script src="data.js?v=20260722"></script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const path = window.location.pathname;
+
+  const slug = path
+    .split("/")
+    .pop()
+    .replace(/^opus-/, "")
+    .replace(/\.html$/, "");
+
+  const piece = (typeof PIECES !== "undefined") ? PIECES[slug] : null;
+
+  if (!piece) {
+    console.error("Piece not found:", slug);
+    return;
+  }
+
+  const price = piece.price ?? 1.00;
+
+  const copyInput = document.getElementById("copyInput");
+  const eurSpan = document.querySelector(".eur");
+  const usdSpan = document.querySelector(".usd");
+
+  if (eurSpan && usdSpan) {
+    eurSpan.textContent = `€${(price * 1.17).toFixed(2)}`;
+    usdSpan.textContent = `$${(price * 1.27).toFixed(2)}`;
+  }
+
+  // --------------------------------------------------
+  // SEO
+  // --------------------------------------------------
+
+  document.title = piece.metaTitle || `${piece.title} | Songs for Choirs`;
+  document.getElementById("page-tagline").textContent = piece.title;
+
+  const description =
+    piece.description ||
+    "Affordable original choral music by Lyra Harker, available as instant PDF downloads.";
+
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute("content", description);
+
+  const canonical =
+    "https://songsforchoirs.com" + window.location.pathname;
+
+  document
+    .querySelector('link[rel="canonical"]')
+    ?.setAttribute("href", canonical);
+
+  const coverImage =
+    `https://songsforchoirs.com/images/Cover_png/${slug}.png`;
+
+  document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute("content", document.title);
+
+  document
+    .querySelector('meta[property="og:description"]')
+    ?.setAttribute("content", description);
+
+  document
+    .querySelector('meta[property="og:image"]')
+    ?.setAttribute("content", coverImage);
+
+  document
+    .querySelector('meta[property="og:url"]')
+    ?.setAttribute("content", canonical);
+
+  document
+    .querySelector('meta[name="twitter:title"]')
+    ?.setAttribute("content", document.title);
+
+  document
+    .querySelector('meta[name="twitter:description"]')
+    ?.setAttribute("content", description);
+
+  document
+    .querySelector('meta[name="twitter:image"]')
+    ?.setAttribute("content", coverImage);
+
+  // --------------------------------------------------
+  // Cover
+  // --------------------------------------------------
+
+  const cover = document.getElementById("coverImg");
+
+  if (cover) {
+    cover.src = `/images/Cover_png/${slug}.png`;
+    cover.alt = `${piece.title} cover`;
+  }
+
+  // --------------------------------------------------
+  // Preview score link
+  // --------------------------------------------------
+
+  const sheetLink = document.getElementById("sheetLink");
+
+  if (sheetLink) {
+    sheetLink.href = `sheet-${slug}.html`;
+  }
+
+  // --------------------------------------------------
+  // Audio
+  // --------------------------------------------------
+
+  const audio = document.querySelector("audio");
+  const audioSrc = document.getElementById("audioSrc");
+
+  if (audio && audioSrc) {
+    audioSrc.src = `/mp3/${slug}.mp3`;
+    audio.load();
+  }
+
+  // --------------------------------------------------
+  // Price display
+  // --------------------------------------------------
+
+  const priceDisplayBtn = document.getElementById("priceDisplayBtn");
+
+  if (priceDisplayBtn) {
+    priceDisplayBtn.textContent = price.toFixed(2);
+  }
+
+  // --------------------------------------------------
+  // Price calculator
+  // --------------------------------------------------
+
+  const totalGBP = document.getElementById("totalGBP");
+  const totalEUR = document.getElementById("totalEUR");
+  const totalUSD = document.getElementById("totalUSD");
+
+  function updateTotal() {
+
+    const copies = Math.max(
+      1,
+      parseInt(copyInput.value || "1", 10)
+    );
+
+    let total = Math.min(copies, 10) * price;
+
+    if (copies > 10)
+      total += Math.min(copies - 10, 10) * price * 0.67;
+
+    if (copies > 20)
+      total += Math.min(copies - 20, 10) * price * 0.58;
+
+    if (copies > 30)
+      total += Math.min(copies - 30, 10) * price * 0.50;
+
+    if (copies > 40)
+      total += Math.min(copies - 40, 10) * price * 0.42;
+
+    if (copies > 50)
+      total += Math.min(copies - 50, 10) * price * 0.33;
+
+    if (copies > 60)
+      total += Math.min(copies - 60, 10) * price * 0.25;
+
+    if (copies > 70)
+      total += Math.min(copies - 70, 10) * price * 0.17;
+
+    if (copies > 80)
+      total += Math.min(copies - 80, 10) * price * 0.08;
+
+    if (copies > 90)
+      total += Math.min(copies - 90, 10) * price * 0.04;
+
+    if (copies > 100)
+      total += (copies - 100) * price * 0.01;
+
+    const perPart = total / copies;
+
+    document.getElementById("pricePerPart").textContent =
+      perPart.toFixed(2);
+
+    if (totalGBP) totalGBP.textContent = total.toFixed(2);
+    if (totalEUR) totalEUR.textContent = `€${(total * 1.17).toFixed(2)}`;
+    if (totalUSD) totalUSD.textContent = `$${(total * 1.27).toFixed(2)}`;
+
+    const patronPrice = document.getElementById("patronPrice");
+
+    if (patronPrice)
+      patronPrice.textContent =
+        `Patrons pay £${(total / 2).toFixed(2)}`;
+  }
+
+  if (copyInput) {
+    ["input", "change"].forEach(event =>
+      copyInput.addEventListener(event, updateTotal)
+    );
+
+    updateTotal();
+  }
+
+  // --------------------------------------------------
+  // Order button
+  // --------------------------------------------------
+
+  const orderBtn = document.getElementById("orderBtn");
+
+  if (orderBtn) {
+
+    orderBtn.onclick = () => {
+
+      const copies =
+        copyInput ? copyInput.value : 12;
+
+      window.location.href =
+        `orderform.html?title=${encodeURIComponent(piece.title)}&price=${price}&copies=${copies}`;
+
+    };
+
+  }
+
+});
+  </script>
+
+  <link rel="stylesheet" href="/styles.css?v=20260723">
+
+  <!-- Plausible Analytics -->
+  <script defer
+          data-domain="songsforchoirs.com"
+          src="https://plausible.io/js/script.js">
+  </script>
+
+</head>
+
+<body class="opus-page">
+
+  <header class="site-header">
+    <h1 class="site-logo">
+      songs<span class="gold">for</span>choirs
+    </h1>
+    <p class="tagline" id="page-tagline">New accessible choral music.</p>
+  </header>
+
+  <nav class="site-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sacred.html">Sacred</a></li>
+      <li><a href="concert.html" aria-current="page">Concert</a></li>
+      <li><a href="albums.html">Sets</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Patrons & Us</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap">
+    <section class="panel">
+
+      <div class="score-grid single-opus">
+        
+        <div class="opus-left">
+
+          <div id="atAGlance" class="info-card"></div>
+        
+            <audio controls>
+                <source id="audioSrc" type="audio/mpeg">
+            </audio>
+        
+            <div class="licensed-note">
+              <p class="licensed-note-title">Copyright notice</p>
+              <p>
+                We are unable to offer patron discounts and set pricing on licensed arrangements. Pricing is at the discretion of the retailer.
+              </p>
+            </div>
+        
+        </div>
+        
+        <figure class="cover">
+          <div id="score-preview"></div>
+          <span id="hover-tag" class="hover-tag">Click to preview score</span>
+        </figure>
+
+        <div class="opus-right">
+
+          <div class="paypal-box">
+
+            <div style="text-align:center; margin-bottom:10px;">
+          
+              <p style="margin:0 0 14px;">
+                This licensed arrangement is exclusively available from:
+              </p>
+          
+              <button
+                class="price"
+                type="button"
+                style="margin-bottom:12px;"
+                onclick="window.open(
+                  'https://www.sheetmusicplus.com/en/product/mr-blue-sky-23832447.html',
+                  '_blank',
+                  'noopener,noreferrer'
+                )"
+              >
+                Sheet Music Plus
+              </button>
+          
+              <button
+                class="price"
+                type="button"
+                onclick="window.open(
+                  'https://www.sheetmusicdirect.com/se/ID_No/2079624/Product.aspx',
+                  '_blank',
+                  'noopener,noreferrer'
+                )"
+              >
+                Sheet Music Direct
+              </button>
+          
+            </div>
+          
+          </div>
+        
+          <!-- NEW -->
+          <div id="fromComposer" class="info-card"></div>
+        
+        </div>
+
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© 2025 <a href="https://www.songsforchoirs.com">www.songsforchoirs.com</a> — All rights reserved worldwide.</small>
+    </div>
+  </footer>
+
+  <script>
+    const path = window.location.pathname;
+    const slug = path.split("/").pop()
+      .replace("opus-", "")
+      .replace(".html", "");
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const piece = PIECES[slug];
+
+      // ===== FROM THE COMPOSER =====
+
+      if (piece.fromComposer) {
+
+      const panel = document.getElementById("fromComposer");
+
+      panel.innerHTML = `
+          <h3>...from the composer</h3>
+          <p>${piece.fromComposer}</p>
+      `;
+      }
+
+      if (piece.atAGlance) {
+
+        const panel = document.getElementById("atAGlance");
+
+        let html = "<h3>At a glance</h3>";
+
+        piece.atAGlance.forEach(item => {
+
+            html += `
+                <div class="glance-row">
+                    <span class="glance-label">${item.label}</span>
+                    <span class="glance-value">${item.value}</span>
+                </div>
+            `;
+
+        });
+
+        panel.innerHTML = html;
+      }
+
+const inSets = Object.keys(PIECES).filter(s => {
+  const p = PIECES[s];
+  return p.type === "bundle" && p.pieces && p.pieces.includes(slug);
+});
+
+if (inSets.length) {
+  const box = document.createElement("div");
+  box.className = "available-in-sets";
+  box.style.marginTop = "-5px";
+  box.innerHTML = "<strong>Available in these sets:</strong>";
+
+  const ul = document.createElement("ul");
+
+  inSets.forEach(s => {
+    const li = document.createElement("li");
+    const link = document.createElement("a");
+
+    link.href = `set-${s}.html`;
+    link.textContent = PIECES[s].title;
+
+    li.appendChild(link);
+    ul.appendChild(li);
+  });
+
+ box.appendChild(ul);
+ document.getElementById("availableInSets").appendChild(box);
+}
+
+if (!piece.hasScore) {
+  img.src = `images/Cover_png/${slug}.png`;
+  hover.textContent = "Preview not yet available";
+  img.style.cursor = "default";
+
+  // STOP everything else from running
+  return;
+}
+
+});
+    </script>
+  
+  <script src="preview.js"></script>
+
+</body>
+</html>

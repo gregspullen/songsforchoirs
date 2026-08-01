@@ -422,6 +422,37 @@ window.PIECES = {
   "hasScore": true,
   "price": 1.00
 },
+  "mr-blue-sky": {
+    "title": "Mr. Blue Sky",
+    "description": "Mr. Blue Sky - Jeff Lynne's Mr Blue Sky for SAB choir or small ensemble. Voice leading is clear and straightforward. This arrangement is moderately easy to learn and sing and great fun for amateur and community choirs. A useful introduction to a cappella singing.  View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is my three-part a cappella arrangement of Jeff Lynne's Mr Blue Sky for SAB choir or small ensemble. Voice leading is clear. This arrangement is moderately easy to learn and sing and great fun for amateur and community choirs. A useful introduction to a cappella singing. ",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "3'17"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 2.61
+},
   "summer-is-acomin-in": {
     "title": "Summer is acomin in",
     "description": "Summer is acomin in - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
@@ -452,6 +483,37 @@ window.PIECES = {
   "categories": ["concert"],
   "hasScore": true,
   "price": 0.50
+},
+  "bridge-over-troubled-water": {
+    "title": "Bridge over Troubled Water",
+    "description": "Bridge over Troubled Water - Paul Simon’s classic. Carefully shaped vocal lines and controlled vocal ranges. Easy and enjoyable to sing - View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "An accessible SAB a cappella arrangement of Paul Simon’s classic song. Carefully shaped vocal lines and controlled vocal ranges create a warm, flowing texture and a surprisingly full sound from only three parts. Easy and enjoyable to sing—because I’ve done the difficult work so you don’t have to!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "3'44"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 2.61
 },
     "bathed-in-starlight": {
     "title": "Bathed in Starlight",

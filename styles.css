@@ -335,6 +335,22 @@ p em {
   text-decoration: underline;
 }
 
+.licensed-note {
+  margin-top: 28px;
+  font-size: 0.82em;
+  line-height: 1.45;
+  color: #b8964a;
+}
+
+.licensed-note p {
+  margin: 0 0 8px;
+}
+
+.licensed-note p:first-child {
+  color: #222;
+  font-size: 1em;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */
@@ -1249,3 +1265,5 @@ button.price small {
     width: 100%;
     height: auto;
   }
+
+
