@@ -339,7 +339,7 @@ p em {
   margin-top: 28px;
   font-size: 0.82em;
   line-height: 1.45;
-  color: #777;
+  color: #222;
 }
 
 .licensed-note p {
@@ -347,7 +347,7 @@ p em {
 }
 
 .licensed-note p:first-child {
-  color: #222;
+  color: #777;
   font-size: 1em;
 }
 
