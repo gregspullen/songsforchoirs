@@ -424,7 +424,7 @@ window.PIECES = {
 },
   "mr-blue-sky": {
     "title": "Mr. Blue Sky",
-    "description": "Mr. Blue Sky - Jeff Lynne's Mr Blue Sky for SAB choir or small ensemble. Voice leading is clear and straightforward. This arrangement is moderately easy to learn and sing and great fun for amateur and community choirs. A useful introduction to a cappella singing.  View the score, listen, and download licensed copies from Songs for Choirs.",
+    "description": "Mr. Blue Sky by Jeff Lynne, arranged for SAB a cappella choir by Lyra Harker. Clear voice leading, moderate difficulty, and great fun for amateur and community choirs. Preview the score, listen, and buy licensed copies.",
     "fromComposer":
       "This is my three-part a cappella arrangement of Jeff Lynne's Mr Blue Sky for SAB choir or small ensemble. Voice leading is clear. This arrangement is moderately easy to learn and sing and great fun for amateur and community choirs. A useful introduction to a cappella singing. ",
 
