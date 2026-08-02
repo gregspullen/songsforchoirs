@@ -486,7 +486,7 @@ window.PIECES = {
 },
   "bridge-over-troubled-water": {
     "title": "Bridge over Troubled Water",
-    "description": "Bridge over Troubled Water - Paul Simon’s classic. Carefully shaped vocal lines and controlled vocal ranges. Easy and enjoyable to sing - View the score, listen, and download licensed copies from Songs for Choirs.",
+    "description": "Bridge over Troubled Water by Paul Simon, arranged for SAB a cappella choir by Lyra Harker. Carefully shaped vocal lines, comfortable ranges, and rewarding to sing. Preview the score, listen, and buy licensed copies.",
     "fromComposer":
       "An accessible SAB a cappella arrangement of Paul Simon’s classic song. Carefully shaped vocal lines and controlled vocal ranges create a warm, flowing texture and a surprisingly full sound from only three parts. Easy and enjoyable to sing—because I’ve done the difficult work so you don’t have to!",
 
