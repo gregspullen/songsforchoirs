@@ -700,7 +700,7 @@ window.PIECES = {
     "tangissimo"
   ],
     "hasScore": true,
-    "price": 6.49
+    "price": 6.50
   },
     "pass-the-salsa": {
     "title": "Pass the Salsa",
