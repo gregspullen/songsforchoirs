@@ -386,6 +386,12 @@ p em {
   width: auto;
 }
 
+.youtube-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */
