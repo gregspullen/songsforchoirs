@@ -359,6 +359,33 @@ p em {
   text-align: center;
 }
 
+.youtube-link {
+  text-align: center;
+  margin: 16px 0 28px;
+}
+
+.youtube-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid #d8b45a;
+  border-radius: 8px;
+  background: #fffdf7;
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.youtube-link a:hover {
+  background: #fff7df;
+}
+
+.youtube-link img {
+  height: 20px;
+  width: auto;
+}
+
   /* =========================
      Cover Cards (Home Page)
      ========================= */
