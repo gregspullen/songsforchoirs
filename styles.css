@@ -279,118 +279,110 @@ p em {
     color: #8b6a09;
   }
 
-/* Available in sets (opus pages) */
-.opus-left .available-in-sets a {
-  color: #c9a646;
-  opacity: 0.9;
-  text-decoration: none;
-}
-
-.opus-left .available-in-sets a:hover {
-  text-decoration: underline;
-}
-
-.opus-left .available-in-sets {
-  margin-top: 12px;
-  text-align: center;
-  width: 100%;
-}
-
-.available-in-sets ul {
-  list-style: none;
-  padding: 0;
-  margin: 6px 0 0 0;
-}
-
-.available-in-sets li::before {
-  content: "– ";
-  color: #c9a646;
-}
-
-.set-heading,
-.set-links {
-  font-family: Georgia, "Times New Roman", serif;
-}
-.set-heading {
-  font-weight: 500;      /* was 600 */
-  font-size: 0.95em;     /* slightly smaller */
-  margin-bottom: 6px;
-  color: #444;           /* softer than full black */
-}
-
-.set-links div {
-  margin-bottom: 2px;
-}
-
-.set-links {
-  line-height: 1.6;
-}
-
-.set-links a {
-  color: #c9a646;
-  text-decoration: none;
-}
-
-.set-links a:hover {
-  text-decoration: underline;
-}
-
-.licensed-note {
-  margin-top: 28px;
-  font-size: 0.82em;
-  line-height: 1.45;
-  color: #b8964a;
-}
-
-.licensed-note p {
-  margin: 0 0 8px;
-}
-
-.licensed-note p:first-child {
-  color: #222;
-  font-size: 1em;
-}
-
-.minimum-note {
-  margin: 4px 0 7px;
-  font-size: 0.75em;
-  line-height: 1.25;
-  color: #b8964a;
-  text-align: center;
-}
-
-.youtube-link {
-  text-align: center;
-  margin: 16px 0 28px;
-}
-
-.youtube-link a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 12px;
-  border: 1px solid #d8b45a;
-  border-radius: 8px;
-  background: #fffdf7;
-  color: #333;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.youtube-link a:hover {
-  background: #fff7df;
-}
-
-.youtube-link img {
-  height: 20px;
-  width: auto;
-}
-
-.youtube-logo {
-  height: 28px;
-  width: auto;
-  display: block;
-}
+   /* Available in sets (opus pages) */
+   .opus-left .available-in-sets a {
+     color: #c9a646;
+     opacity: 0.9;
+     text-decoration: none;
+   }
+   
+   .opus-left .available-in-sets a:hover {
+     text-decoration: underline;
+   }
+   
+   .opus-left .available-in-sets {
+     margin-top: 12px;
+     text-align: center;
+     width: 100%;
+   }
+   
+   .available-in-sets ul {
+     list-style: none;
+     padding: 0;
+     margin: 6px 0 0 0;
+   }
+   
+   .available-in-sets li::before {
+     content: "– ";
+     color: #c9a646;
+   }
+   
+   .set-heading,
+   .set-links {
+     font-family: Georgia, "Times New Roman", serif;
+   }
+   .set-heading {
+     font-weight: 500;      /* was 600 */
+     font-size: 0.95em;     /* slightly smaller */
+     margin-bottom: 6px;
+     color: #444;           /* softer than full black */
+   }
+   
+   .set-links div {
+     margin-bottom: 2px;
+   }
+   
+   .set-links {
+     line-height: 1.6;
+   }
+   
+   .set-links a {
+     color: #c9a646;
+     text-decoration: none;
+   }
+   
+   .set-links a:hover {
+     text-decoration: underline;
+   }
+   
+   .licensed-note {
+     margin-top: 28px;
+     font-size: 0.82em;
+     line-height: 1.45;
+     color: #b8964a;
+   }
+   
+   .licensed-note p {
+     margin: 0 0 8px;
+   }
+   
+   .licensed-note p:first-child {
+     color: #222;
+     font-size: 1em;
+   }
+   
+   .minimum-note {
+     margin: 4px 0 7px;
+     font-size: 0.75em;
+     line-height: 1.25;
+     color: #b8964a;
+     text-align: center;
+   }
+   
+   .youtube-link {
+     text-align: center;
+     margin: 16px 0 28px;
+   }
+   
+   .youtube-link a {
+     display: inline-flex;
+     align-items: center;
+     padding: 7px 12px;
+     border: 1px solid #d8b45a;
+     border-radius: 8px;
+     background: #fffdf7;
+     text-decoration: none;
+   }
+   
+   .youtube-link a:hover {
+     background: #fff7df;
+   }
+   
+   .youtube-logo {
+     height: 28px;
+     width: auto;
+     display: block;
+   }
 
   /* =========================
      Cover Cards (Home Page)
