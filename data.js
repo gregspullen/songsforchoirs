@@ -362,7 +362,7 @@ window.PIECES = {
 },
   "at-his-name": {
     "title": "At His Name",
-    "description": "At His Name - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "description": "At His Name - a striking text by David Napthine in the manner of an apocryphal psalm. Its mixture of lyricism and menace suggested music that moves from wonder towards something darker and more unsettling. The piece is intended for concert performance rather than liturgical use.",
     "fromComposer":
       "At His Name sets a striking text by David Napthine in the manner of an apocryphal psalm. Its mixture of lyricism and menace suggested music that moves from wonder towards something darker and more unsettling. The piece is intended for concert performance rather than liturgical use.",
 
