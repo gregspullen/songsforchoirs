@@ -360,6 +360,37 @@ window.PIECES = {
   "hasScore": true,
   "price": 0.85
 },
+  "at-his-name": {
+    "title": "At His Name",
+    "description": "At His Name - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is my version of a lovely lyrical Welsh melody. The lines flow quite naturally and are a pleasure to sing. Should you wish to extend the piece, there are more than two verses, but I decided to omit the tragic ones so as to focus on the beautiful harmony.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'20"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 1.00
+},
   "apple-wassail": {
     "title": "Apple Wassail",
     "description": "Apple Wassail - an accessible, light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
