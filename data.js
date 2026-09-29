@@ -377,7 +377,7 @@ window.PIECES = {
       },
       {
           "label": "Duration",
-          "value": "2'20"
+          "value": "2'40"
       },
       {
           "label": "Difficulty",
@@ -598,7 +598,7 @@ window.PIECES = {
       },
       {
           "label": "Difficulty",
-          "value": "Advanced"
+          "value": "Advanced/Accessible"
       }
   ],
 
