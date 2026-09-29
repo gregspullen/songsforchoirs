@@ -581,7 +581,7 @@ window.PIECES = {
     "title": "Away in a Manger",
     "description": "Away in a Manger - a fresh and inventive choral setting combining two traditional melodies. Originally conceived a cappella, with optional piano support. A lively concert piece for SATB choir with rich and rewarding part-writing. View the score, listen, and download licensed copies from Songs for Choirs.",
     "fromComposer":
-      "This arrangement combines two traditional melodies. The opening verse is a standard arrangement of W J Kirkpatrick's beautiful melody. The middle section introduces a traditional Norman melody before the original tune returns in the final verse, enriched with gentle chromatic harmonies.",
+      "This arrangement combines two traditional melodies in a warm accessible setting for choir. The score includes an alternative ending offering choirs a choice between vivid chromatic harmonies and a more traditional harmonisation, depending on the experience of the singers.",
 
   "atAGlance": [
       {
