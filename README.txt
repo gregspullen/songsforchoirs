@@ -14,3 +14,6 @@ Custom domain (www.songsforchoirs.com) – overview:
     Name/Host: www
     Value: YOUR-USERNAME.github.io
 - (Optional) Set the apex (songsforchoirs.com) to redirect to www in your registrar dashboard.
+
+
+Deployment test 30th September 2026
