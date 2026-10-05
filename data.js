@@ -408,7 +408,7 @@ window.PIECES = {
       },
       {
           "label": "Duration",
-          "value": "2'28"
+          "value": "2'08"
       },
       {
           "label": "Difficulty",
