@@ -111,6 +111,38 @@ window.PIECES = {
    "hasScore": true,
    "price": 2.50
  },
+   "hallelujah": {
+  "title": "Hallelujah!",
+  "description": "Hallelulia! - a simplified choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+
+  "fromComposer":
+      "This is a shortened version of Handel's famous chorus for community choirs. I have transposed it down to suit more voices and included all the essential elements.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'20"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
  "josephs-prayer": {
   "title": "Joseph's Prayer",
   "description": "Joseph's Prayer - a lively, rhythmic choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
