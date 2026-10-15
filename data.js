@@ -116,7 +116,7 @@ window.PIECES = {
   "description": "Hallelulia! - a simplified choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
 
   "fromComposer":
-      "This is a shortened version of Handel's famous chorus for community choirs. I have transposed it down to suit more voices and included all the essential elements.",
+      "This shortened, accessible arrangement of Handel’s famous Hallelujah Chorus from Messiah has been transposed and adapted for SATB community choirs. The arrangement is equally suitable for a cappella performance.",
 
   "atAGlance": [
       {
