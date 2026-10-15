@@ -111,6 +111,38 @@ window.PIECES = {
    "hasScore": true,
    "price": 2.50
  },
+   "hallelujah": {
+  "title": "Hallelujah!",
+  "description": "Hallelulia! - a simplified choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+
+  "fromComposer":
+      "This shortened, accessible arrangement of Handel’s famous Hallelujah Chorus from Messiah has been transposed and adapted for SATB community choirs. The arrangement is equally suitable for a cappella performance.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional"
+      },
+      {
+          "label": "Duration",
+          "value": "1'50"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
  "josephs-prayer": {
   "title": "Joseph's Prayer",
   "description": "Joseph's Prayer - a lively, rhythmic choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
