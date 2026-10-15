@@ -125,11 +125,11 @@ window.PIECES = {
       },
       {
           "label": "Accompaniment",
-          "value": "Piano"
+          "value": "Piano (optional"
       },
       {
           "label": "Duration",
-          "value": "1'20"
+          "value": "1'50"
       },
       {
           "label": "Difficulty",
