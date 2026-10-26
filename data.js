@@ -175,6 +175,39 @@ window.PIECES = {
   "hasScore": true,
   "price": 1.00
 },
+  "thine-own-son": {
+  "title": "Thine Own Son",
+  
+"description": "Thine Own Son – a gentle, expressive meditation on the Nunc dimittis for SAB choir and piano. Through the voices of Simeon and Mary, the same ancient prayer takes on contrasting meanings of joy, prophecy and grief. Accessible choral writing with a poignant, reflective ending. View the score, listen, and purchase licensed copies from Songs for Choirs.",
+
+"fromComposer":
+    "The idea behind Thine Own Son was to explore the Nunc dimittis from two very different perspectives. Simeon sees the infant Jesus and rejoices in the fulfilment of God's promise. Mary, years later, recalls the same words as she faces the loss of her son. I wanted the music to retain the simplicity and tenderness of a lullaby throughout, allowing the familiar prayer to acquire a very different meaning in its second appearance. The piece is dedicated to Eileen, with love and gratitude for thirty years of music together.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "3'35"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
     "my-soul-doth-magnify-the-lord": {
     "title": "My Soul Doth Magnify The Lord",
     "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
