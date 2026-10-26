@@ -181,7 +181,7 @@ window.PIECES = {
 "description": "Thine Own Son – a gentle, expressive meditation on the Nunc dimittis for SAB choir and piano. Through the voices of Simeon and Mary, the same ancient prayer takes on contrasting meanings of joy, prophecy and grief. Accessible choral writing with a poignant, reflective ending. View the score, listen, and purchase licensed copies from Songs for Choirs.",
 
 "fromComposer":
-    "The idea behind Thine Own Son was to explore the Nunc dimittis from two very different perspectives. Simeon sees the infant Jesus and rejoices in the fulfilment of God's promise. Mary, years later, recalls the same words as she faces the loss of her son. I wanted the music to retain the simplicity and tenderness of a lullaby throughout, allowing the familiar prayer to acquire a very different meaning in its second appearance. The piece is dedicated to Eileen, with love and gratitude for thirty years of music together.",
+    "I imagined Simeon holding the baby Jesus and singing the Nunc dimittis as a lullaby. Years later, Mary remembers his words and offers the same prayer for her dying son. This piece is dedicated to my dear friend Eileen, who sat beside me for thirty years.",
 
   "atAGlance": [
       {
