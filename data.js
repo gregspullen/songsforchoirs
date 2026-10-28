@@ -21,6 +21,24 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
+"popular-satb-works-vol-1": {
+    "title": "Popular SATB Works, Volume One",
+    "description": "Popular SATB Works, Volume One - a collection of our popular SATB works. View the score, listen, and download licensed copies from Songs for Choirs.",    
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "my-soul-doth-magnify-the-lord",
+    "make-a-joyful-noise",
+    "benedictus",
+    "the-lords-prayer",
+    "josephs-prayer",
+    "away-in-a-manger"
+    ],
+    "hasScore": true,
+    "price": 4.00
+  },
   "three-short-concert-pieces-for-sab-choir": {
   "title": "Three Short Concert Pieces for SAB Choir",
   "description": "Three Short Concert Pieces for SAB Choir - light arrangements of traditional folk songs for SAB choir and piano. Fun, accessible. Listen, and download licensed copies from Songs for Choirs.",
