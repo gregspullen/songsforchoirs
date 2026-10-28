@@ -1,0 +1,926 @@
+window.PIECES = {
+  "patron": {
+  "title": "Patron Membership",
+  "description": "Support the creation of new choral music and receive 50% discounts on all score purchases for one year.",
+  "categories": ["concert"],
+  "price": 12.00,
+  "link": "invite"
+},
+  "songs-of-thanksgiving": {
+  "title": "Songs of Thanksgiving",
+  "description": "Songs of Thanksgiving - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "my-soul-doth-magnify-the-lord",
+    "make-a-joyful-noise",
+    "josephs-prayer"
+  ],
+  "hasScore": true,
+  "price": 2.50
+},
+"popular-satb-works-vol-1": {
+    "title": "Popular SATB Works, Volume One",
+    "description": "Popular SATB Works, Volume One - a collection of our popular SATB works. View the score, listen, and download licensed copies from Songs for Choirs.",    
+    "voicing": "SATB",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "my-soul-doth-magnify-the-lord",
+    "make-a-joyful-noise",
+    "benedictus",
+    "the-lords-prayer",
+    "josephs-prayer",
+    "away-in-a-manger"
+    ],
+    "hasScore": true,
+    "price": 4.00
+  },
+  "three-short-concert-pieces-for-sab-choir": {
+  "title": "Three Short Concert Pieces for SAB Choir",
+  "description": "Three Short Concert Pieces for SAB Choir - light arrangements of traditional folk songs for SAB choir and piano. Fun, accessible. Listen, and download licensed copies from Songs for Choirs.",
+  "voicing": "SAB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-ash-grove",
+    "apple-wassail",
+    "it-was-a-lover-and-his-lass"
+  ],
+  "hasScore": true,
+  "price": 2.00
+},
+  "songs-of-advent": {
+  "title": "Songs of Advent",
+  "description": "Songs of Advent - joyful and atmospheric choral settings for mixed choirs. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "Mixed Choirs",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "make-a-joyful-noise",
+    "josephs-prayer",
+    "non-erit-impossibile",
+    "my-soul-doth-magnify-the-lord"
+  ],
+  "hasScore": true,
+  "price": 3.00
+},
+  "two-pieces-for-treble-voices": {
+  "title": "Two Pieces for Treble Voices",
+  "description": "Two Pieces for Treble Voices - joyful and atmospheric choral settings for treble voices. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "Treble Voices",
+  "accompaniment": "piano and a cappella",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "non-erit-impossibile",
+    "bathed-in-starlight"
+  ],
+  "hasScore": true,
+  "price": 1.75
+},
+  "sacred-songs-for-reflection": {
+  "title": "Sacred Songs for Reflection",
+  "description": "Sacred Songs for Reflection - Three reflective sacred works for SATB choir and piano, suitable for services and concert use. listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SSA / unison",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+    "the-lords-prayer",
+    "the-lord-is-my-shepherd",
+    "benedictus"
+  ],
+  "hasScore": true,
+  "price": 2.20
+},
+  "magnificat-and-venite": {
+  "title": "Magnificat and Venite",
+  "description": "Magnificat and Venite - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+   "my-soul-doth-magnify-the-lord",
+   "make-a-joyful-noise"
+  ],
+  "hasScore": true,
+  "price": 1.75
+ },
+   "songs-for-the-nativity": {
+   "title": "Songs for the Nativity",
+   "description": "Songs for the Nativity - a beautiful and expressive Christmas collection for young voices. View the score, listen, and download licensed copies from Songs for Choirs.",    
+   "voicing": "SATB / SSA / unison",
+   "accompaniment": "piano",
+   "categories": ["albums"],
+   "type": "bundle",
+   "pieces": [
+   "bathed-in-starlight",
+   "josephs-prayer",
+   "away-in-a-manger",
+   "if-i-was-that-donkey"
+   ],
+   "hasScore": true,
+   "price": 2.50
+ },
+   "hallelujah": {
+  "title": "Hallelujah!",
+  "description": "Hallelulia! - a simplified choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+
+  "fromComposer":
+      "This shortened, accessible arrangement of Handel’s famous Hallelujah Chorus from Messiah has been transposed and adapted for SATB community choirs. The arrangement is equally suitable for a cappella performance.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional"
+      },
+      {
+          "label": "Duration",
+          "value": "1'50"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+ "josephs-prayer": {
+  "title": "Joseph's Prayer",
+  "description": "Joseph's Prayer - a lively, rhythmic choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+
+  "fromComposer":
+      "I was imagining Joseph's spiritual journey. He would have been very familiar with the Psalms, and Psalm 131 seemed to me to be an appropriate prayer as his initial fear, humility and self-doubt gradually transformed into joy, devotion and determination.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'35"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+  "thine-own-son": {
+  "title": "Thine Own Son",
+  
+"description": "Thine Own Son – a gentle, expressive meditation on the Nunc dimittis for SAB choir and piano. Through the voices of Simeon and Mary, the same ancient prayer takes on contrasting meanings of joy, prophecy and grief. Accessible choral writing with a poignant, reflective ending. View the score, listen, and purchase licensed copies from Songs for Choirs.",
+
+"fromComposer":
+    "I imagined Simeon holding the baby Jesus and singing the Nunc dimittis as a lullaby. Years later, Mary remembers his words and offers the same prayer for her dying son. This piece is dedicated to my dear friend Eileen who played viola next to me for thirty years.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "3'35"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "my-soul-doth-magnify-the-lord": {
+    "title": "My Soul Doth Magnify The Lord",
+    "description": "Magnificat - a lively, rhythmic choral setting for SATB choir, with an optional two-part version. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "I wanted to create an exuberant, joyful setting of the Magnificat with a fresh, contemporary feel. Shifts of key and metre reflect the energy and spontaneity of Mary’s song allowing the text to unfold naturally. The work is in two versions: a full SATB arrangement and the original two-part setting.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB or SB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'13"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "non-erit-impossibile": {
+    "title": "Non Erit Impossibile",
+    "description": "Non Erit Impossibile - an atmospheric choral setting for SSSAAA a cappella choir. Devotional, powerful and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "I imagined Gabriel beginning the Annunciation with calm reassurance: 'Ne timeas...' But as the full immensity of the declaration, 'Nothing is impossible for God', consumes him, wonder overcomes self-restraint, and both Gabriel and the music build relentlessly to a terrifying climax.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SSSAAA"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "2'30"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "a cappella",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "make-a-joyful-noise": {
+    "title": "Make a Joyful Noise",
+    "description": "Make a Joyful Noise - a joyful and rhythmic choral setting for SATB choir, written in a similar style to the Magnificat. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+    "fromComposer":
+      "Originally composed as part of our <i>Songs of Thanksgiving</i> collection, its strong rhythmic drive and changing time signatures give it a distinct character, allowing the words to flow naturally and creating an exuberant outburst of celebration.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'56"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "the-lords-prayer": {
+    "title": "The Lord's Prayer",
+    "description": "The Lord's Prayer - a dynamic, neo-baroque choral setting for SATB choir. Short and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "Written in a Baroque style, this setting combines flowing counterpoint with a clear, singable vocal texture. Lyra Harker's sensitive music brings warmth and natural expression to the most significant prayer in the Christian tradition.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'23"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 0.85
+},
+    "the-lord-is-my-shepherd": {
+    "title": "The Lord is my Shepherd",
+    "description": "The Lord is my Shepherd - a lyrical and devotional choral setting for SATB choir. Warm, flowing, and expressive. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This restful but optimistic setting reflects the quiet confidence of Psalm 23. Its gentle, flowing character mirrors the Psalm's message of comfort, hope and enduring faith before blossoming into its closing canonic promise; 'I will dwell in the house of the Lord for ever.'",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'43"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "benedictus": {
+    "title": "Benedictus",
+    "description": "Benedictus - an atmospheric and accessible choral setting for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This setting of the Benedictus was written in response to world events in early 2026 as a prayer for peace and understanding—not only between nations, but also between people from different cultures within our own communities. It is, above all, a prayer for peace.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'43"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "the-ash-grove": {
+    "title": "The Ash Grove",
+    "description": "The Ash Grove - a light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is my version of a lovely lyrical Welsh melody. The lines flow quite naturally and are a pleasure to sing. Should you wish to extend the piece, there are more than two verses, but I decided to omit the tragic ones so as to focus on the beautiful harmony.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "2'"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.85
+},
+  "at-his-name": {
+    "title": "At His Name",
+    "description": "At His Name - a striking text by David Napthine in the manner of an apocryphal psalm. Its mixture of lyricism and menace suggested music that moves from wonder towards something darker and more unsettling. The piece is intended for concert performance rather than liturgical use.",
+    "fromComposer":
+      "At His Name sets a striking text by David Napthine in the manner of an apocryphal psalm. Its mixture of lyricism and menace suggested music that moves from wonder towards something darker and more unsettling. The piece is intended for concert performance rather than liturgical use.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'40"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 1.00
+},
+  "apple-wassail": {
+    "title": "Apple Wassail",
+    "description": "Apple Wassail - an accessible, light and flowing arrangement of the traditional folk song for SAB choir. accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "Wassail a local orchard with this arrangement of a traditional English song. The first and last verses may be sung in unison, with a verse of canon in between, making it quick to learn and an excellent introduction to part singing for a less experienced choir. Please no scrumping without permission.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "2'08"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.85
+},
+    "lavenders-blue": {
+    "title": "Lavender's Blue",
+    "description": "Lavenders Blue - a light and humorous arrangement of the traditional folk song for SATB choir. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "A light-hearted and witty arrangement of a traditional English folk song. This works well as an a cappella arrangement, although the modulation requires careful pitching, so the optional piano part is included for less experienced choirs. Enjoy the <i>Tra la</i> moment!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "1'35"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 1.00
+},
+  "mr-blue-sky": {
+    "title": "Mr. Blue Sky",
+    "description": "Mr. Blue Sky by Jeff Lynne, arranged for SAB a cappella choir by Lyra Harker. Clear voice leading, moderate difficulty, and great fun for amateur and community choirs. Preview the score, listen, and buy licensed copies.",
+    "fromComposer":
+      "This is my three-part a cappella arrangement of Jeff Lynne's Mr Blue Sky for SAB choir or small ensemble. Voice leading is clear. This arrangement is moderately easy to learn and sing and great fun for amateur and community choirs. A useful introduction to a cappella singing. ",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "3'17"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 2.61
+},
+  "summer-is-acomin-in": {
+    "title": "Summer is acomin in",
+    "description": "Summer is acomin in - a short arrangement of the medieval round for mixed voices. Fun, accessible, and full of charm, it makes an ideal short concert item. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This is probably the oldest recorded secular song in the English language – Sumer is icumen in (Middle English for 'Summer is A-Coming In') – dating from the mid-thirteenth century. Should you wish to extend the piece, you can repeat the round section ad infinitum, but I wouldn't recommend it!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "Mixed voices"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "1'05++"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.50
+},
+  "bridge-over-troubled-water": {
+    "title": "Bridge over Troubled Water",
+    "description": "Bridge over Troubled Water by Paul Simon, arranged for SAB a cappella choir by Lyra Harker. Carefully shaped vocal lines, comfortable ranges, and rewarding to sing. Preview the score, listen, and buy licensed copies.",
+    "fromComposer":
+      "An accessible SAB a cappella arrangement of Paul Simon’s classic song. Carefully shaped vocal lines and controlled vocal ranges create a warm, flowing texture and a surprisingly full sound from only three parts. Easy and enjoyable to sing—because I’ve done the difficult work so you don’t have to!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "a cappella"
+      },
+      {
+          "label": "Duration",
+          "value": "3'44"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SAB",
+  "accompaniment": "a cappella",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 2.61
+},
+    "bathed-in-starlight": {
+    "title": "Bathed in Starlight",
+    "description": "Bathed in Starlight - a beautiful and expressive narrative choral work for young voices. For SSA or flexible two-part and unison choir, it moves from lyrical, flowing lines to rhythmic, percussive energy. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "The animals gather around the crib, each aware that something extraordinary is unfolding. As they compete for attention, each comes to represent a different Christian virtue in this joyful nativity celebration.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SSA"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "3'12"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SSA",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "away-in-a-manger": {
+    "title": "Away in a Manger",
+    "description": "Away in a Manger - a fresh and inventive choral setting combining two traditional melodies. Originally conceived a cappella, with optional piano support. A lively concert piece for SATB choir with rich and rewarding part-writing. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "This arrangement combines two traditional melodies in a warm accessible setting for choir. The score includes an alternative ending offering choirs a choice between vivid chromatic harmonies and a more traditional harmonisation, depending on the experience of the singers.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "2'05"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Advanced/Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "bobby-shafto": {
+    "title": "Bobby Shafto",
+    "description": "Bobby Shafto - a light and humorous arrangement of the traditional folk song for SATB choir. Short, accessible, and full of character, it makes an ideal encore. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "Robert Shafto is said to have written this as a campaign song in his successul bid to become a Member of Parliament. I love the tongue-in-cheek narcissism and wanted to bring that to the fore in this arrangement. Sing it with humour and big smiles!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SATB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "1'47"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "if-i-was-that-donkey": {
+    "title": "If I was that Donkey",
+    "description": "If I was that Donkey - a tender and expressive lullaby in a contemporary pop ballad style, perfect for Nativity performances. Warm, gentle, and accessible for SATB choir. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "A contemplative donkey meditates on the mysteries of Jesus's life, his purpose and the suffering that lies ahead. As he considers past events, he unwittingly reveals profound truths. A gentle, reflective lullaby for a junior choir, which may also be performed as a solo in a Nativity play.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "solo or unison"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'36"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Accessible"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["sacred"],
+  "hasScore": true,
+  "price": 1.00
+},
+    "it-was-a-lover-and-his-lass": {
+    "title": "Lover and his Lass",
+    "metaTitle": "Lover and his Lass - Anthem for SATB choir with piano accompaniment | Songs for Choirs",
+    "description": "Lover and his Lass - a light and characterful madrigal setting of Thomas Morley’s lute song for three-part a cappella choir. Engaging, accessible, and full of Renaissance charm. View the score, listen, and download licensed copies from Songs for Choirs.",
+    "fromComposer":
+      "Thomas Morley neglected to arrange his beautiful lute song as a three-part madrigal, so we did it for him. This is enormous fun to sing, and it's easy to get carried away by the raunchy 'ding-a-dings' and the bouncy 'in springs'!",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "SAB"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano (optional)"
+      },
+      {
+          "label": "Duration",
+          "value": "3'36"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Moderate"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 0.85
+},
+  "mary-and-joseph": {
+  "title": "Mary and Joseph",
+  "description": "Mary and Joseph - joyful and rhythmic choral settings for SATB choir, written in a similar styles. Energetic, engaging, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",    
+  "voicing": "SATB / SB",
+  "accompaniment": "piano",
+  "categories": ["albums"],
+  "type": "bundle",
+  "pieces": [
+   "my-soul-doth-magnify-the-lord",
+   "josephs-prayer"
+  ],
+  "hasScore": true,
+  "price": 1.75
+ },
+    "four-very-british-songs": {
+    "title": "Four Very British Songs",
+    "description": "Four Very British Songs - light and humorous arrangements of traditional folk songs for SATB or SAB choir. Fun, accessible, and can all be sung a cappella. Listen, and download licensed copies from Songs for Choirs.",
+    "voicing": "SATB / SAB",
+    "accompaniment": "piano (optional)",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "the-ash-grove",
+    "lavenders-blue",
+    "bobby-shafto",
+    "it-was-a-lover-and-his-lass"
+  ],
+    "hasScore": true,
+    "price": 3.00
+  },
+    "three-latin-dances": {
+    "title": "Three Latin Dances",
+    "description": "Three Latin Dances - a lively and characterful suite of pieces for cello and piano. Playful and full of flair, these offer a step up in challenge while remaining accessible at around Grade 3 - 5. View the score, listen, and download from Songs for Choirs.",
+    "voicing": "cello and piano",
+    "accompaniment": "piano",
+    "categories": ["albums"],
+    "type": "bundle",
+    "pieces": [
+    "pass-the-salsa",
+    "cello-go-bolero",
+    "tangissimo"
+  ],
+    "hasScore": true,
+    "price": 6.50
+  },
+    "pass-the-salsa": {
+    "title": "Pass the Salsa",
+    "description": "Pass the Salsa – a lively and rhythmic piece for cello and piano in a vibrant Latin style. Accessible yet exciting, it’s ideal for the intermediate cellist (around Grade 4). View the score, listen, and download from Songs for Choirs.",
+    "fromComposer":
+      "The first piece from a suite of three. After more than forty years of teaching the cello, I wanted some genuinely happy music for my elementary students. The backward extensions are there for a reason, but I hope they'll be discovered through the joy of playing rather than as an exercise.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "Cello & Piano"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'19"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 3"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 3.00
+},
+    "cello-go-bolero": {
+    "title": "Cello Go Bolero",
+    "description": "Cello Go Bolero - a lively and rhythmic piece for cello in a bolero style. Characterful and full of energy, it brings the cello to the party at last. View the score, listen, and download from Songs for Choirs.",
+    "fromComposer":
+      "The second piece from Three Latin Dances. Joyful, rhythmic and fun to play, it introduces the tenor clef almost by stealth, allowing young cellists to become familiar with it through music rather than exercises.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "Cello & Piano"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "1'37"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 4"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 3.00
+},
+    "tangissimo": {
+    "title": "Tangissimo",
+    "description": "Tangissimo - a lively and characterful tango-inspired piece for cello and piano, completing a set of three Latin dances. Playful and full of flair, it offers a step up in challenge while remaining accessible at around Grade 5. View the score, listen, and download from Songs for Choirs.",
+    "fromComposer":
+      "The final piece from Three Latin Dances. This catchy, rhythmic and passionate tango gives the cello student the opportunity to shift confidently between the first four positions.",
+
+  "atAGlance": [
+      {
+          "label": "Voicing",
+          "value": "Cello & Piano"
+      },
+      {
+          "label": "Accompaniment",
+          "value": "Piano"
+      },
+      {
+          "label": "Duration",
+          "value": "2'34"
+      },
+      {
+          "label": "Difficulty",
+          "value": "Grade 5"
+      }
+  ],
+
+  "voicing": "SATB",
+  "accompaniment": "piano",
+  "categories": ["concert"],
+  "hasScore": true,
+  "price": 3.00
+}
+  };
