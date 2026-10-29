@@ -21,7 +21,7 @@ window.PIECES = {
   "hasScore": true,
   "price": 2.50
 },
-"popular-satb-works-vol-1": {
+"popular-satb-works-vol-one": {
     "title": "Popular SATB Works, Volume One",
     "description": "Popular SATB Works, Volume One - a collection of our popular SATB works. View the score, listen, and download licensed copies from Songs for Choirs.",    
     "voicing": "SATB",
