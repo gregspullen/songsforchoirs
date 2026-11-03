@@ -131,19 +131,19 @@ window.PIECES = {
  },
    "hallelujah": {
   "title": "Hallelujah!",
-  "description": "Hallelulia! - a simplified choral setting for SATB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
+  "description": "Hallelulia! - Two simplified choral settings for SATB or SAB choir. Fresh, characterful, and accessible. View the score, listen, and download licensed copies from Songs for Choirs.",
 
   "fromComposer":
-      "This shortened, accessible arrangement of Handel’s famous Hallelujah Chorus from Messiah has been transposed and adapted for SATB community choirs. The arrangement is equally suitable for a cappella performance.",
+      "These abridged arrangements of Handel’s Hallelujah Chorus have been transposed for comfortable vocal ranges. SATB and SAB versions are included. The piano accompaniment reflects Handel’s original orchestration. The demo features an a cappella SATB performance.",
 
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "SATB"
+          "value": "SATB/SAB"
       },
       {
           "label": "Accompaniment",
-          "value": "Piano (optional"
+          "value": "Piano"
       },
       {
           "label": "Duration",
@@ -155,7 +155,7 @@ window.PIECES = {
       }
   ],
 
-  "voicing": "SATB",
+  "voicing": "SATB/SAB",
   "accompaniment": "piano",
   "categories": ["sacred"],
   "hasScore": true,
