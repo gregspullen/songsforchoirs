@@ -143,7 +143,7 @@ window.PIECES = {
       },
       {
           "label": "Accompaniment",
-          "value": "Piano (optional"
+          "value": "Piano"
       },
       {
           "label": "Duration",
