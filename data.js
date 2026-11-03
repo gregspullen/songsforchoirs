@@ -139,7 +139,7 @@ window.PIECES = {
   "atAGlance": [
       {
           "label": "Voicing",
-          "value": "SATB"
+          "value": "SATB/SAB"
       },
       {
           "label": "Accompaniment",
@@ -147,7 +147,7 @@ window.PIECES = {
       },
       {
           "label": "Duration",
-          "value": "1'50"
+          "value": "2'00"
       },
       {
           "label": "Difficulty",
@@ -155,7 +155,7 @@ window.PIECES = {
       }
   ],
 
-  "voicing": "SATB",
+  "voicing": "SATB/SAB",
   "accompaniment": "piano",
   "categories": ["sacred"],
   "hasScore": true,
