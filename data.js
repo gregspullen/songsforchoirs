@@ -193,6 +193,39 @@ window.PIECES = {
   "hasScore": true,
   "price": 1.00
 },
+"hast-thou-not-heard": {
+    "title": "Hast Thou Not Heard",
+    
+  "description": "Hast Thou Not Heard – A lively, gospel-style Easter anthem for SAB choir, solo voices and piano. Excited exchanges, infectious swing rhythms and overlapping melodies build from uncertainty to a jubilant celebration of the Resurrection. Full of character, humour and energy.",
+  
+  "fromComposer":
+      "I imagined the news of the Resurrection spreading through Jerusalem, beginning as whispered gossip and growing into an unstoppable celebration. The music takes on a gospel swing, with excited exchanges, overlapping melodies and an increasingly riotous chorus. Above all, I wanted to capture the sheer joy of Easter.",
+  
+    "atAGlance": [
+        {
+            "label": "Voicing",
+            "value": "SAB and Solo"
+        },
+        {
+            "label": "Accompaniment",
+            "value": "Piano"
+        },
+        {
+            "label": "Duration",
+            "value": "3'17"
+        },
+        {
+            "label": "Difficulty",
+            "value": "Moderate"
+        }
+    ],
+  
+    "voicing": "SAB",
+    "accompaniment": "piano",
+    "categories": ["sacred"],
+    "hasScore": true,
+    "price": 1.00
+  },
   "thine-own-son": {
   "title": "Thine Own Son",
   
